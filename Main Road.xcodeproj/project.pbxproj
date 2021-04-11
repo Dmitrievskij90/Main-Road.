@@ -16,6 +16,7 @@
 		5C75FBC726208915004BE186 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C75FBC626208915004BE186 /* WelcomeViewController.swift */; };
 		5CA721E02622EBA700D24565 /* UIViewController+StoryBoardInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA721DF2622EBA700D24565 /* UIViewController+StoryBoardInit.swift */; };
 		5CA721E32622EC7700D24565 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA721E22622EC7700D24565 /* UIColor+Hex.swift */; };
+		5CA721E62622ED2900D24565 /* UIButton+UIUtilites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA721E52622ED2900D24565 /* UIButton+UIUtilites.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		5C75FBC626208915004BE186 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		5CA721DF2622EBA700D24565 /* UIViewController+StoryBoardInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+StoryBoardInit.swift"; sourceTree = "<group>"; };
 		5CA721E22622EC7700D24565 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		5CA721E52622ED2900D24565 /* UIButton+UIUtilites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+UIUtilites.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				5C75FBBE262088B9004BE186 /* Info.plist */,
 				5CA721DF2622EBA700D24565 /* UIViewController+StoryBoardInit.swift */,
 				5CA721E22622EC7700D24565 /* UIColor+Hex.swift */,
+				5CA721E52622ED2900D24565 /* UIButton+UIUtilites.swift */,
 			);
 			path = "Main Road";
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CA721E62622ED2900D24565 /* UIButton+UIUtilites.swift in Sources */,
 				5C75FBB5262088B7004BE186 /* GameViewController.swift in Sources */,
 				5C75FBC726208915004BE186 /* WelcomeViewController.swift in Sources */,
 				5CA721E02622EBA700D24565 /* UIViewController+StoryBoardInit.swift in Sources */,
