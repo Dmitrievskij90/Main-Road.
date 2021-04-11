@@ -19,7 +19,7 @@ class WelcomeViewController: UIViewController {
         let view = UIView(frame: UIScreen.main.bounds)
         view.backgroundColor = .white
         self.view = view
-        view.backgroundColor = UIColor(red: 94 / 255, green: 167 / 255, blue: 205 / 255, alpha: 1)
+        view.backgroundColor = UIColor.init(hex: 0x62AEC8)
         view.addSubview(lineView)
         view.addSubview(startButton)
         view.addSubview(carImageView)
