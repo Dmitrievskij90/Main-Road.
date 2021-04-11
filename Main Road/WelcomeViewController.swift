@@ -17,9 +17,9 @@ class WelcomeViewController: UIViewController {
 
     override func loadView() {
         let view = UIView(frame: UIScreen.main.bounds)
-        view.backgroundColor = .white
         self.view = view
         view.backgroundColor = UIColor.init(hex: 0x62AEC8)
+
         view.addSubview(lineView)
         view.addSubview(startButton)
         view.addSubview(carImageView)
@@ -28,6 +28,7 @@ class WelcomeViewController: UIViewController {
         view.addSubview(carImageView)
         topView.addSubview(titleLabel)
         bottomView.addSubview(startButton)
+
         setupUI()
     }
 
