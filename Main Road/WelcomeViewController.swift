@@ -86,7 +86,7 @@ class WelcomeViewController: UIViewController {
         startButton.setTitle("START", for: .normal)
         startButton.setTitleColor(.black, for: .normal)
         startButton.titleLabel?.font = UIFont(name: "bodoni 72 smallcaps", size: 35)
-        startButton.layer.cornerRadius = 65
+        startButton.apllyButtonCornerRadius(65)
         startButton.layer.borderColor = UIColor.black.cgColor
         startButton.layer.borderWidth = 3
 
