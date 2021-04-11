@@ -17,6 +17,7 @@
 		5CA721E02622EBA700D24565 /* UIViewController+StoryBoardInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA721DF2622EBA700D24565 /* UIViewController+StoryBoardInit.swift */; };
 		5CA721E32622EC7700D24565 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA721E22622EC7700D24565 /* UIColor+Hex.swift */; };
 		5CA721E62622ED2900D24565 /* UIButton+UIUtilites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA721E52622ED2900D24565 /* UIButton+UIUtilites.swift */; };
+		5CA721E92622EDBA00D24565 /* UILabel+UIUtilites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA721E82622EDBA00D24565 /* UILabel+UIUtilites.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		5CA721DF2622EBA700D24565 /* UIViewController+StoryBoardInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+StoryBoardInit.swift"; sourceTree = "<group>"; };
 		5CA721E22622EC7700D24565 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		5CA721E52622ED2900D24565 /* UIButton+UIUtilites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+UIUtilites.swift"; sourceTree = "<group>"; };
+		5CA721E82622EDBA00D24565 /* UILabel+UIUtilites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+UIUtilites.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				5CA721DF2622EBA700D24565 /* UIViewController+StoryBoardInit.swift */,
 				5CA721E22622EC7700D24565 /* UIColor+Hex.swift */,
 				5CA721E52622ED2900D24565 /* UIButton+UIUtilites.swift */,
+				5CA721E82622EDBA00D24565 /* UILabel+UIUtilites.swift */,
 			);
 			path = "Main Road";
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 				5C75FBC726208915004BE186 /* WelcomeViewController.swift in Sources */,
 				5CA721E02622EBA700D24565 /* UIViewController+StoryBoardInit.swift in Sources */,
 				5CA721E32622EC7700D24565 /* UIColor+Hex.swift in Sources */,
+				5CA721E92622EDBA00D24565 /* UILabel+UIUtilites.swift in Sources */,
 				5C75FBB1262088B7004BE186 /* AppDelegate.swift in Sources */,
 				5C75FBB3262088B7004BE186 /* SceneDelegate.swift in Sources */,
 			);
