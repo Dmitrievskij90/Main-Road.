@@ -90,7 +90,7 @@ class WelcomeViewController: UIViewController {
         startButton.layer.borderColor = UIColor.black.cgColor
         startButton.layer.borderWidth = 3
 
-        lineView.backgroundColor = UIColor(red: 241 / 255, green: 90 / 255, blue: 47 / 255, alpha: 1)
+        lineView.backgroundColor = UIColor.init(hex: 0xED5B27)
         titleLabel.text = "Main road"
         titleLabel.textColor = .black
         titleLabel.font = UIFont(name: "Snell roundhand", size: 80)
