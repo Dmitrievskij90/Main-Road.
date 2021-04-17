@@ -19,6 +19,7 @@ class GameViewController: UIViewController {
     private var rightTireTackImageView = UIImageView()
     private var firstBarrierImageView = UIImageView()
     private var secondBarrierImageView = UIImageView()
+    private var startCountLabel = UILabel()
 
     override func loadView() {
         let view = UIView(frame: UIScreen.main.bounds)
@@ -37,6 +38,7 @@ class GameViewController: UIViewController {
         view.addSubview(secondBarrierImageView)
         view.addSubview(leftTireTackImageView)
         view.addSubview(rightTireTackImageView)
+        view.addSubview(startCountLabel)
         view.addSubview(playerCar)
     }
 
@@ -66,8 +68,13 @@ class GameViewController: UIViewController {
         fourhtLineView.translatesAutoresizingMaskIntoConstraints = false
         firstBarrierImageView.translatesAutoresizingMaskIntoConstraints = false
         secondBarrierImageView.translatesAutoresizingMaskIntoConstraints = false
+        startCountLabel.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
+            startCountLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            startCountLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            startCountLabel.widthAnchor.constraint(equalToConstant: 150),
+            startCountLabel.heightAnchor.constraint(equalToConstant: 150),
             playerCar.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             playerCar.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
             playerCar.widthAnchor.constraint(equalToConstant: 80),
@@ -129,6 +136,16 @@ class GameViewController: UIViewController {
         playerCar.image = UIImage(named: "ic_car")
         playerCar.contentMode = .scaleAspectFit
         playerCar.setImageShadowWithColor(color: UIColor.black.cgColor, opacity: 1.0, offset: CGSize.zero, radius: 20.0, masksToBounds: false)
+
+        startCountLabel.textAlignment = .center
+        startCountLabel.font = UIFont(name: "TitilliumWeb-Bold", size: 150)
+        startCountLabel.adjustsFontSizeToFitWidth = true
+        let attributes: [NSAttributedString.Key: Any] = [
+            .strokeWidth: 5.0,
+            .strokeColor: UIColor(hex: 0x201E1F)
+        ]
+        let attributedString = NSAttributedString(string: "5", attributes: attributes)
+        startCountLabel.attributedText = attributedString
 
         leftTireTackImageView.image = UIImage(named: "ic_tireTracks")
         leftTireTackImageView.contentMode = .scaleAspectFit
