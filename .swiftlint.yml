@@ -166,7 +166,6 @@ opt_in_rules: # some rules are turned off by default, so you need to opt-in
   - test_case_accessibility 
   - todo #default
   - toggle_bool
-  - trailing_closure
   - trailing_comma #default
   - trailing_newline #default
   - trailing_semicolon #default
@@ -210,6 +209,7 @@ excluded: # paths to ignore during linting. Takes precedence over `included`.
   - multiline_arguments
   - multiline_function_chains
   - multiline_parameters
+  - trailing_closure
 
 
 # configurable rules can be customized from this configuration file

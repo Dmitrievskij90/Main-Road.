@@ -51,10 +51,14 @@ class GameViewController: UIViewController {
         playerCar.isUserInteractionEnabled = true
         playerCar.addGestureRecognizer(panRecognizer)
 
-        let timer = Timer.scheduledTimer(timeInterval: 0.005, target: self, selector: #selector(self.amimateLineView), userInfo: nil, repeats: true)
-        timer.fire()
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(5), execute: {
+            let timer = Timer.scheduledTimer(timeInterval: 0.005, target: self, selector: #selector(self.amimateLineView), userInfo: nil, repeats: true)
+            timer.fire()
 
-        animateTireTracks()
+            self.animateTireTracks()
+        })
+
+        _ = Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(updateStartCountLabel), userInfo: nil, repeats: true)
     }
 
     override func viewWillLayoutSubviews() {
