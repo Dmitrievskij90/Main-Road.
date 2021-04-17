@@ -21,6 +21,8 @@ class GameViewController: UIViewController {
     private var secondBarrierImageView = UIImageView()
     private var startCountLabel = UILabel()
 
+    private var isEmpty = 5
+
     override func loadView() {
         let view = UIView(frame: UIScreen.main.bounds)
         view.backgroundColor = .gray
@@ -234,6 +236,15 @@ class GameViewController: UIViewController {
         UIView.animate(withDuration: 2.5) {
             self.leftTireTackImageView.transform = CGAffineTransform(translationX: 0, y: 300)
             self.rightTireTackImageView.transform = CGAffineTransform(translationX: 0, y: 300)
+        }
+    }
+
+    @objc func updateStartCountLabel() {
+        if isEmpty > 0 {
+            isEmpty -= 1
+            startCountLabel.text = String(isEmpty)
+        } else {
+            startCountLabel.text = ""
         }
     }
 }
