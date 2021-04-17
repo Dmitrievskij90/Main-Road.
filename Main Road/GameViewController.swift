@@ -128,6 +128,7 @@ class GameViewController: UIViewController {
     func setupUI() {
         playerCar.image = UIImage(named: "ic_car")
         playerCar.contentMode = .scaleAspectFit
+        playerCar.setImageShadowWithColor(color: UIColor.black.cgColor, opacity: 1.0, offset: CGSize.zero, radius: 20.0, masksToBounds: false)
 
         leftTireTackImageView.image = UIImage(named: "ic_tireTracks")
         leftTireTackImageView.contentMode = .scaleAspectFit

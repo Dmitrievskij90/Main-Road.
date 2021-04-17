@@ -17,9 +17,9 @@ class WelcomeViewController: UIViewController {
 
     override func loadView() {
         let view = UIView(frame: UIScreen.main.bounds)
-        view.backgroundColor = .white
         self.view = view
-        view.backgroundColor = UIColor(red: 94 / 255, green: 167 / 255, blue: 205 / 255, alpha: 1)
+        view.backgroundColor = .init(hex: 0x62AEC8)
+
         view.addSubview(lineView)
         view.addSubview(startButton)
         view.addSubview(carImageView)
@@ -28,6 +28,7 @@ class WelcomeViewController: UIViewController {
         view.addSubview(carImageView)
         topView.addSubview(titleLabel)
         bottomView.addSubview(startButton)
+
         setupUI()
     }
 
@@ -86,11 +87,11 @@ class WelcomeViewController: UIViewController {
         startButton.setTitle("START", for: .normal)
         startButton.setTitleColor(.black, for: .normal)
         startButton.titleLabel?.font = UIFont(name: "bodoni 72 smallcaps", size: 35)
-        startButton.layer.cornerRadius = 65
+        startButton.apllyButtonCornerRadius(65)
         startButton.layer.borderColor = UIColor.black.cgColor
         startButton.layer.borderWidth = 3
 
-        lineView.backgroundColor = UIColor(red: 241 / 255, green: 90 / 255, blue: 47 / 255, alpha: 1)
+        lineView.backgroundColor = .init(hex: 0xED5B27)
         titleLabel.text = "Main road"
         titleLabel.textColor = .black
         titleLabel.font = UIFont(name: "Snell roundhand", size: 80)

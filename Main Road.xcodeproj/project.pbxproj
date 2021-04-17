@@ -14,6 +14,12 @@
 		5C75FBBA262088B9004BE186 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C75FBB9262088B9004BE186 /* Assets.xcassets */; };
 		5C75FBBD262088B9004BE186 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C75FBBB262088B9004BE186 /* LaunchScreen.storyboard */; };
 		5C75FBC726208915004BE186 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C75FBC626208915004BE186 /* WelcomeViewController.swift */; };
+		5CA721E02622EBA700D24565 /* UIViewController+StoryBoardInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA721DF2622EBA700D24565 /* UIViewController+StoryBoardInit.swift */; };
+		5CA721E32622EC7700D24565 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA721E22622EC7700D24565 /* UIColor+Hex.swift */; };
+		5CA721E62622ED2900D24565 /* UIButton+UIUtilites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA721E52622ED2900D24565 /* UIButton+UIUtilites.swift */; };
+		5CA721E92622EDBA00D24565 /* UILabel+UIUtilites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA721E82622EDBA00D24565 /* UILabel+UIUtilites.swift */; };
+		5CA721EC2622EE0F00D24565 /* UIImageView+UIUtilites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA721EB2622EE0F00D24565 /* UIImageView+UIUtilites.swift */; };
+		5CA721EF2622EE6D00D24565 /* UIView+UIUtilites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA721EE2622EE6D00D24565 /* UIView+UIUtilites.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +32,12 @@
 		5C75FBBC262088B9004BE186 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5C75FBBE262088B9004BE186 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C75FBC626208915004BE186 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		5CA721DF2622EBA700D24565 /* UIViewController+StoryBoardInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+StoryBoardInit.swift"; sourceTree = "<group>"; };
+		5CA721E22622EC7700D24565 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		5CA721E52622ED2900D24565 /* UIButton+UIUtilites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+UIUtilites.swift"; sourceTree = "<group>"; };
+		5CA721E82622EDBA00D24565 /* UILabel+UIUtilites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+UIUtilites.swift"; sourceTree = "<group>"; };
+		5CA721EB2622EE0F00D24565 /* UIImageView+UIUtilites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+UIUtilites.swift"; sourceTree = "<group>"; };
+		5CA721EE2622EE6D00D24565 /* UIView+UIUtilites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+UIUtilites.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +78,12 @@
 				5C75FBB9262088B9004BE186 /* Assets.xcassets */,
 				5C75FBBB262088B9004BE186 /* LaunchScreen.storyboard */,
 				5C75FBBE262088B9004BE186 /* Info.plist */,
+				5CA721DF2622EBA700D24565 /* UIViewController+StoryBoardInit.swift */,
+				5CA721E22622EC7700D24565 /* UIColor+Hex.swift */,
+				5CA721E52622ED2900D24565 /* UIButton+UIUtilites.swift */,
+				5CA721E82622EDBA00D24565 /* UILabel+UIUtilites.swift */,
+				5CA721EB2622EE0F00D24565 /* UIImageView+UIUtilites.swift */,
+				5CA721EE2622EE6D00D24565 /* UIView+UIUtilites.swift */,
 			);
 			path = "Main Road";
 			sourceTree = "<group>";
@@ -162,8 +180,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CA721E62622ED2900D24565 /* UIButton+UIUtilites.swift in Sources */,
 				5C75FBB5262088B7004BE186 /* GameViewController.swift in Sources */,
 				5C75FBC726208915004BE186 /* WelcomeViewController.swift in Sources */,
+				5CA721EF2622EE6D00D24565 /* UIView+UIUtilites.swift in Sources */,
+				5CA721EC2622EE0F00D24565 /* UIImageView+UIUtilites.swift in Sources */,
+				5CA721E02622EBA700D24565 /* UIViewController+StoryBoardInit.swift in Sources */,
+				5CA721E32622EC7700D24565 /* UIColor+Hex.swift in Sources */,
+				5CA721E92622EDBA00D24565 /* UILabel+UIUtilites.swift in Sources */,
 				5C75FBB1262088B7004BE186 /* AppDelegate.swift in Sources */,
 				5C75FBB3262088B7004BE186 /* SceneDelegate.swift in Sources */,
 			);
