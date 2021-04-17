@@ -64,10 +64,10 @@ class GameViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         setupUILayout()
         setupObstructionLayout()
+        setupPlayerCarLayout()
     }
 
-    func setupUILayout() {
-        playerCar.translatesAutoresizingMaskIntoConstraints = false
+    private func setupUILayout() {
         lineView.translatesAutoresizingMaskIntoConstraints = false
         secondlineView.translatesAutoresizingMaskIntoConstraints = false
         thirdlineView.translatesAutoresizingMaskIntoConstraints = false
@@ -81,10 +81,6 @@ class GameViewController: UIViewController {
             startCountLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             startCountLabel.widthAnchor.constraint(equalToConstant: 150),
             startCountLabel.heightAnchor.constraint(equalToConstant: 150),
-            playerCar.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            playerCar.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
-            playerCar.widthAnchor.constraint(equalToConstant: 80),
-            playerCar.heightAnchor.constraint(equalToConstant: 150),
             leftTireTackImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -20),
             leftTireTackImageView.topAnchor.constraint(equalTo: playerCar.topAnchor),
             leftTireTackImageView.widthAnchor.constraint(equalToConstant: 25),
@@ -112,7 +108,18 @@ class GameViewController: UIViewController {
         ])
     }
 
-    func setupObstructionLayout() {
+    private func setupPlayerCarLayout() {
+        playerCar.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            playerCar.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            playerCar.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
+            playerCar.widthAnchor.constraint(equalToConstant: 80),
+            playerCar.heightAnchor.constraint(equalToConstant: 150)
+        ])
+    }
+
+    private func setupObstructionLayout() {
         barrelImageView.translatesAutoresizingMaskIntoConstraints = false
         secondbarrelImageView.translatesAutoresizingMaskIntoConstraints = false
         leftTireTackImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -138,7 +145,7 @@ class GameViewController: UIViewController {
         ])
     }
 
-    func setupUI() {
+    private func setupUI() {
         playerCar.image = UIImage(named: "ic_car")
         playerCar.contentMode = .scaleAspectFit
         playerCar.setImageShadowWithColor(color: UIColor.black.cgColor, opacity: 1.0, offset: CGSize.zero, radius: 20.0, masksToBounds: false)
