@@ -19,6 +19,9 @@ class GameViewController: UIViewController {
     private var rightTireTackImageView = UIImageView()
     private var firstBarrierImageView = UIImageView()
     private var secondBarrierImageView = UIImageView()
+    private var startCountLabel = UILabel()
+
+    private var isEmpty = 5
 
     override func loadView() {
         let view = UIView(frame: UIScreen.main.bounds)
@@ -37,6 +40,7 @@ class GameViewController: UIViewController {
         view.addSubview(secondBarrierImageView)
         view.addSubview(leftTireTackImageView)
         view.addSubview(rightTireTackImageView)
+        view.addSubview(startCountLabel)
         view.addSubview(playerCar)
     }
 
@@ -47,31 +51,36 @@ class GameViewController: UIViewController {
         playerCar.isUserInteractionEnabled = true
         playerCar.addGestureRecognizer(panRecognizer)
 
-        let timer = Timer.scheduledTimer(timeInterval: 0.005, target: self, selector: #selector(self.amimateLineView), userInfo: nil, repeats: true)
-        timer.fire()
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(5), execute: {
+            let timer = Timer.scheduledTimer(timeInterval: 0.005, target: self, selector: #selector(self.amimateLineView), userInfo: nil, repeats: true)
+            timer.fire()
 
-        animateTireTracks()
+            self.animateTireTracks()
+        })
+
+        _ = Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(updateStartCountLabel), userInfo: nil, repeats: true)
     }
 
     override func viewWillLayoutSubviews() {
         setupUILayout()
         setupObstructionLayout()
+        setupPlayerCarLayout()
     }
 
-    func setupUILayout() {
-        playerCar.translatesAutoresizingMaskIntoConstraints = false
+    private func setupUILayout() {
         lineView.translatesAutoresizingMaskIntoConstraints = false
         secondlineView.translatesAutoresizingMaskIntoConstraints = false
         thirdlineView.translatesAutoresizingMaskIntoConstraints = false
         fourhtLineView.translatesAutoresizingMaskIntoConstraints = false
         firstBarrierImageView.translatesAutoresizingMaskIntoConstraints = false
         secondBarrierImageView.translatesAutoresizingMaskIntoConstraints = false
+        startCountLabel.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            playerCar.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            playerCar.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
-            playerCar.widthAnchor.constraint(equalToConstant: 80),
-            playerCar.heightAnchor.constraint(equalToConstant: 150),
+            startCountLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            startCountLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            startCountLabel.widthAnchor.constraint(equalToConstant: 150),
+            startCountLabel.heightAnchor.constraint(equalToConstant: 150),
             leftTireTackImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -20),
             leftTireTackImageView.topAnchor.constraint(equalTo: playerCar.topAnchor),
             leftTireTackImageView.widthAnchor.constraint(equalToConstant: 25),
@@ -99,7 +108,18 @@ class GameViewController: UIViewController {
         ])
     }
 
-    func setupObstructionLayout() {
+    private func setupPlayerCarLayout() {
+        playerCar.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            playerCar.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            playerCar.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
+            playerCar.widthAnchor.constraint(equalToConstant: 80),
+            playerCar.heightAnchor.constraint(equalToConstant: 150)
+        ])
+    }
+
+    private func setupObstructionLayout() {
         barrelImageView.translatesAutoresizingMaskIntoConstraints = false
         secondbarrelImageView.translatesAutoresizingMaskIntoConstraints = false
         leftTireTackImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -125,10 +145,20 @@ class GameViewController: UIViewController {
         ])
     }
 
-    func setupUI() {
+    private func setupUI() {
         playerCar.image = UIImage(named: "ic_car")
         playerCar.contentMode = .scaleAspectFit
         playerCar.setImageShadowWithColor(color: UIColor.black.cgColor, opacity: 1.0, offset: CGSize.zero, radius: 20.0, masksToBounds: false)
+
+        startCountLabel.textAlignment = .center
+        startCountLabel.font = UIFont(name: "TitilliumWeb-Bold", size: 150)
+        startCountLabel.adjustsFontSizeToFitWidth = true
+        let attributes: [NSAttributedString.Key: Any] = [
+            .strokeWidth: 5.0,
+            .strokeColor: UIColor(hex: 0x201E1F)
+        ]
+        let attributedString = NSAttributedString(string: "5", attributes: attributes)
+        startCountLabel.attributedText = attributedString
 
         leftTireTackImageView.image = UIImage(named: "ic_tireTracks")
         leftTireTackImageView.contentMode = .scaleAspectFit
@@ -217,6 +247,15 @@ class GameViewController: UIViewController {
         UIView.animate(withDuration: 2.5) {
             self.leftTireTackImageView.transform = CGAffineTransform(translationX: 0, y: 300)
             self.rightTireTackImageView.transform = CGAffineTransform(translationX: 0, y: 300)
+        }
+    }
+
+    @objc func updateStartCountLabel() {
+        if isEmpty > 0 {
+            isEmpty -= 1
+            startCountLabel.text = String(isEmpty)
+        } else {
+            startCountLabel.text = ""
         }
     }
 }
