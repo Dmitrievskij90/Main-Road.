@@ -33,6 +33,16 @@
                                     <constraint firstAttribute="width" constant="50" id="5of-Fd-emb"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zjx-k3-tNg">
+                                <rect key="frame" x="132" y="373" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="50H-In-0Wa"/>
+                                    <constraint firstAttribute="height" constant="150" id="Zt9-Xx-yrT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="W3Q-lO-Mpe"/>
                         <color key="backgroundColor" systemColor="systemGrayColor"/>
@@ -40,7 +50,9 @@
                             <constraint firstItem="b5e-Q9-qqO" firstAttribute="leading" secondItem="W3Q-lO-Mpe" secondAttribute="leading" id="03x-aI-j34"/>
                             <constraint firstItem="RLI-cQ-dbb" firstAttribute="top" secondItem="Uhi-1d-sOx" secondAttribute="top" id="2NS-BS-iXj"/>
                             <constraint firstItem="RLI-cQ-dbb" firstAttribute="leading" secondItem="W3Q-lO-Mpe" secondAttribute="leading" id="7Xv-X0-ff5"/>
+                            <constraint firstItem="zjx-k3-tNg" firstAttribute="centerY" secondItem="Uhi-1d-sOx" secondAttribute="centerY" id="FQa-Av-unq"/>
                             <constraint firstItem="b5e-Q9-qqO" firstAttribute="top" secondItem="Uhi-1d-sOx" secondAttribute="top" id="Mcu-i6-mTK"/>
+                            <constraint firstItem="zjx-k3-tNg" firstAttribute="centerX" secondItem="Uhi-1d-sOx" secondAttribute="centerX" id="PUY-mf-BOp"/>
                             <constraint firstAttribute="bottom" secondItem="RLI-cQ-dbb" secondAttribute="bottom" id="RCb-sx-RgW"/>
                             <constraint firstItem="aSz-uF-zOp" firstAttribute="trailing" secondItem="W3Q-lO-Mpe" secondAttribute="trailing" id="Wuw-t0-G5C"/>
                             <constraint firstItem="aSz-uF-zOp" firstAttribute="top" secondItem="Uhi-1d-sOx" secondAttribute="top" id="cUJ-pC-IAy"/>
@@ -52,6 +64,7 @@
                     <connections>
                         <outlet property="leftGrassView" destination="RLI-cQ-dbb" id="BhL-pR-tuP"/>
                         <outlet property="rightGrassView" destination="aSz-uF-zOp" id="Eo0-0j-BKG"/>
+                        <outlet property="startCountLabel" destination="zjx-k3-tNg" id="rak-tE-s4w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dYa-3X-dOv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

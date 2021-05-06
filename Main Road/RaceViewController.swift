@@ -10,9 +10,9 @@ import UIKit
 class RaceViewController: UIViewController {
     @IBOutlet weak var leftGrassView: UIView!
     @IBOutlet weak var rightGrassView: UIView!
+    @IBOutlet weak var startCountLabel: UILabel!
     //    @IBOutlet weak var pointsLabel: UILabel!
     //    @IBOutlet weak var levelLabel: UILabel!
-    //    @IBOutlet weak var startCountLabel: UILabel!
     var policeCarImageView = UIImageView()
     var playerCarImageView = UIImageView()
     var firstObstacle = UIImageView()
@@ -31,7 +31,7 @@ class RaceViewController: UIViewController {
             timer.fire()
         })
 
-        //        _ = Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(updateStartCountLabel), userInfo: nil, repeats: true)
+                _ = Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(updateStartCountLabel), userInfo: nil, repeats: true)
 
         let carMoveGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(playerPressed))
         carMoveGestureRecognizer.minimumPressDuration = 0.001
@@ -150,12 +150,12 @@ class RaceViewController: UIViewController {
         secondObstacle.contentMode = .scaleAspectFill
     }
 
-    //    @objc func updateStartCountLabel() {
-    //        if isEmpty > 0 {
-    //            isEmpty -= 1
-    //            startCountLabel.text = String(isEmpty)
-    //        } else {
-    //            startCountLabel.text = ""
-    //        }
-    //    }
+        @objc func updateStartCountLabel() {
+            if isEmpty > 0 {
+                isEmpty -= 1
+                startCountLabel.text = String(isEmpty)
+            } else {
+                startCountLabel.text = ""
+            }
+        }
 }
