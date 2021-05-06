@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C0F6FDC2644532500F6C0FA /* RaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0F6FDB2644532500F6C0FA /* RaceViewController.swift */; };
+		5C0F6FDF2644533500F6C0FA /* RaceViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C0F6FDE2644533500F6C0FA /* RaceViewController.storyboard */; };
 		5C0F7C95262B4E3D0048A434 /* TitilliumWeb-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C0F7C94262B4E3D0048A434 /* TitilliumWeb-Bold.ttf */; };
 		5C0F7C98262B4E490048A434 /* TitilliumWeb-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C0F7C97262B4E490048A434 /* TitilliumWeb-Regular.ttf */; };
 		5C75FBB1262088B7004BE186 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C75FBB0262088B7004BE186 /* AppDelegate.swift */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C0F6FDB2644532500F6C0FA /* RaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceViewController.swift; sourceTree = "<group>"; };
+		5C0F6FDE2644533500F6C0FA /* RaceViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RaceViewController.storyboard; sourceTree = "<group>"; };
 		5C0F7C94262B4E3D0048A434 /* TitilliumWeb-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-Bold.ttf"; sourceTree = "<group>"; };
 		5C0F7C97262B4E490048A434 /* TitilliumWeb-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-Regular.ttf"; sourceTree = "<group>"; };
 		5C75FBAD262088B7004BE186 /* Main Road.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Main Road.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +105,8 @@
 				5CA721EB2622EE0F00D24565 /* UIImageView+UIUtilites.swift */,
 				5CA721EE2622EE6D00D24565 /* UIView+UIUtilites.swift */,
 				5CD15752262C5B3D00239854 /* UIViewController+UIAlertController.swift */,
+				5C0F6FDB2644532500F6C0FA /* RaceViewController.swift */,
+				5C0F6FDE2644533500F6C0FA /* RaceViewController.storyboard */,
 			);
 			path = "Main Road";
 			sourceTree = "<group>";
@@ -167,6 +173,7 @@
 				5C75FBBD262088B9004BE186 /* LaunchScreen.storyboard in Resources */,
 				5C75FBBA262088B9004BE186 /* Assets.xcassets in Resources */,
 				5C0F7C95262B4E3D0048A434 /* TitilliumWeb-Bold.ttf in Resources */,
+				5C0F6FDF2644533500F6C0FA /* RaceViewController.storyboard in Resources */,
 				5C75FBB8262088B7004BE186 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -204,6 +211,7 @@
 				5C75FBC726208915004BE186 /* WelcomeViewController.swift in Sources */,
 				5CA721EF2622EE6D00D24565 /* UIView+UIUtilites.swift in Sources */,
 				5CA721EC2622EE0F00D24565 /* UIImageView+UIUtilites.swift in Sources */,
+				5C0F6FDC2644532500F6C0FA /* RaceViewController.swift in Sources */,
 				5CA721E02622EBA700D24565 /* UIViewController+StoryBoardInit.swift in Sources */,
 				5CA721E32622EC7700D24565 /* UIColor+Hex.swift in Sources */,
 				5CA721E92622EDBA00D24565 /* UILabel+UIUtilites.swift in Sources */,
