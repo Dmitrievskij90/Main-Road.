@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C0F6FDC2644532500F6C0FA /* RaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0F6FDB2644532500F6C0FA /* RaceViewController.swift */; };
+		5C0F6FDF2644533500F6C0FA /* RaceViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C0F6FDE2644533500F6C0FA /* RaceViewController.storyboard */; };
 		5C0F7C95262B4E3D0048A434 /* TitilliumWeb-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C0F7C94262B4E3D0048A434 /* TitilliumWeb-Bold.ttf */; };
 		5C0F7C98262B4E490048A434 /* TitilliumWeb-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C0F7C97262B4E490048A434 /* TitilliumWeb-Regular.ttf */; };
 		5C75FBB1262088B7004BE186 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C75FBB0262088B7004BE186 /* AppDelegate.swift */; };
 		5C75FBB3262088B7004BE186 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C75FBB2262088B7004BE186 /* SceneDelegate.swift */; };
-		5C75FBB5262088B7004BE186 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C75FBB4262088B7004BE186 /* GameViewController.swift */; };
 		5C75FBB8262088B7004BE186 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C75FBB6262088B7004BE186 /* Main.storyboard */; };
 		5C75FBBA262088B9004BE186 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C75FBB9262088B9004BE186 /* Assets.xcassets */; };
 		5C75FBBD262088B9004BE186 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C75FBBB262088B9004BE186 /* LaunchScreen.storyboard */; };
@@ -26,12 +27,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C0F6FDB2644532500F6C0FA /* RaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceViewController.swift; sourceTree = "<group>"; };
+		5C0F6FDE2644533500F6C0FA /* RaceViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RaceViewController.storyboard; sourceTree = "<group>"; };
 		5C0F7C94262B4E3D0048A434 /* TitilliumWeb-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-Bold.ttf"; sourceTree = "<group>"; };
 		5C0F7C97262B4E490048A434 /* TitilliumWeb-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-Regular.ttf"; sourceTree = "<group>"; };
 		5C75FBAD262088B7004BE186 /* Main Road.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Main Road.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C75FBB0262088B7004BE186 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C75FBB2262088B7004BE186 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5C75FBB4262088B7004BE186 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		5C75FBB7262088B7004BE186 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5C75FBB9262088B9004BE186 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C75FBBC262088B9004BE186 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -57,6 +59,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C0F6FE2264469FC00F6C0FA /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5C0F6FE426446A5500F6C0FA /* Welcome Screen */,
+				5C0F6FE626446A8400F6C0FA /* Race Screen */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		5C0F6FE426446A5500F6C0FA /* Welcome Screen */ = {
+			isa = PBXGroup;
+			children = (
+				5C75FBC626208915004BE186 /* WelcomeViewController.swift */,
+				5C75FBB6262088B7004BE186 /* Main.storyboard */,
+			);
+			path = "Welcome Screen";
+			sourceTree = "<group>";
+		};
+		5C0F6FE626446A8400F6C0FA /* Race Screen */ = {
+			isa = PBXGroup;
+			children = (
+				5C0F6FDB2644532500F6C0FA /* RaceViewController.swift */,
+				5C0F6FDE2644533500F6C0FA /* RaceViewController.storyboard */,
+			);
+			path = "Race Screen";
+			sourceTree = "<group>";
+		};
 		5C0F7C93262B4E0A0048A434 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -86,11 +115,9 @@
 			isa = PBXGroup;
 			children = (
 				5C0F7C93262B4E0A0048A434 /* Resources */,
+				5C0F6FE2264469FC00F6C0FA /* ViewControllers */,
 				5C75FBB0262088B7004BE186 /* AppDelegate.swift */,
 				5C75FBB2262088B7004BE186 /* SceneDelegate.swift */,
-				5C75FBC626208915004BE186 /* WelcomeViewController.swift */,
-				5C75FBB4262088B7004BE186 /* GameViewController.swift */,
-				5C75FBB6262088B7004BE186 /* Main.storyboard */,
 				5C75FBB9262088B9004BE186 /* Assets.xcassets */,
 				5C75FBBB262088B9004BE186 /* LaunchScreen.storyboard */,
 				5C75FBBE262088B9004BE186 /* Info.plist */,
@@ -167,6 +194,7 @@
 				5C75FBBD262088B9004BE186 /* LaunchScreen.storyboard in Resources */,
 				5C75FBBA262088B9004BE186 /* Assets.xcassets in Resources */,
 				5C0F7C95262B4E3D0048A434 /* TitilliumWeb-Bold.ttf in Resources */,
+				5C0F6FDF2644533500F6C0FA /* RaceViewController.storyboard in Resources */,
 				5C75FBB8262088B7004BE186 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -200,10 +228,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CA721E62622ED2900D24565 /* UIButton+UIUtilites.swift in Sources */,
-				5C75FBB5262088B7004BE186 /* GameViewController.swift in Sources */,
 				5C75FBC726208915004BE186 /* WelcomeViewController.swift in Sources */,
 				5CA721EF2622EE6D00D24565 /* UIView+UIUtilites.swift in Sources */,
 				5CA721EC2622EE0F00D24565 /* UIImageView+UIUtilites.swift in Sources */,
+				5C0F6FDC2644532500F6C0FA /* RaceViewController.swift in Sources */,
 				5CA721E02622EBA700D24565 /* UIViewController+StoryBoardInit.swift in Sources */,
 				5CA721E32622EC7700D24565 /* UIColor+Hex.swift in Sources */,
 				5CA721E92622EDBA00D24565 /* UILabel+UIUtilites.swift in Sources */,

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8FX-RG-UfH">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Welcome View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="WelcomeViewController" customModule="Main_Road" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SRS-wg-avH">
+                                <rect key="frame" x="157" y="0.0" width="100" height="896"/>
+                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="r0P-14-nHz"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1mP-ix-U7H">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main Road" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abW-O8-DC0">
+                                        <rect key="frame" x="0.0" y="174" width="414" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="X0L-5w-QnL"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="abW-O8-DC0" secondAttribute="trailing" id="Ps8-6e-9a0"/>
+                                    <constraint firstItem="abW-O8-DC0" firstAttribute="leading" secondItem="1mP-ix-U7H" secondAttribute="leading" id="nHe-Jg-E4b"/>
+                                    <constraint firstItem="abW-O8-DC0" firstAttribute="centerY" secondItem="1mP-ix-U7H" secondAttribute="centerY" id="tZS-QR-eKa"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BG6-6H-npq">
+                                <rect key="frame" x="0.0" y="448" width="414" height="448"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kdF-Xr-oN9">
+                                        <rect key="frame" x="142" y="159" width="130" height="130"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="130" id="Kk3-QK-c62"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="uCX-Tj-UHq"/>
+                                        </constraints>
+                                        <state key="normal" title="Start">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="startButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0YI-Y4-YhJ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="kdF-Xr-oN9" firstAttribute="centerX" secondItem="BG6-6H-npq" secondAttribute="centerX" id="W1I-n1-KCt"/>
+                                    <constraint firstItem="kdF-Xr-oN9" firstAttribute="centerY" secondItem="BG6-6H-npq" secondAttribute="centerY" id="tGR-FD-yog"/>
+                                </constraints>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_mainCar" translatesAutoresizingMaskIntoConstraints="NO" id="pYk-ba-xzf">
+                                <rect key="frame" x="107" y="338" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="QB7-kJ-WFL"/>
+                                    <constraint firstAttribute="width" constant="200" id="azr-da-Jxg"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="0.098082549869999994" green="0.26281177999999999" blue="0.28423666949999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="BG6-6H-npq" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="02M-4S-RPj"/>
+                            <constraint firstItem="1mP-ix-U7H" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="BxX-kH-ZQY"/>
+                            <constraint firstAttribute="bottom" secondItem="SRS-wg-avH" secondAttribute="bottom" id="CZ5-bj-VFU"/>
+                            <constraint firstItem="1mP-ix-U7H" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.5" id="FfX-Ks-mt3"/>
+                            <constraint firstItem="SRS-wg-avH" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="KI6-cv-7jx"/>
+                            <constraint firstItem="SRS-wg-avH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LNr-GJ-s8e"/>
+                            <constraint firstItem="BG6-6H-npq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QIB-tR-EtU"/>
+                            <constraint firstItem="pYk-ba-xzf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UX0-xP-YTA"/>
+                            <constraint firstItem="1mP-ix-U7H" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ccC-T4-qG4"/>
+                            <constraint firstItem="pYk-ba-xzf" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-10" id="dEg-ie-zbe"/>
+                            <constraint firstItem="BG6-6H-npq" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.5" id="hht-Dn-GiT"/>
+                            <constraint firstItem="1mP-ix-U7H" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="hlN-tj-OAL"/>
+                            <constraint firstAttribute="bottom" secondItem="BG6-6H-npq" secondAttribute="bottom" id="xiF-Rp-opf"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="jIP-ag-AU0"/>
+                    <connections>
+                        <outlet property="carImageView" destination="pYk-ba-xzf" id="tVs-dQ-AiL"/>
+                        <outlet property="lineView" destination="SRS-wg-avH" id="Y1C-Ab-HyW"/>
+                        <outlet property="startButton" destination="kdF-Xr-oN9" id="TVw-Mu-kMq"/>
+                        <outlet property="titleLabel" destination="abW-O8-DC0" id="0ex-hF-8fs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1021.7391304347827" y="77.678571428571431"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kqD-dF-gKU">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8FX-RG-UfH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DQk-Xf-drj">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="WKj-eh-TYK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j6G-2w-OLN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="111.59420289855073" y="77.678571428571431"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ic_mainCar" width="1000" height="1000"/>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
