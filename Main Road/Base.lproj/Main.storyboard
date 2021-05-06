@@ -55,6 +55,9 @@
                                         <state key="normal" title="Start">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="startButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0YI-Y4-YhJ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>

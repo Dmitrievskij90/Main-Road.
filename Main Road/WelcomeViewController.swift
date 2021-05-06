@@ -15,12 +15,19 @@ class WelcomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.init(hex: 0x62AEC8)
+        view.backgroundColor = .init(hex: 0x62AEC8)
         hideNavigationItemBackground()
         setupUI()
     }
 
-    func setupUI() {
+    @IBAction private func startButtonPressed(_ sender: UIButton) {
+        //        let viewController = RaceViewController.instantiate()
+        //        viewController.modalTransitionStyle = .coverVertical
+        //        viewController.modalPresentationStyle = .fullScreen
+        //        present(viewController, animated: true, completion: nil)
+    }
+
+    private func setupUI() {
         startButton.backgroundColor = .white
         startButton.setTitle("START", for: .normal)
         startButton.setTitleColor(.black, for: .normal)
@@ -47,6 +54,4 @@ class WelcomeViewController: UIViewController {
         navigationController?.view.backgroundColor = .clear
         navigationController?.navigationBar.tintColor = .label
     }
-
-
 }
