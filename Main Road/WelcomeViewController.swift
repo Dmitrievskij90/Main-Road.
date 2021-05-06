@@ -8,12 +8,20 @@
 import UIKit
 
 class WelcomeViewController: UIViewController {
-    private let carImageView = UIImageView()
-    private let startButton = UIButton(type: .system)
-    private let titleLabel = UILabel()
-    private let lineView = UIView()
-    private let topView = UIView()
-    private let bottomView = UIView()
+    @IBOutlet weak var lineView: UIView!
+    @IBOutlet weak var carImageView: UIImageView!
+    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    
+
+
+//    private let carImageView = UIImageView()
+//    private let startButton = UIButton(type: .system)
+//    private let titleLabel = UILabel()
+//    private let lineView = UIView()
+//    private let topView = UIView()
+//    private let bottomView = UIView()
 
     override func loadView() {
         let view = UIView(frame: UIScreen.main.bounds)
