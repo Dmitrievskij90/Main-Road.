@@ -21,10 +21,10 @@ class WelcomeViewController: UIViewController {
     }
 
     @IBAction private func startButtonPressed(_ sender: UIButton) {
-                let viewController = RaceViewController.instantiate()
-                viewController.modalTransitionStyle = .coverVertical
-                viewController.modalPresentationStyle = .fullScreen
-                present(viewController, animated: true, completion: nil)
+        let viewController = RaceViewController.instantiate()
+        viewController.modalTransitionStyle = .coverVertical
+        viewController.modalPresentationStyle = .fullScreen
+        present(viewController, animated: true, completion: nil)
     }
 
     private func setupUI() {
