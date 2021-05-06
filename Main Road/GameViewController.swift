@@ -52,7 +52,7 @@ class GameViewController: UIViewController {
         playerCar.addGestureRecognizer(panRecognizer)
 
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(5), execute: {
-            let timer = Timer.scheduledTimer(timeInterval: 0.005, target: self, selector: #selector(self.amimateLineView), userInfo: nil, repeats: true)
+            let timer = Timer.scheduledTimer(timeInterval: 0.005, target: self, selector: #selector(self.amimateEnemy), userInfo: nil, repeats: true)
             timer.fire()
 
             self.animateTireTracks()
@@ -194,7 +194,7 @@ class GameViewController: UIViewController {
         collisionHandler()
     }
 
-    @objc func amimateLineView() {
+    @objc func amimateEnemy() {
         self.lineView.frame = CGRect(x: self.lineView.frame.origin.x, y: self.lineView.frame.origin.y + 1, width: 20, height: 100)
         if self.lineView.frame.origin.y == self.view.bounds.maxY {
             self.lineView.frame.origin.y = 0
