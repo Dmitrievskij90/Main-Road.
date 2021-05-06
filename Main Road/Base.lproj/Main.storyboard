@@ -15,8 +15,36 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SRS-wg-avH">
+                                <rect key="frame" x="157" y="0.0" width="100" height="896"/>
+                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="r0P-14-nHz"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1mP-ix-U7H">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BG6-6H-npq">
+                                <rect key="frame" x="0.0" y="448" width="414" height="448"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.098082549869999994" green="0.26281177999999999" blue="0.28423666949999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="BG6-6H-npq" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="02M-4S-RPj"/>
+                            <constraint firstItem="1mP-ix-U7H" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="BxX-kH-ZQY"/>
+                            <constraint firstAttribute="bottom" secondItem="SRS-wg-avH" secondAttribute="bottom" id="CZ5-bj-VFU"/>
+                            <constraint firstItem="1mP-ix-U7H" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.5" id="FfX-Ks-mt3"/>
+                            <constraint firstItem="SRS-wg-avH" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="KI6-cv-7jx"/>
+                            <constraint firstItem="SRS-wg-avH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LNr-GJ-s8e"/>
+                            <constraint firstItem="BG6-6H-npq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QIB-tR-EtU"/>
+                            <constraint firstItem="1mP-ix-U7H" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ccC-T4-qG4"/>
+                            <constraint firstItem="BG6-6H-npq" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.5" id="hht-Dn-GiT"/>
+                            <constraint firstItem="1mP-ix-U7H" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="hlN-tj-OAL"/>
+                            <constraint firstAttribute="bottom" secondItem="BG6-6H-npq" secondAttribute="bottom" id="xiF-Rp-opf"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jIP-ag-AU0"/>
                 </viewController>
@@ -44,8 +72,8 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
