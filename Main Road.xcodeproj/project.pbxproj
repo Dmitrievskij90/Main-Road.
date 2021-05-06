@@ -22,6 +22,7 @@
 		5CA721E92622EDBA00D24565 /* UILabel+UIUtilites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA721E82622EDBA00D24565 /* UILabel+UIUtilites.swift */; };
 		5CA721EC2622EE0F00D24565 /* UIImageView+UIUtilites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA721EB2622EE0F00D24565 /* UIImageView+UIUtilites.swift */; };
 		5CA721EF2622EE6D00D24565 /* UIView+UIUtilites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA721EE2622EE6D00D24565 /* UIView+UIUtilites.swift */; };
+		5CD15753262C5B3D00239854 /* UIViewController+UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD15752262C5B3D00239854 /* UIViewController+UIAlertController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		5CA721E82622EDBA00D24565 /* UILabel+UIUtilites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+UIUtilites.swift"; sourceTree = "<group>"; };
 		5CA721EB2622EE0F00D24565 /* UIImageView+UIUtilites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+UIUtilites.swift"; sourceTree = "<group>"; };
 		5CA721EE2622EE6D00D24565 /* UIView+UIUtilites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+UIUtilites.swift"; sourceTree = "<group>"; };
+		5CD15752262C5B3D00239854 /* UIViewController+UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+UIAlertController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				5CA721E82622EDBA00D24565 /* UILabel+UIUtilites.swift */,
 				5CA721EB2622EE0F00D24565 /* UIImageView+UIUtilites.swift */,
 				5CA721EE2622EE6D00D24565 /* UIView+UIUtilites.swift */,
+				5CD15752262C5B3D00239854 /* UIViewController+UIAlertController.swift */,
 			);
 			path = "Main Road";
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 				5CA721E32622EC7700D24565 /* UIColor+Hex.swift in Sources */,
 				5CA721E92622EDBA00D24565 /* UILabel+UIUtilites.swift in Sources */,
 				5C75FBB1262088B7004BE186 /* AppDelegate.swift in Sources */,
+				5CD15753262C5B3D00239854 /* UIViewController+UIAlertController.swift in Sources */,
 				5C75FBB3262088B7004BE186 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
