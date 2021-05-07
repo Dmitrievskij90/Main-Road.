@@ -30,6 +30,7 @@ class SettingsViewController: UIViewController {
         setupUI()
         setupSwipeGestureRecognizer()
         setupObstacleGesterRecognizer()
+        setupLabelGesterRecognizer()
     }
 
     @IBAction private func selectButtonPressed(_ sender: UIButton) {
@@ -184,4 +185,57 @@ class SettingsViewController: UIViewController {
         imageView.layer.borderWidth = 0
     }
 
+    private func setupLabelGesterRecognizer() {
+        let easyLabelTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(easyLabelTapped(tapGestureRecognizer:)))
+        let mediumLabelGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(mediumLabelTapped(tapGestureRecognizer:)))
+        let hardLabelTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hardLabelTapped(tapGestureRecognizer:)))
+
+        easyLevelLabel.isUserInteractionEnabled = true
+        mediumLevelLabel.isUserInteractionEnabled = true
+        hardLavelLabel.isUserInteractionEnabled = true
+
+        easyLevelLabel.addGestureRecognizer(easyLabelTapGestureRecognizer)
+        mediumLevelLabel.addGestureRecognizer(mediumLabelGestureRecognizer)
+        hardLavelLabel.addGestureRecognizer(hardLabelTapGestureRecognizer)
+
+    }
+
+    @objc private func easyLabelTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+        level = 0.04
+        levelName = "easy"
+//        print(level)
+        easyLevelLabel.backgroundColor = .darkGray
+        easyLevelLabel.textColor = .white
+
+        resetLabelBackground(label: mediumLevelLabel)
+        resetLabelBackground(label: hardLavelLabel)
+
+    }
+
+    @objc private func mediumLabelTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+        level = 0.03
+        levelName = "medium"
+//        print(level)
+        mediumLevelLabel.backgroundColor = .darkGray
+        mediumLevelLabel.textColor = .white
+
+        resetLabelBackground(label: easyLevelLabel)
+        resetLabelBackground(label: hardLavelLabel)
+    }
+
+    @objc private func hardLabelTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+        level = 0.02
+        levelName = "hard"
+//        print(level)
+        hardLavelLabel.backgroundColor = .darkGray
+        hardLavelLabel.textColor = .white
+
+        resetLabelBackground(label: mediumLevelLabel)
+        resetLabelBackground(label: easyLevelLabel)
+    }
+
+    private func resetLabelBackground(label: UILabel) {
+        label.backgroundColor = .white
+        label.textColor = .black
+    }
 }
