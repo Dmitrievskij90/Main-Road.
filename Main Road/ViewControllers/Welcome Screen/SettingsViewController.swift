@@ -8,6 +8,11 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
+    private let defaults = UserDefaults.standard
+    private var index = 0
+    private var selectedImage = "ic_barrel"
+    private var level:Double = 0.04
+    private var levelName = ""
     private var cars = [UIImage(named: "ic_yellowCar"), UIImage(named: "ic_silverCar"), UIImage(named: "ic_redCar")]
     private var carName = ["ic_yellowCar", "ic_silverCar", "ic_redCar"]
 
@@ -19,8 +24,6 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var mediumLevelLabel: UILabel!
     @IBOutlet weak var hardLavelLabel: UILabel!
     @IBOutlet weak var selectButton: UIButton!
-
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
