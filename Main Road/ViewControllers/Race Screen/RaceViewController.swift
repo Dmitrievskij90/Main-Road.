@@ -16,6 +16,7 @@ class RaceViewController: UIViewController {
     private var isEmpty = 5
     private var animationTimer: Timer?
     private var updateTimer: Timer?
+    private let level = UserDefaults.standard.value(forKey: "gameLavel") as? Double
 
     @IBOutlet weak var leftGrassView: UIView!
     @IBOutlet weak var rightGrassView: UIView!
@@ -25,7 +26,7 @@ class RaceViewController: UIViewController {
         super.viewDidLoad()
 
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(5), execute: {
-            let timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(self.amimateEnemy), userInfo: nil, repeats: true)
+            let timer = Timer.scheduledTimer(timeInterval: self.level ?? 0.04, target: self, selector: #selector(self.amimateEnemy), userInfo: nil, repeats: true)
             timer.fire()
         })
 
@@ -87,8 +88,12 @@ class RaceViewController: UIViewController {
 
         firstObstacle.image = UIImage(named: "ic_hole")
         firstObstacle.contentMode = .scaleAspectFill
+
         secondObstacle.image = UIImage(named: "ic_hole")
         secondObstacle.contentMode = .scaleAspectFill
+
+//        let levelName = UserDefaults.standard.value(forKey: "levelName") as? String
+//        levelLabel.text = levelName ?? "easy"
     }
 
     @objc func playerPressed(recognizer: UILongPressGestureRecognizer) {

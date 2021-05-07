@@ -34,6 +34,20 @@ class SettingsViewController: UIViewController {
     }
 
     @IBAction private func selectButtonPressed(_ sender: UIButton) {
+        let viewController = RaceViewController()
+
+        defaults.setValue(carName[index], forKey: "userCar")
+        let playerCarName = defaults.value(forKey: "userCar") as! String
+        viewController.playerCarImageView.image = UIImage(named: playerCarName)
+
+
+        defaults.setValue(selectedImage, forKey: "barrierType")
+        let obstacleName = defaults.value(forKey: "barrierType") as! String
+        viewController.firstObstacle.image = UIImage(named: obstacleName)
+        viewController.secondObstacle.image = UIImage(named: obstacleName)
+
+        defaults.setValue(level, forKey: "gameLavel")
+        defaults.setValue(levelName, forKey: "levelName")
     }
 
     private func setupUI() {

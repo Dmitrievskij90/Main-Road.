@@ -19,6 +19,8 @@ class WelcomeViewController: UIViewController {
         view.backgroundColor = .init(hex: 0x62AEC8)
         hideNavigationItemBackground()
         setupUI()
+
+//        print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last! as String)
     }
 
     @IBAction private func startButtonPressed(_ sender: UIButton) {
@@ -26,6 +28,19 @@ class WelcomeViewController: UIViewController {
         viewController.modalTransitionStyle = .coverVertical
         viewController.modalPresentationStyle = .fullScreen
         present(viewController, animated: true, completion: nil)
+
+        let car = UserDefaults.standard.value(forKey: "userCar") as? String
+        let obstacles = UserDefaults.standard.value(forKey: "barrierType") as? String
+
+        if let playerCar = car, let choosedObstacle = obstacles {
+            viewController.playerCarImageView.image = UIImage(named: playerCar)
+            viewController.firstObstacle.image = UIImage(named: choosedObstacle)
+            viewController.secondObstacle.image = UIImage(named: choosedObstacle)
+        } else {
+            viewController.playerCarImageView.image = UIImage(named: "ic_yellowCar")
+            viewController.firstObstacle.image = UIImage(named: "ic_hole")
+            viewController.secondObstacle.image = UIImage(named: "ic_hole")
+        }
     }
 
     @IBAction private func settingsButtonPressed(_ sender: UIButton) {
