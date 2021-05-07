@@ -8,6 +8,9 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
+    private var cars = [UIImage(named: "ic_yellowCar"), UIImage(named: "ic_silverCar"), UIImage(named: "ic_redCar")]
+    private var carName = ["ic_yellowCar", "ic_silverCar", "ic_redCar"]
+
     @IBOutlet weak var carImageView: UIImageView!
     @IBOutlet weak var barrelImageView: UIImageView!
     @IBOutlet weak var holeImageView: UIImageView!
