@@ -8,10 +8,10 @@
 import UIKit
 
 class RaceViewController: UIViewController {
+    var playerCarImageView = UIImageView()
+    var firstObstacle = UIImageView()
+    var secondObstacle = UIImageView()
     private var policeCarImageView = UIImageView()
-    private var playerCarImageView = UIImageView()
-    private var firstObstacle = UIImageView()
-    private var secondObstacle = UIImageView()
     private var points = 0
     private var isEmpty = 5
     private var animationTimer: Timer?
