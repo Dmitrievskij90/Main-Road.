@@ -12,7 +12,8 @@ class WelcomeViewController: UIViewController {
     @IBOutlet weak var carImageView: UIImageView!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
-
+    @IBOutlet weak var settingsButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .init(hex: 0x62AEC8)
@@ -27,6 +28,10 @@ class WelcomeViewController: UIViewController {
         present(viewController, animated: true, completion: nil)
     }
 
+    @IBAction private func settingsButtonPressed(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "SettingsID", sender: self)
+    }
+
     private func setupUI() {
         startButton.backgroundColor = .white
         startButton.setTitle("START", for: .normal)
@@ -35,6 +40,8 @@ class WelcomeViewController: UIViewController {
         startButton.layer.cornerRadius = 65
         startButton.layer.borderColor = UIColor.black.cgColor
         startButton.layer.borderWidth = 3
+
+        settingsButton.layer.cornerRadius = 40
 
         lineView.backgroundColor = .init(hex: 0xF15A25)
 

@@ -59,10 +59,23 @@
                                             <action selector="startButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0YI-Y4-YhJ"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ppo-CB-RWS">
+                                        <rect key="frame" x="319" y="338" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="fOA-h5-dsA"/>
+                                            <constraint firstAttribute="width" constant="80" id="ryv-7C-TuZ"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="ic_gear"/>
+                                        <connections>
+                                            <action selector="settingsButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jL8-8B-Aex"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="kdF-Xr-oN9" firstAttribute="centerX" secondItem="BG6-6H-npq" secondAttribute="centerX" id="W1I-n1-KCt"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ppo-CB-RWS" secondAttribute="bottom" constant="30" id="kUF-mm-Mfd"/>
                                     <constraint firstItem="kdF-Xr-oN9" firstAttribute="centerY" secondItem="BG6-6H-npq" secondAttribute="centerY" id="tGR-FD-yog"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ppo-CB-RWS" secondAttribute="trailing" constant="15" id="xHp-se-mUO"/>
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_mainCar" translatesAutoresizingMaskIntoConstraints="NO" id="pYk-ba-xzf">
@@ -95,13 +108,31 @@
                     <connections>
                         <outlet property="carImageView" destination="pYk-ba-xzf" id="tVs-dQ-AiL"/>
                         <outlet property="lineView" destination="SRS-wg-avH" id="Y1C-Ab-HyW"/>
+                        <outlet property="settingsButton" destination="Ppo-CB-RWS" id="mEN-tV-oOT"/>
                         <outlet property="startButton" destination="kdF-Xr-oN9" id="TVw-Mu-kMq"/>
                         <outlet property="titleLabel" destination="abW-O8-DC0" id="0ex-hF-8fs"/>
+                        <segue destination="NWp-tI-eDO" kind="show" identifier="SettingsID" id="Ap1-5K-d1v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1021.7391304347827" y="77.678571428571431"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="QM8-5k-ms5">
+            <objects>
+                <viewController id="NWp-tI-eDO" customClass="SettingsViewController" customModule="Main_Road" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PZY-8W-ypG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="eQb-40-4vQ"/>
+                        <color key="backgroundColor" systemColor="systemGrayColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="gvA-3V-CYM"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DDj-IU-9dC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1894" y="78"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kqD-dF-gKU">
@@ -123,7 +154,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ic_gear" width="540" height="540"/>
         <image name="ic_mainCar" width="1000" height="1000"/>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
