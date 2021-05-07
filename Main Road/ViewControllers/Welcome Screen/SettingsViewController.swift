@@ -27,9 +27,45 @@ class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
     }
 
     @IBAction func selectButtonPressed(_ sender: UIButton) {
+    }
+
+    private func setupUI() {
+        selectButton.backgroundColor = .init(hex: 0xF15A25)
+        selectButton.setTitle("select", for: .normal)
+        selectButton.setTitleColor(.white, for: .normal)
+        selectButton.titleLabel?.font = UIFont(name: "bodoni 72 smallcaps", size: 20)
+        selectButton.layer.cornerRadius = 10
+        selectButton.layer.borderColor = UIColor.black.cgColor
+        selectButton.layer.borderWidth = 1.5
+
+        barrelImageView.image = UIImage(named: "ic_barrel")
+        barrelImageView.contentMode = .scaleAspectFit
+//
+        holeImageView.image = UIImage(named: "ic_hole")
+        holeImageView.contentMode = .scaleAspectFit
+//
+        tyresImageView.image = UIImage(named: "ic_tyres")
+        tyresImageView.contentMode = .scaleAspectFit
+
+        setupLabel(label: easyLevelLabel, title: "easy")
+        setupLabel(label: mediumLevelLabel, title: "medium")
+        setupLabel(label: hardLavelLabel, title: "hard")
+    }
+
+    private func setupLabel(label: UILabel, title : String) {
+        label.backgroundColor = .white
+        label.text = title
+        label.textColor = .black
+        label.font = UIFont(name: "bodoni 72 smallcaps", size: 20)
+        label.textAlignment = .center
+        label.layer.cornerRadius = 5
+        label.clipsToBounds = true
+        label.layer.borderColor = UIColor.black.cgColor
+        label.layer.borderWidth = 1.5
     }
     
 }
