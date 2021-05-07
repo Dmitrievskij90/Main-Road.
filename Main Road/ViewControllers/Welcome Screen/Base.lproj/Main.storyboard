@@ -191,10 +191,13 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s9h-fY-v7K">
                                 <rect key="frame" x="132" y="782" width="150" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="3zK-rk-EYd"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="3zK-rk-EYd"/>
                                     <constraint firstAttribute="height" constant="60" id="Ko3-FQ-v3h"/>
                                 </constraints>
                                 <state key="normal" title="Select"/>
+                                <connections>
+                                    <action selector="selectButtonPressed:" destination="NWp-tI-eDO" eventType="touchUpInside" id="5FL-St-tHL"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eQb-40-4vQ"/>
@@ -215,6 +218,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gvA-3V-CYM"/>
+                    <connections>
+                        <outlet property="barrelImageView" destination="bzz-SL-goy" id="SJ9-7Q-muj"/>
+                        <outlet property="carImageView" destination="GtB-nC-hup" id="OOP-Gh-Kot"/>
+                        <outlet property="easyLevelLabel" destination="slg-q1-Dpm" id="C0K-Nn-nVO"/>
+                        <outlet property="hardLavelLabel" destination="dOP-nG-3PC" id="qSg-jZ-LsY"/>
+                        <outlet property="holeImageView" destination="oCg-oh-Ugk" id="8fn-iA-GbO"/>
+                        <outlet property="mediumLevelLabel" destination="fG6-0f-ZUd" id="ICu-gI-f8A"/>
+                        <outlet property="selectButton" destination="s9h-fY-v7K" id="lBM-Ft-avG"/>
+                        <outlet property="tyresImageView" destination="fjb-bj-dGu" id="Ara-DE-dJW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DDj-IU-9dC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
