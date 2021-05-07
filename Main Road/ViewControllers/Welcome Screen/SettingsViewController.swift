@@ -28,9 +28,10 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setupSwipeGestureRecognizer()
     }
 
-    @IBAction func selectButtonPressed(_ sender: UIButton) {
+    @IBAction private func selectButtonPressed(_ sender: UIButton) {
     }
 
     private func setupUI() {
@@ -66,6 +67,61 @@ class SettingsViewController: UIViewController {
         label.clipsToBounds = true
         label.layer.borderColor = UIColor.black.cgColor
         label.layer.borderWidth = 1.5
+    }
+
+    func setupSwipeGestureRecognizer() {
+        let swipeGestureLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(_ :)))
+        let swipeGestureRight = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(_ :)))
+        swipeGestureLeft.direction = .left
+        swipeGestureRight.direction = .right
+        view.addGestureRecognizer(swipeGestureLeft)
+        view.addGestureRecognizer(swipeGestureRight)
+    }
+
+    @objc func handleSwipe(_ sender: UISwipeGestureRecognizer) {
+        if sender.state == .ended {
+            switch sender.direction {
+            case .left:
+                index += 1
+                checkIndex()
+                carImageView.transform = CGAffineTransform(translationX: 300, y: 0)
+                carImageView.transform = carImageView.transform.rotated(by: .pi)
+                applyAnimation()
+            case .right:
+                index -= 1
+                checkIndex()
+                carImageView.transform = CGAffineTransform(translationX: -300, y: 0)
+                carImageView.transform = carImageView.transform.rotated(by: .pi)
+                applyAnimation()
+            default:
+                break
+            }
+        }
+    }
+
+   private func checkIndex() {
+        if index >= cars.count {
+            index = 0
+
+        } else if index <= -1 {
+            index = cars.count - 1
+
+        }
+        upDateUI()
+    }
+
+   private func upDateUI() {
+        carImageView.image = cars[index]
+    }
+
+   private func applyAnimation() {
+        UIView.animate(withDuration: 1.0) {
+            self.carImageView.transform = CGAffineTransform(rotationAngle: .pi * 2.0)
+        } completion: { _ in
+            UIView.animate(withDuration: 0.3) {
+                self.carImageView.transform = CGAffineTransform.identity.scaledBy(x: 1.5, y: 1.5)
+            }
+        }
     }
     
 }
