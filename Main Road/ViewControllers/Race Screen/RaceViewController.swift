@@ -18,6 +18,7 @@ class RaceViewController: UIViewController {
     private var updateTimer: Timer?
     private let level = UserDefaults.standard.value(forKey: "gameLavel") as? Double
     private var gameResult = [Results]()
+    var collisionTimer = Timer()
 
     @IBOutlet weak var leftGrassView: UIView!
     @IBOutlet weak var rightGrassView: UIView!
@@ -45,6 +46,13 @@ class RaceViewController: UIViewController {
         createPoliceCar()
         createPlayerCar()
         setupUI()
+
+        collisionHandler()
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        saveResult()
     }
 
     private func createPlayerCar() {
@@ -64,7 +72,6 @@ class RaceViewController: UIViewController {
     }
 
     private func createPoliceCar() {
-        //        policeCarImageView.frame = CGRect(x: 0, y: 0, width: 70, height: 130)
         let randomPoliceX = CGFloat.random(in: view.frame.minX + 100...view.frame.maxX - 100)
         policeCarImageView.frame = CGRect(x: randomPoliceX, y: -150, width: 70, height: 130)
         view.addSubview(policeCarImageView)
@@ -154,11 +161,13 @@ class RaceViewController: UIViewController {
     }
 
     private func collisionHandler() {
-        if playerCarImageView.layer.frame.intersects(policeCarImageView.layer.frame) || playerCarImageView.layer.frame.intersects(firstObstacle.layer.frame)
-            || playerCarImageView.layer.frame.intersects(secondObstacle.layer.frame) {
-            saveResult()
-            self.dismiss(animated: true, completion: nil)
-        }
+        collisionTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { _ in
+            if self.playerCarImageView.frame.intersects(self.policeCarImageView.frame) || self.playerCarImageView.frame.intersects(self.firstObstacle.frame)
+                || self.playerCarImageView.frame.intersects(self.secondObstacle.frame) {
+                self.collisionTimer.invalidate()
+                self.dismiss(animated: true, completion: nil)
+            }
+        })
     }
     
     private func animateObstacle(obstacle: UIImageView) {

@@ -19,10 +19,10 @@ class WelcomeViewController: UIViewController {
         view.backgroundColor = .init(hex: 0x62AEC8)
         hideNavigationItemBackground()
         setupUI()
-
-        //        print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last! as String)
-        //        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        //              print(documentsDirectory)
+//
+//        print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last! as String)
+//        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+//        print(documentsDirectory)
     }
 
     @IBAction private func startButtonPressed(_ sender: UIButton) {
