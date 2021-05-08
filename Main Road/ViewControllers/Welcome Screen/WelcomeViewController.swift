@@ -50,7 +50,7 @@ class WelcomeViewController: UIViewController {
     }
 
     private func setupUI() {
-        startButton.backgroundColor = .white
+        startButton.backgroundColor = .init(hex:0xfaf2da)
         startButton.setTitle("START", for: .normal)
         startButton.setTitleColor(.black, for: .normal)
         startButton.titleLabel?.font = UIFont(name: "bodoni 72 smallcaps", size: 35)

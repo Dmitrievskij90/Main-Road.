@@ -98,6 +98,26 @@ class RaceViewController: UIViewController {
 
         let levelName = UserDefaults.standard.value(forKey: "levelName") as? String
         levelLabel.text = levelName ?? "easy"
+
+        setupLabel(label: levelLabel)
+        setupLabel(label: pointsLabel)
+        setupLabel(label: levelMark)
+        setupLabel(label: pointsMark)
+    }
+
+    private func setupLabel(label: UILabel) {
+        label.backgroundColor = .init(hex:0xfaf2da)
+        label.textColor = .black
+        label.font = UIFont(name: "bodoni 72 smallcaps", size: 20)
+        label.textAlignment = .center
+        label.layer.cornerRadius = 5
+        label.clipsToBounds = true
+        label.layer.borderColor = UIColor.black.cgColor
+        label.layer.borderWidth = 1.5
+        view.addSubview(pointsLabel)
+        view.addSubview(pointsMark)
+        view.addSubview(levelLabel)
+        view.addSubview(levelMark)
     }
 
     @objc func playerPressed(recognizer: UILongPressGestureRecognizer) {
@@ -142,7 +162,7 @@ class RaceViewController: UIViewController {
     }
     
     private func animateObstacle(obstacle: UIImageView) {
-        obstacle.frame = CGRect(x: obstacle.frame.origin.x, y: obstacle.frame.origin.y + 10, width: obstacle.frame.width, height: obstacle.frame.height)
+        obstacle.frame = CGRect(x: obstacle.frame.origin.x, y: obstacle.frame.origin.y + 11, width: obstacle.frame.width, height: obstacle.frame.height)
         if obstacle.frame.origin.y >= self.view.bounds.maxY {
             obstacle.frame.origin.y = 0
         }
@@ -150,7 +170,7 @@ class RaceViewController: UIViewController {
 
     private func animatePoliceCar(car: UIImageView) {
         let randomPoliceX = CGFloat.random(in: view.frame.minX + 100...view.frame.maxX - 100)
-        car.frame = CGRect(x: car.frame.origin.x, y: car.frame.origin.y + 12, width: car.frame.width, height: car.frame.height)
+        car.frame = CGRect(x: car.frame.origin.x, y: car.frame.origin.y + 10, width: car.frame.width, height: car.frame.height)
         if car.frame.origin.y >= self.view.bounds.maxY {
             car.frame.origin.y = 0
             car.frame.origin.x = randomPoliceX
