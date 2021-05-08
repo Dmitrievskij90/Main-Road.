@@ -34,18 +34,8 @@ class SettingsViewController: UIViewController {
     }
 
     @IBAction private func selectButtonPressed(_ sender: UIButton) {
-        let viewController = RaceViewController()
-
         defaults.setValue(carName[index], forKey: "userCar")
-        let playerCarName = defaults.value(forKey: "userCar") as! String
-        viewController.playerCarImageView.image = UIImage(named: playerCarName)
-
-
         defaults.setValue(selectedImage, forKey: "barrierType")
-        let obstacleName = defaults.value(forKey: "barrierType") as! String
-        viewController.firstObstacle.image = UIImage(named: obstacleName)
-        viewController.secondObstacle.image = UIImage(named: obstacleName)
-
         defaults.setValue(level, forKey: "gameLavel")
         defaults.setValue(levelName, forKey: "levelName")
     }
@@ -61,10 +51,10 @@ class SettingsViewController: UIViewController {
 
         barrelImageView.image = UIImage(named: "ic_barrel")
         barrelImageView.contentMode = .scaleAspectFit
-//
+
         holeImageView.image = UIImage(named: "ic_hole")
         holeImageView.contentMode = .scaleAspectFit
-//
+
         tyresImageView.image = UIImage(named: "ic_tyres")
         tyresImageView.contentMode = .scaleAspectFit
 
@@ -115,7 +105,7 @@ class SettingsViewController: UIViewController {
         }
     }
 
-   private func checkIndex() {
+    private func checkIndex() {
         if index >= cars.count {
             index = 0
         } else if index <= -1 {
@@ -124,11 +114,11 @@ class SettingsViewController: UIViewController {
         upDateUI()
     }
 
-   private func upDateUI() {
+    private func upDateUI() {
         carImageView.image = cars[index]
     }
 
-   private func applyAnimation() {
+    private func applyAnimation() {
         UIView.animate(withDuration: 1.0) {
             self.carImageView.transform = CGAffineTransform(rotationAngle: .pi * 2.0)
         } completion: { _ in
@@ -155,9 +145,6 @@ class SettingsViewController: UIViewController {
     @objc func fitrstimageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         selectedImage = "ic_barrel"
 
-
-//        barrelImageView.backgroundColor = .init(hex: 0xf0e3ca)
-
         barrelImageView.layer.cornerRadius = 25
         barrelImageView.clipsToBounds = true
         barrelImageView.layer.borderColor = UIColor.darkGray.cgColor
@@ -170,7 +157,6 @@ class SettingsViewController: UIViewController {
     @objc func secondimageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         selectedImage = "ic_hole"
 
-//        holeImageView.backgroundColor = .init(hex: 0xf0e3ca)
         holeImageView.layer.cornerRadius = 25
         holeImageView.clipsToBounds = true
         holeImageView.layer.borderColor = UIColor.darkGray.cgColor
@@ -183,7 +169,6 @@ class SettingsViewController: UIViewController {
     @objc func thirdimageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         selectedImage = "ic_tyres"
 
-//        tyresImageView.backgroundColor = .init(hex: 0xf0e3ca)
         tyresImageView.layer.cornerRadius = 25
         tyresImageView.clipsToBounds = true
         tyresImageView.layer.borderColor = UIColor.darkGray.cgColor
@@ -195,7 +180,6 @@ class SettingsViewController: UIViewController {
 
     private func resetImageViewSettings(imageView: UIImageView) {
         imageView.backgroundColor = .white
-
         imageView.layer.borderWidth = 0
     }
 
@@ -211,25 +195,23 @@ class SettingsViewController: UIViewController {
         easyLevelLabel.addGestureRecognizer(easyLabelTapGestureRecognizer)
         mediumLevelLabel.addGestureRecognizer(mediumLabelGestureRecognizer)
         hardLavelLabel.addGestureRecognizer(hardLabelTapGestureRecognizer)
-
     }
 
     @objc private func easyLabelTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         level = 0.04
         levelName = "easy"
-//        print(level)
+        //        print(level)
         easyLevelLabel.backgroundColor = .darkGray
         easyLevelLabel.textColor = .white
 
         resetLabelBackground(label: mediumLevelLabel)
         resetLabelBackground(label: hardLavelLabel)
-
     }
 
     @objc private func mediumLabelTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         level = 0.03
         levelName = "medium"
-//        print(level)
+        //        print(level)
         mediumLevelLabel.backgroundColor = .darkGray
         mediumLevelLabel.textColor = .white
 
@@ -240,10 +222,10 @@ class SettingsViewController: UIViewController {
     @objc private func hardLabelTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         level = 0.02
         levelName = "hard"
-//        print(level)
+        //        print(level)
         hardLavelLabel.backgroundColor = .darkGray
         hardLavelLabel.textColor = .white
-
+        
         resetLabelBackground(label: mediumLevelLabel)
         resetLabelBackground(label: easyLevelLabel)
     }

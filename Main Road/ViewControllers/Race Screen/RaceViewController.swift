@@ -136,6 +136,7 @@ class RaceViewController: UIViewController {
     private func collisionHandler() {
         if playerCarImageView.layer.frame.intersects(policeCarImageView.layer.frame) || playerCarImageView.layer.frame.intersects(firstObstacle.layer.frame)
             || playerCarImageView.layer.frame.intersects(secondObstacle.layer.frame) {
+            saveResult()
             self.dismiss(animated: true, completion: nil)
         }
     }
@@ -173,5 +174,27 @@ class RaceViewController: UIViewController {
         }
     }
 
+    private func saveResult() {
+        let documentDirectorypath = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+        var folderPath = documentDirectorypath
+        folderPath?.appendPathComponent("Results")
 
+        guard let pass = folderPath else {
+            return
+        }
+
+        try? FileManager.default.createDirectory(at: pass, withIntermediateDirectories: false, attributes: nil)
+
+        if let level = levelLabel.text {
+            let results = Results(level: level, points: points)
+            let data = try? JSONEncoder().encode(results)
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy MMM dd HH:mm:ss"
+            let dataString = dateFormatter.string(from: Date())
+
+            if let dataPath = folderPath?.appendingPathComponent("\(dataString).json") {
+                FileManager.default.createFile(atPath: dataPath.path, contents: data, attributes: nil)
+            }
+        }
+    }
 }

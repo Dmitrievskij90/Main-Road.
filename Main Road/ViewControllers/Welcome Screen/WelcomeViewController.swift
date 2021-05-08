@@ -20,7 +20,9 @@ class WelcomeViewController: UIViewController {
         hideNavigationItemBackground()
         setupUI()
 
-//        print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last! as String)
+        //        print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last! as String)
+        //        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        //              print(documentsDirectory)
     }
 
     @IBAction private func startButtonPressed(_ sender: UIButton) {
