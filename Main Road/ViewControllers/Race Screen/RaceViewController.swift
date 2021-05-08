@@ -96,8 +96,8 @@ class RaceViewController: UIViewController {
         secondObstacle.image = UIImage(named: "ic_hole")
         secondObstacle.contentMode = .scaleAspectFill
 
-//        let levelName = UserDefaults.standard.value(forKey: "levelName") as? String
-//        levelLabel.text = levelName ?? "easy"
+        let levelName = UserDefaults.standard.value(forKey: "levelName") as? String
+        levelLabel.text = levelName ?? "easy"
     }
 
     @objc func playerPressed(recognizer: UILongPressGestureRecognizer) {
@@ -153,6 +153,8 @@ class RaceViewController: UIViewController {
         if car.frame.origin.y >= self.view.bounds.maxY {
             car.frame.origin.y = 0
             car.frame.origin.x = randomPoliceX
+            points += 1
+            pointsLabel.text = "\(points)"
         }
     }
 
@@ -170,4 +172,6 @@ class RaceViewController: UIViewController {
             startCountLabel.text = ""
         }
     }
+
+
 }
