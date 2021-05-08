@@ -22,7 +22,11 @@ class RaceViewController: UIViewController {
     @IBOutlet weak var leftGrassView: UIView!
     @IBOutlet weak var rightGrassView: UIView!
     @IBOutlet weak var startCountLabel: UILabel!
-
+    @IBOutlet weak var pointsLabel: UILabel!
+    @IBOutlet weak var levelLabel: UILabel!
+    @IBOutlet weak var levelMark: UILabel!
+    @IBOutlet weak var pointsMark: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,7 +44,6 @@ class RaceViewController: UIViewController {
         createObstacles()
         createPoliceCar()
         createPlayerCar()
-        createObstacles()
         setupUI()
     }
 
