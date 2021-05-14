@@ -8,24 +8,31 @@
 import UIKit
 
 class RaceViewController: UIViewController {
+    var playerCarImageView = UIImageView()
+    var firstObstacle = UIImageView()
+    var secondObstacle = UIImageView()
     private var policeCarImageView = UIImageView()
-    private var playerCarImageView = UIImageView()
-    private var firstObstacle = UIImageView()
-    private var secondObstacle = UIImageView()
     private var points = 0
     private var isEmpty = 5
     private var animationTimer: Timer?
     private var updateTimer: Timer?
+    private let level = UserDefaults.standard.value(forKey: "gameLavel") as? Double
+    private var gameResult = [Results]()
+    var collisionTimer = Timer()
 
     @IBOutlet weak var leftGrassView: UIView!
     @IBOutlet weak var rightGrassView: UIView!
     @IBOutlet weak var startCountLabel: UILabel!
-
+    @IBOutlet weak var pointsLabel: UILabel!
+    @IBOutlet weak var levelLabel: UILabel!
+    @IBOutlet weak var levelMark: UILabel!
+    @IBOutlet weak var pointsMark: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(5), execute: {
-            let timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(self.amimateEnemy), userInfo: nil, repeats: true)
+            let timer = Timer.scheduledTimer(timeInterval: self.level ?? 0.04, target: self, selector: #selector(self.amimateEnemy), userInfo: nil, repeats: true)
             timer.fire()
         })
 
@@ -38,8 +45,14 @@ class RaceViewController: UIViewController {
         createObstacles()
         createPoliceCar()
         createPlayerCar()
-        createObstacles()
         setupUI()
+
+        collisionHandler()
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        saveResult()
     }
 
     private func createPlayerCar() {
@@ -59,7 +72,6 @@ class RaceViewController: UIViewController {
     }
 
     private func createPoliceCar() {
-        //        policeCarImageView.frame = CGRect(x: 0, y: 0, width: 70, height: 130)
         let randomPoliceX = CGFloat.random(in: view.frame.minX + 100...view.frame.maxX - 100)
         policeCarImageView.frame = CGRect(x: randomPoliceX, y: -150, width: 70, height: 130)
         view.addSubview(policeCarImageView)
@@ -87,8 +99,32 @@ class RaceViewController: UIViewController {
 
         firstObstacle.image = UIImage(named: "ic_hole")
         firstObstacle.contentMode = .scaleAspectFill
+
         secondObstacle.image = UIImage(named: "ic_hole")
         secondObstacle.contentMode = .scaleAspectFill
+
+        let levelName = UserDefaults.standard.value(forKey: "levelName") as? String
+        levelLabel.text = levelName ?? "easy"
+
+        setupLabel(label: levelLabel)
+        setupLabel(label: pointsLabel)
+        setupLabel(label: levelMark)
+        setupLabel(label: pointsMark)
+    }
+
+    private func setupLabel(label: UILabel) {
+        label.backgroundColor = .init(hex:0xfaf2da)
+        label.textColor = .black
+        label.font = UIFont(name: "bodoni 72 smallcaps", size: 20)
+        label.textAlignment = .center
+        label.layer.cornerRadius = 5
+        label.clipsToBounds = true
+        label.layer.borderColor = UIColor.black.cgColor
+        label.layer.borderWidth = 1.5
+        view.addSubview(pointsLabel)
+        view.addSubview(pointsMark)
+        view.addSubview(levelLabel)
+        view.addSubview(levelMark)
     }
 
     @objc func playerPressed(recognizer: UILongPressGestureRecognizer) {
@@ -125,14 +161,17 @@ class RaceViewController: UIViewController {
     }
 
     private func collisionHandler() {
-        if playerCarImageView.layer.frame.intersects(policeCarImageView.layer.frame) || playerCarImageView.layer.frame.intersects(firstObstacle.layer.frame)
-            || playerCarImageView.layer.frame.intersects(secondObstacle.layer.frame) {
-            self.dismiss(animated: true, completion: nil)
-        }
+        collisionTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { _ in
+            if self.playerCarImageView.frame.intersects(self.policeCarImageView.frame) || self.playerCarImageView.frame.intersects(self.firstObstacle.frame)
+                || self.playerCarImageView.frame.intersects(self.secondObstacle.frame) {
+                self.collisionTimer.invalidate()
+                self.dismiss(animated: true, completion: nil)
+            }
+        })
     }
     
     private func animateObstacle(obstacle: UIImageView) {
-        obstacle.frame = CGRect(x: obstacle.frame.origin.x, y: obstacle.frame.origin.y + 10, width: obstacle.frame.width, height: obstacle.frame.height)
+        obstacle.frame = CGRect(x: obstacle.frame.origin.x, y: obstacle.frame.origin.y + 11, width: obstacle.frame.width, height: obstacle.frame.height)
         if obstacle.frame.origin.y >= self.view.bounds.maxY {
             obstacle.frame.origin.y = 0
         }
@@ -140,10 +179,12 @@ class RaceViewController: UIViewController {
 
     private func animatePoliceCar(car: UIImageView) {
         let randomPoliceX = CGFloat.random(in: view.frame.minX + 100...view.frame.maxX - 100)
-        car.frame = CGRect(x: car.frame.origin.x, y: car.frame.origin.y + 12, width: car.frame.width, height: car.frame.height)
+        car.frame = CGRect(x: car.frame.origin.x, y: car.frame.origin.y + 10, width: car.frame.width, height: car.frame.height)
         if car.frame.origin.y >= self.view.bounds.maxY {
             car.frame.origin.y = 0
             car.frame.origin.x = randomPoliceX
+            points += 1
+            pointsLabel.text = "\(points)"
         }
     }
 
@@ -159,6 +200,30 @@ class RaceViewController: UIViewController {
             startCountLabel.text = String(isEmpty)
         } else {
             startCountLabel.text = ""
+        }
+    }
+
+    private func saveResult() {
+        let documentDirectorypath = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+        var folderPath = documentDirectorypath
+        folderPath?.appendPathComponent("Results")
+
+        guard let pass = folderPath else {
+            return
+        }
+
+        try? FileManager.default.createDirectory(at: pass, withIntermediateDirectories: false, attributes: nil)
+
+        if let level = levelLabel.text {
+            let results = Results(level: level, points: points)
+            let data = try? JSONEncoder().encode(results)
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy MMM dd HH:mm:ss"
+            let dataString = dateFormatter.string(from: Date())
+
+            if let dataPath = folderPath?.appendingPathComponent("\(dataString).json") {
+                FileManager.default.createFile(atPath: dataPath.path, contents: data, attributes: nil)
+            }
         }
     }
 }

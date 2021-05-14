@@ -11,12 +11,14 @@
 		5C0F6FDF2644533500F6C0FA /* RaceViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C0F6FDE2644533500F6C0FA /* RaceViewController.storyboard */; };
 		5C0F7C95262B4E3D0048A434 /* TitilliumWeb-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C0F7C94262B4E3D0048A434 /* TitilliumWeb-Bold.ttf */; };
 		5C0F7C98262B4E490048A434 /* TitilliumWeb-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C0F7C97262B4E490048A434 /* TitilliumWeb-Regular.ttf */; };
+		5C251A652645A02D00BAF683 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C251A642645A02D00BAF683 /* SettingsViewController.swift */; };
 		5C75FBB1262088B7004BE186 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C75FBB0262088B7004BE186 /* AppDelegate.swift */; };
 		5C75FBB3262088B7004BE186 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C75FBB2262088B7004BE186 /* SceneDelegate.swift */; };
 		5C75FBB8262088B7004BE186 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C75FBB6262088B7004BE186 /* Main.storyboard */; };
 		5C75FBBA262088B9004BE186 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C75FBB9262088B9004BE186 /* Assets.xcassets */; };
 		5C75FBBD262088B9004BE186 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C75FBBB262088B9004BE186 /* LaunchScreen.storyboard */; };
 		5C75FBC726208915004BE186 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C75FBC626208915004BE186 /* WelcomeViewController.swift */; };
+		5C91031826467FA600F59930 /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C91031726467FA600F59930 /* Results.swift */; };
 		5CA721E02622EBA700D24565 /* UIViewController+StoryBoardInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA721DF2622EBA700D24565 /* UIViewController+StoryBoardInit.swift */; };
 		5CA721E32622EC7700D24565 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA721E22622EC7700D24565 /* UIColor+Hex.swift */; };
 		5CA721E62622ED2900D24565 /* UIButton+UIUtilites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA721E52622ED2900D24565 /* UIButton+UIUtilites.swift */; };
@@ -31,6 +33,7 @@
 		5C0F6FDE2644533500F6C0FA /* RaceViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RaceViewController.storyboard; sourceTree = "<group>"; };
 		5C0F7C94262B4E3D0048A434 /* TitilliumWeb-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-Bold.ttf"; sourceTree = "<group>"; };
 		5C0F7C97262B4E490048A434 /* TitilliumWeb-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-Regular.ttf"; sourceTree = "<group>"; };
+		5C251A642645A02D00BAF683 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5C75FBAD262088B7004BE186 /* Main Road.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Main Road.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C75FBB0262088B7004BE186 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C75FBB2262088B7004BE186 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +42,7 @@
 		5C75FBBC262088B9004BE186 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5C75FBBE262088B9004BE186 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C75FBC626208915004BE186 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		5C91031726467FA600F59930 /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
 		5CA721DF2622EBA700D24565 /* UIViewController+StoryBoardInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+StoryBoardInit.swift"; sourceTree = "<group>"; };
 		5CA721E22622EC7700D24565 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		5CA721E52622ED2900D24565 /* UIButton+UIUtilites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+UIUtilites.swift"; sourceTree = "<group>"; };
@@ -73,6 +77,7 @@
 			children = (
 				5C75FBC626208915004BE186 /* WelcomeViewController.swift */,
 				5C75FBB6262088B7004BE186 /* Main.storyboard */,
+				5C251A642645A02D00BAF683 /* SettingsViewController.swift */,
 			);
 			path = "Welcome Screen";
 			sourceTree = "<group>";
@@ -114,6 +119,7 @@
 		5C75FBAF262088B7004BE186 /* Main Road */ = {
 			isa = PBXGroup;
 			children = (
+				5C91031626467F8C00F59930 /* Model */,
 				5C0F7C93262B4E0A0048A434 /* Resources */,
 				5C0F6FE2264469FC00F6C0FA /* ViewControllers */,
 				5C75FBB0262088B7004BE186 /* AppDelegate.swift */,
@@ -130,6 +136,14 @@
 				5CD15752262C5B3D00239854 /* UIViewController+UIAlertController.swift */,
 			);
 			path = "Main Road";
+			sourceTree = "<group>";
+		};
+		5C91031626467F8C00F59930 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5C91031726467FA600F59930 /* Results.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,8 +250,10 @@
 				5CA721E32622EC7700D24565 /* UIColor+Hex.swift in Sources */,
 				5CA721E92622EDBA00D24565 /* UILabel+UIUtilites.swift in Sources */,
 				5C75FBB1262088B7004BE186 /* AppDelegate.swift in Sources */,
+				5C91031826467FA600F59930 /* Results.swift in Sources */,
 				5CD15753262C5B3D00239854 /* UIViewController+UIAlertController.swift in Sources */,
 				5C75FBB3262088B7004BE186 /* SceneDelegate.swift in Sources */,
+				5C251A652645A02D00BAF683 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
