@@ -10,4 +10,5 @@ import Foundation
 struct Records: Codable {
     var level: String
     var points: Int
+    var gameDate: String
 }
