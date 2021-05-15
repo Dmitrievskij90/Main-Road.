@@ -13,7 +13,8 @@ class WelcomeViewController: UIViewController {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var settingsButton: UIButton!
-    
+    @IBOutlet weak var recordsButton: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .init(hex: 0x62AEC8)
@@ -48,6 +49,11 @@ class WelcomeViewController: UIViewController {
     @IBAction private func settingsButtonPressed(_ sender: UIButton) {
         self.performSegue(withIdentifier: "SettingsID", sender: self)
     }
+
+    @IBAction func recordsButtonPressed(_ sender: Any) {
+        self.performSegue(withIdentifier: "RecordsID", sender: self)
+    }
+    
 
     private func setupUI() {
         startButton.backgroundColor = .init(hex:0xfaf2da)

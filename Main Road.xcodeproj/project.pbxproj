@@ -12,6 +12,7 @@
 		5C0F7C95262B4E3D0048A434 /* TitilliumWeb-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C0F7C94262B4E3D0048A434 /* TitilliumWeb-Bold.ttf */; };
 		5C0F7C98262B4E490048A434 /* TitilliumWeb-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C0F7C97262B4E490048A434 /* TitilliumWeb-Regular.ttf */; };
 		5C251A652645A02D00BAF683 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C251A642645A02D00BAF683 /* SettingsViewController.swift */; };
+		5C58D1EC264FFB20002161A1 /* RecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C58D1EB264FFB20002161A1 /* RecordsViewController.swift */; };
 		5C75FBB1262088B7004BE186 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C75FBB0262088B7004BE186 /* AppDelegate.swift */; };
 		5C75FBB3262088B7004BE186 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C75FBB2262088B7004BE186 /* SceneDelegate.swift */; };
 		5C75FBB8262088B7004BE186 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C75FBB6262088B7004BE186 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 		5C0F7C94262B4E3D0048A434 /* TitilliumWeb-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-Bold.ttf"; sourceTree = "<group>"; };
 		5C0F7C97262B4E490048A434 /* TitilliumWeb-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-Regular.ttf"; sourceTree = "<group>"; };
 		5C251A642645A02D00BAF683 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		5C58D1EB264FFB20002161A1 /* RecordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsViewController.swift; sourceTree = "<group>"; };
 		5C75FBAD262088B7004BE186 /* Main Road.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Main Road.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C75FBB0262088B7004BE186 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C75FBB2262088B7004BE186 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,8 +78,9 @@
 			isa = PBXGroup;
 			children = (
 				5C75FBC626208915004BE186 /* WelcomeViewController.swift */,
-				5C75FBB6262088B7004BE186 /* Main.storyboard */,
 				5C251A642645A02D00BAF683 /* SettingsViewController.swift */,
+				5C58D1EB264FFB20002161A1 /* RecordsViewController.swift */,
+				5C75FBB6262088B7004BE186 /* Main.storyboard */,
 			);
 			path = "Welcome Screen";
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CA721E62622ED2900D24565 /* UIButton+UIUtilites.swift in Sources */,
+				5C58D1EC264FFB20002161A1 /* RecordsViewController.swift in Sources */,
 				5C75FBC726208915004BE186 /* WelcomeViewController.swift in Sources */,
 				5CA721EF2622EE6D00D24565 /* UIView+UIUtilites.swift in Sources */,
 				5CA721EC2622EE0F00D24565 /* UIImageView+UIUtilites.swift in Sources */,

@@ -70,6 +70,14 @@
                                             <action selector="settingsButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jL8-8B-Aex"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnh-Jo-8tB">
+                                        <rect key="frame" x="36" y="363" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="recordsButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="T27-fq-HdB"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="kdF-Xr-oN9" firstAttribute="centerX" secondItem="BG6-6H-npq" secondAttribute="centerX" id="W1I-n1-KCt"/>
@@ -108,15 +116,33 @@
                     <connections>
                         <outlet property="carImageView" destination="pYk-ba-xzf" id="tVs-dQ-AiL"/>
                         <outlet property="lineView" destination="SRS-wg-avH" id="Y1C-Ab-HyW"/>
+                        <outlet property="recordsButton" destination="vnh-Jo-8tB" id="KqW-Et-EN4"/>
                         <outlet property="settingsButton" destination="Ppo-CB-RWS" id="mEN-tV-oOT"/>
                         <outlet property="startButton" destination="kdF-Xr-oN9" id="TVw-Mu-kMq"/>
                         <outlet property="titleLabel" destination="abW-O8-DC0" id="0ex-hF-8fs"/>
                         <segue destination="NWp-tI-eDO" kind="show" identifier="SettingsID" id="Ap1-5K-d1v"/>
+                        <segue destination="9iQ-Y9-BIN" kind="show" identifier="RecordsID" id="MMZ-Bd-NND"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1021.7391304347827" y="77.678571428571431"/>
+        </scene>
+        <!--Records View Controller-->
+        <scene sceneID="Vsz-hG-hnm">
+            <objects>
+                <viewController id="9iQ-Y9-BIN" customClass="RecordsViewController" customModule="Main_Road" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZCQ-Al-HbQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="3BN-kA-BO1"/>
+                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="SRO-X4-JYX"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HpI-ur-Tb0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1880" y="466"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="QM8-5k-ms5">
@@ -231,7 +257,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DDj-IU-9dC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1892.753623188406" y="77.678571428571431"/>
+            <point key="canvasLocation" x="1881" y="-240"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kqD-dF-gKU">
@@ -261,6 +287,9 @@
         <image name="ic_yellowCar" width="444" height="939.5"/>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
