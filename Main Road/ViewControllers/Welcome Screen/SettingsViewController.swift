@@ -24,7 +24,8 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var mediumLevelLabel: UILabel!
     @IBOutlet weak var hardLavelLabel: UILabel!
     @IBOutlet weak var selectButton: UIButton!
-
+    @IBOutlet weak var userNameTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
