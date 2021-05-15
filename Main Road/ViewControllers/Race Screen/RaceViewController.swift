@@ -215,7 +215,7 @@ class RaceViewController: UIViewController {
         try? FileManager.default.createDirectory(at: pass, withIntermediateDirectories: false, attributes: nil)
 
         if let level = levelLabel.text {
-            let results = Records(level: level, points: points)
+            let results = Records(level: level, points: points, gameDate: getCurrentDate())
             let data = try? JSONEncoder().encode(results)
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy MMM dd HH:mm:ss"
@@ -225,5 +225,12 @@ class RaceViewController: UIViewController {
                 FileManager.default.createFile(atPath: dataPath.path, contents: data, attributes: nil)
             }
         }
+    }
+
+    func getCurrentDate() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d, yyyy, HH:mm"
+        let dataString = dateFormatter.string(from: Date())
+        return dataString
     }
 }
