@@ -8,22 +8,29 @@
 import UIKit
 
 class RecordsViewController: UIViewController {
-
+    private let fileManager = FileManager.default
+    private let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Results")
+    private var gameRecords = [Results]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        loadRecords()
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func loadRecords() {
+        guard let path = documentsPath else {
+            return
+        }
+        if let results = try? fileManager.contentsOfDirectory(at: path, includingPropertiesForKeys: [.nameKey], options: .includesDirectoriesPostOrder) {
+            for result in results {
+                guard let data = try? Data(contentsOf: result) else {
+                    return
+                }
+                let decoder = JSONDecoder()
+                if let raceResult = try? decoder.decode(Results.self, from: data ) {
+                    gameRecords.append(raceResult)
+                }
+            }
+        }
     }
-    */
-
 }
