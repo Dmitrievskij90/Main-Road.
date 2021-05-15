@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Results: Codable {
+struct Records: Codable {
     var level: String
     var points: Int
 }

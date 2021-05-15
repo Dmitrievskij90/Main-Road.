@@ -19,7 +19,7 @@
 		5C75FBBA262088B9004BE186 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C75FBB9262088B9004BE186 /* Assets.xcassets */; };
 		5C75FBBD262088B9004BE186 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C75FBBB262088B9004BE186 /* LaunchScreen.storyboard */; };
 		5C75FBC726208915004BE186 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C75FBC626208915004BE186 /* WelcomeViewController.swift */; };
-		5C91031826467FA600F59930 /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C91031726467FA600F59930 /* Results.swift */; };
+		5C91031826467FA600F59930 /* Records.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C91031726467FA600F59930 /* Records.swift */; };
 		5CA721E02622EBA700D24565 /* UIViewController+StoryBoardInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA721DF2622EBA700D24565 /* UIViewController+StoryBoardInit.swift */; };
 		5CA721E32622EC7700D24565 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA721E22622EC7700D24565 /* UIColor+Hex.swift */; };
 		5CA721E62622ED2900D24565 /* UIButton+UIUtilites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA721E52622ED2900D24565 /* UIButton+UIUtilites.swift */; };
@@ -44,7 +44,7 @@
 		5C75FBBC262088B9004BE186 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5C75FBBE262088B9004BE186 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C75FBC626208915004BE186 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
-		5C91031726467FA600F59930 /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
+		5C91031726467FA600F59930 /* Records.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Records.swift; sourceTree = "<group>"; };
 		5CA721DF2622EBA700D24565 /* UIViewController+StoryBoardInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+StoryBoardInit.swift"; sourceTree = "<group>"; };
 		5CA721E22622EC7700D24565 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		5CA721E52622ED2900D24565 /* UIButton+UIUtilites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+UIUtilites.swift"; sourceTree = "<group>"; };
@@ -144,7 +144,7 @@
 		5C91031626467F8C00F59930 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5C91031726467FA600F59930 /* Results.swift */,
+				5C91031726467FA600F59930 /* Records.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -254,7 +254,7 @@
 				5CA721E32622EC7700D24565 /* UIColor+Hex.swift in Sources */,
 				5CA721E92622EDBA00D24565 /* UILabel+UIUtilites.swift in Sources */,
 				5C75FBB1262088B7004BE186 /* AppDelegate.swift in Sources */,
-				5C91031826467FA600F59930 /* Results.swift in Sources */,
+				5C91031826467FA600F59930 /* Records.swift in Sources */,
 				5CD15753262C5B3D00239854 /* UIViewController+UIAlertController.swift in Sources */,
 				5C75FBB3262088B7004BE186 /* SceneDelegate.swift in Sources */,
 				5C251A652645A02D00BAF683 /* SettingsViewController.swift in Sources */,

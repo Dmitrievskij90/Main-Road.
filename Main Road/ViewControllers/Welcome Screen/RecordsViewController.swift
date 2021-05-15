@@ -9,11 +9,10 @@ import UIKit
 
 class RecordsViewController: UIViewController {
     private let fileManager = FileManager.default
-    private let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Results")
-    private var gameRecords = [Results]()
+    private let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Records")
+    private var gameRecords = [Records]()
 
     @IBOutlet weak var recordsTableView: UITableView!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +20,7 @@ class RecordsViewController: UIViewController {
         recordsTableView.dataSource = self
 
         loadRecords()
+        print(gameRecords)
 
         recordsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellID")
     }
@@ -35,7 +35,7 @@ class RecordsViewController: UIViewController {
                     return
                 }
                 let decoder = JSONDecoder()
-                if let raceResult = try? decoder.decode(Results.self, from: data ) {
+                if let raceResult = try? decoder.decode(Records.self, from: data ) {
                     gameRecords.append(raceResult)
                 }
             }

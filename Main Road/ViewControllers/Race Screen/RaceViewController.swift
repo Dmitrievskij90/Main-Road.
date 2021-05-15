@@ -17,7 +17,7 @@ class RaceViewController: UIViewController {
     private var animationTimer: Timer?
     private var updateTimer: Timer?
     private let level = UserDefaults.standard.value(forKey: "gameLavel") as? Double
-    private var gameResult = [Results]()
+    private var gameResult = [Records]()
     var collisionTimer = Timer()
 
     @IBOutlet weak var leftGrassView: UIView!
@@ -206,7 +206,7 @@ class RaceViewController: UIViewController {
     private func saveResult() {
         let documentDirectorypath = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
         var folderPath = documentDirectorypath
-        folderPath?.appendPathComponent("Results")
+        folderPath?.appendPathComponent("Records")
 
         guard let pass = folderPath else {
             return
@@ -215,7 +215,7 @@ class RaceViewController: UIViewController {
         try? FileManager.default.createDirectory(at: pass, withIntermediateDirectories: false, attributes: nil)
 
         if let level = levelLabel.text {
-            let results = Results(level: level, points: points)
+            let results = Records(level: level, points: points)
             let data = try? JSONEncoder().encode(results)
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy MMM dd HH:mm:ss"
