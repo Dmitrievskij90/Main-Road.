@@ -64,6 +64,13 @@ class WelcomeViewController: UIViewController {
         startButton.layer.borderColor = UIColor.black.cgColor
         startButton.layer.borderWidth = 3
 
+        recordsButton.setTitle("RECORDS", for: .normal)
+        recordsButton.setTitleColor(.black, for: .normal)
+        recordsButton.titleLabel?.font = UIFont(name: "bodoni 72 smallcaps", size: 15)
+        recordsButton.layer.cornerRadius = 25
+        recordsButton.layer.borderColor = UIColor.black.cgColor
+        recordsButton.layer.borderWidth = 3
+
         settingsButton.layer.cornerRadius = 40
 
         lineView.backgroundColor = .init(hex: 0xF15A25)

@@ -70,18 +70,26 @@
                                             <action selector="settingsButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jL8-8B-Aex"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnh-Jo-8tB">
-                                        <rect key="frame" x="36" y="363" width="46" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnh-Jo-8tB">
+                                        <rect key="frame" x="16" y="353" width="100" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="X1n-kC-O7g"/>
+                                            <constraint firstAttribute="height" constant="50" id="ks2-Ch-LrR"/>
+                                        </constraints>
+                                        <state key="normal" title="Records">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="recordsButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="T27-fq-HdB"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="vnh-Jo-8tB" firstAttribute="leading" secondItem="BG6-6H-npq" secondAttribute="leading" constant="16" id="07V-Ap-bUx"/>
                                     <constraint firstItem="kdF-Xr-oN9" firstAttribute="centerX" secondItem="BG6-6H-npq" secondAttribute="centerX" id="W1I-n1-KCt"/>
+                                    <constraint firstItem="Ppo-CB-RWS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vnh-Jo-8tB" secondAttribute="trailing" constant="8" symbolic="YES" id="YHu-Kc-y5P"/>
                                     <constraint firstAttribute="bottom" secondItem="Ppo-CB-RWS" secondAttribute="bottom" constant="30" id="kUF-mm-Mfd"/>
+                                    <constraint firstAttribute="bottom" secondItem="vnh-Jo-8tB" secondAttribute="bottom" constant="45" id="lMc-ew-laB"/>
                                     <constraint firstItem="kdF-Xr-oN9" firstAttribute="centerY" secondItem="BG6-6H-npq" secondAttribute="centerY" id="tGR-FD-yog"/>
                                     <constraint firstAttribute="trailing" secondItem="Ppo-CB-RWS" secondAttribute="trailing" constant="15" id="xHp-se-mUO"/>
                                 </constraints>
