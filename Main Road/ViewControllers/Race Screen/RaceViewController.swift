@@ -208,11 +208,11 @@ class RaceViewController: UIViewController {
         var folderPath = documentDirectorypath
         folderPath?.appendPathComponent("Records")
 
-        guard let pass = folderPath else {
+        guard let path = folderPath else {
             return
         }
 
-        try? FileManager.default.createDirectory(at: pass, withIntermediateDirectories: false, attributes: nil)
+        try? FileManager.default.createDirectory(at: path, withIntermediateDirectories: false, attributes: nil)
 
         if let level = levelLabel.text {
             let results = Records(level: level, points: points, gameDate: getCurrentDate())

@@ -177,10 +177,21 @@
                                             <constraint firstAttribute="height" constant="200" id="k4H-hH-aAU"/>
                                         </constraints>
                                     </imageView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b6w-x1-JGk">
+                                        <rect key="frame" x="107" y="390" width="200" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="rUw-iQ-Aiz"/>
+                                        </constraints>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="b6w-x1-JGk" secondAttribute="bottom" constant="24" id="Gl8-V6-XXr"/>
                                     <constraint firstItem="GtB-nC-hup" firstAttribute="centerX" secondItem="KIL-Vb-kgG" secondAttribute="centerX" id="LPT-rc-KT2"/>
                                     <constraint firstItem="GtB-nC-hup" firstAttribute="centerY" secondItem="KIL-Vb-kgG" secondAttribute="centerY" id="tcY-J0-46k"/>
+                                    <constraint firstItem="b6w-x1-JGk" firstAttribute="centerX" secondItem="KIL-Vb-kgG" secondAttribute="centerX" id="tpl-gL-3bx"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="6KN-gc-xuO">
@@ -268,11 +279,12 @@
                         <outlet property="mediumLevelLabel" destination="fG6-0f-ZUd" id="ICu-gI-f8A"/>
                         <outlet property="selectButton" destination="s9h-fY-v7K" id="lBM-Ft-avG"/>
                         <outlet property="tyresImageView" destination="fjb-bj-dGu" id="Ara-DE-dJW"/>
+                        <outlet property="userNameTextField" destination="b6w-x1-JGk" id="6qZ-R7-QgA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DDj-IU-9dC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1881" y="-240"/>
+            <point key="canvasLocation" x="1879.7101449275365" y="-240.40178571428569"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kqD-dF-gKU">

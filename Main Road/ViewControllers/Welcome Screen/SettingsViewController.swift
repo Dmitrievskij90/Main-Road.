@@ -197,7 +197,7 @@ class SettingsViewController: UIViewController {
     @objc private func easyLabelTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         level = 0.04
         levelName = "easy"
-        //        print(level)
+
         easyLevelLabel.backgroundColor = .darkGray
         easyLevelLabel.textColor = .white
 
