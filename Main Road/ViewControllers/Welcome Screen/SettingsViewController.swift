@@ -112,10 +112,6 @@ class SettingsViewController: UIViewController {
         } else if index <= -1 {
             index = cars.count - 1
         }
-        upDateUI()
-    }
-
-    private func upDateUI() {
         carImageView.image = cars[index]
     }
 
