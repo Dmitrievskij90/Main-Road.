@@ -107,6 +107,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		5C2F0ACF26519A9100417225 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5C58D1F1265001A2002161A1 /* RecordTableViewCell.swift */,
+				5C58D1F2265001A2002161A1 /* RecordTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		5C75FBA4262088B7004BE186 = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +138,7 @@
 				5C91031626467F8C00F59930 /* Model */,
 				5C0F7C93262B4E0A0048A434 /* Resources */,
 				5C0F6FE2264469FC00F6C0FA /* ViewControllers */,
+				5C2F0ACF26519A9100417225 /* View */,
 				5C75FBB0262088B7004BE186 /* AppDelegate.swift */,
 				5C75FBB2262088B7004BE186 /* SceneDelegate.swift */,
 				5C75FBB9262088B9004BE186 /* Assets.xcassets */,
@@ -141,8 +151,6 @@
 				5CA721EB2622EE0F00D24565 /* UIImageView+UIUtilites.swift */,
 				5CA721EE2622EE6D00D24565 /* UIView+UIUtilites.swift */,
 				5CD15752262C5B3D00239854 /* UIViewController+UIAlertController.swift */,
-				5C58D1F1265001A2002161A1 /* RecordTableViewCell.swift */,
-				5C58D1F2265001A2002161A1 /* RecordTableViewCell.xib */,
 			);
 			path = "Main Road";
 			sourceTree = "<group>";
