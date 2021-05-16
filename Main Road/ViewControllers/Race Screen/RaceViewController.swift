@@ -18,7 +18,7 @@ class RaceViewController: UIViewController {
     private var updateTimer: Timer?
     private let level = UserDefaults.standard.value(forKey: "gameLavel") as? Double
     private var gameResult = [Records]()
-    var collisionTimer = Timer()
+    private var collisionTimer = Timer()
 
     @IBOutlet weak var leftGrassView: UIView!
     @IBOutlet weak var rightGrassView: UIView!
