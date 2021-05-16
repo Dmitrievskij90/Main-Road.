@@ -15,12 +15,13 @@ class RecordTableViewCell: UITableViewCell {
 
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
-    @IBOutlet weak var levelLabel: UILabel!
-    
+    @IBOutlet weak var userNameLabel: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupLabel(label: userNameLabel)
+        setupLabel(label: scoreLabel)
         setupLabel(label: dateLabel)
-
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -36,6 +37,5 @@ class RecordTableViewCell: UITableViewCell {
         label.clipsToBounds = true
         label.layer.borderColor = UIColor.black.cgColor
         label.layer.borderWidth = 1.5
-    
     }
 }

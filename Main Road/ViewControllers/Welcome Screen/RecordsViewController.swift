@@ -49,12 +49,11 @@ extension RecordsViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath) as? RecordTableViewCell else {
             return UITableViewCell()
         }
-
-        //        let sotedResults = gameRecords.sorted {$0.gameDate > $1.gameDate}
-        //        cell.levelLabel.text = "Level: \(sotedResults[indexPath.row].level)"
-        //        cell.scoreLabel.text = "Score: \(sotedResults[indexPath.row].points)"
-        //        cell.dateLabel.text = sotedResults[indexPath.row].gameDate
-
+        let sotedResults = gameRecords.sorted { $0.points > $1.points }
+        cell.userNameLabel.text = sotedResults[indexPath.row].userName
+        cell.scoreLabel.text = "Score: \(sotedResults[indexPath.row].points)"
+        cell.dateLabel.text = sotedResults[indexPath.row].gameDate
+        
         return cell
     }
 
