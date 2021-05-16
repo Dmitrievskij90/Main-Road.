@@ -11,4 +11,5 @@ struct Records: Codable {
     var level: String
     var points: Int
     var gameDate: String
+    var userName: String
 }

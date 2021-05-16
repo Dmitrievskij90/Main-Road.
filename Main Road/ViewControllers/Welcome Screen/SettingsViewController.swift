@@ -237,7 +237,12 @@ class SettingsViewController: UIViewController {
 
 extension SettingsViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if let userName = textField.text {
+        if let name = textField.text {
+            if name.isEmpty {
+                self.userName = "User"
+            } else {
+                userName = name
+            }
             defaults.setValue(userName, forKey: "userName")
             textField.resignFirstResponder()
         }

@@ -17,6 +17,7 @@ class RaceViewController: UIViewController {
     private var animationTimer: Timer?
     private var updateTimer: Timer?
     private let level = UserDefaults.standard.value(forKey: "gameLavel") as? Double
+    private var userName = UserDefaults.standard.value(forKey: "userName") as? String
     private var gameResult = [Records]()
     private var collisionTimer = Timer()
 
@@ -215,7 +216,7 @@ class RaceViewController: UIViewController {
         try? FileManager.default.createDirectory(at: path, withIntermediateDirectories: false, attributes: nil)
 
         if let level = levelLabel.text {
-            let results = Records(level: level, points: points, gameDate: getCurrentDate())
+            let results = Records(level: level, points: points, gameDate: getCurrentDate(), userName: userName ?? "User")
             let data = try? JSONEncoder().encode(results)
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy MMM dd HH:mm:ss"
