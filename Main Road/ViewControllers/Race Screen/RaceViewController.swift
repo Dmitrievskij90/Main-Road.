@@ -230,7 +230,7 @@ class RaceViewController: UIViewController {
 
     func getCurrentDate() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM d, yyyy, HH:mm"
+        dateFormatter.dateFormat = "dd.MM.yyyy"
         let dataString = dateFormatter.string(from: Date())
         return dataString
     }
