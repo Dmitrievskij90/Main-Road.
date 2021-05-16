@@ -13,6 +13,7 @@ class SettingsViewController: UIViewController {
     private var selectedImage = "ic_barrel"
     private var level: Double = 0.04
     private var levelName = ""
+    private var userName = ""
     private var cars = [UIImage(named: "ic_yellowCar"), UIImage(named: "ic_silverCar"), UIImage(named: "ic_redCar")]
     private var carName = ["ic_yellowCar", "ic_silverCar", "ic_redCar"]
 
@@ -28,6 +29,7 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        userNameTextField.delegate = self
         setupUI()
         setupSwipeGestureRecognizer()
         setupObstacleGesterRecognizer()
@@ -230,5 +232,15 @@ class SettingsViewController: UIViewController {
     private func resetLabelBackground(label: UILabel) {
         label.backgroundColor = .white
         label.textColor = .black
+    }
+}
+
+extension SettingsViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let userName = textField.text {
+            defaults.setValue(userName, forKey: "userName")
+            textField.resignFirstResponder()
+        }
+        return true
     }
 }
