@@ -58,7 +58,7 @@ class SettingsViewController: UIViewController {
         holeImageView.image = UIImage(named: "ic_hole")
         holeImageView.contentMode = .scaleAspectFit
 
-        tyresImageView.image = UIImage(named: "ic_tyres")
+        tyresImageView.image = UIImage(named: "ic_barrier")
         tyresImageView.contentMode = .scaleAspectFit
 
         setupLabel(label: easyLevelLabel, title: "easy")
@@ -166,7 +166,7 @@ class SettingsViewController: UIViewController {
     }
 
     @objc func thirdimageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
-        selectedImage = "ic_tyres"
+        selectedImage = "ic_barrier"
 
         tyresImageView.layer.cornerRadius = 25
         tyresImageView.clipsToBounds = true
