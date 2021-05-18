@@ -11,9 +11,9 @@ class RecordsViewController: UIViewController {
     private let fileManager = FileManager.default
     private let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Records")
     private var gameRecords = [Records]()
-
+    
     @IBOutlet weak var recordsTableView: UITableView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .init(hex:0xfaf2da)
@@ -23,7 +23,7 @@ class RecordsViewController: UIViewController {
         loadRecords()
         recordsTableView.register(UINib(nibName: "RecordTableViewCell", bundle: nil), forCellReuseIdentifier: "cellID")
     }
-
+    
     private func loadRecords() {
         guard let path = documentsPath else {
             return
@@ -46,7 +46,7 @@ extension RecordsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         gameRecords.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath) as? RecordTableViewCell else {
             return UITableViewCell()
@@ -58,11 +58,11 @@ extension RecordsViewController: UITableViewDelegate, UITableViewDataSource {
         cell.userCarImageView.image = UIImage(named: sortedRecords[indexPath.row].userCar) 
         return cell
     }
-
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }

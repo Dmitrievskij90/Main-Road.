@@ -212,9 +212,9 @@ class RaceViewController: UIViewController {
         guard let path = folderPath else {
             return
         }
-//        guard let car = UserDefaults.standard.value(forKey: "userCar") as? String else {
-//            return
-//        }
+        //        guard let car = UserDefaults.standard.value(forKey: "userCar") as? String else {
+        //            return
+        //        }
 
         try? FileManager.default.createDirectory(at: path, withIntermediateDirectories: false, attributes: nil)
 
