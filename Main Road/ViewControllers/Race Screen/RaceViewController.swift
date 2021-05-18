@@ -212,11 +212,14 @@ class RaceViewController: UIViewController {
         guard let path = folderPath else {
             return
         }
+//        guard let car = UserDefaults.standard.value(forKey: "userCar") as? String else {
+//            return
+//        }
 
         try? FileManager.default.createDirectory(at: path, withIntermediateDirectories: false, attributes: nil)
 
-        if let level = levelLabel.text {
-            let results = Records(level: level, points: points, gameDate: getCurrentDate(), userName: userName ?? "User")
+        if let level = levelLabel.text, let car = UserDefaults.standard.value(forKey: "userCar") as? String {
+            let results = Records(level: level, points: points, gameDate: getCurrentDate(), userName: userName ?? "User", userCar: car)
             let data = try? JSONEncoder().encode(results)
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy MMM dd HH:mm:ss"

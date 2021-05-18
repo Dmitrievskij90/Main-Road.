@@ -16,6 +16,8 @@ class RecordsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .init(hex:0xfaf2da)
+        recordsTableView.backgroundColor = .init(hex:0xfaf2da)
         recordsTableView.delegate = self
         recordsTableView.dataSource = self
         loadRecords()
@@ -49,11 +51,11 @@ extension RecordsViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath) as? RecordTableViewCell else {
             return UITableViewCell()
         }
-        let sotedResults = gameRecords.sorted { $0.points > $1.points }
-        cell.userNameLabel.text = sotedResults[indexPath.row].userName
-        cell.scoreLabel.text = "Score: \(sotedResults[indexPath.row].points)"
-        cell.dateLabel.text = sotedResults[indexPath.row].gameDate
-        
+        let sortedRecords = gameRecords.sorted { $0.points > $1.points }
+        cell.userNameLabel.text = sortedRecords[indexPath.row].userName
+        cell.scoreLabel.text = "Score: \(sortedRecords[indexPath.row].points)"
+        cell.dateLabel.text = sortedRecords[indexPath.row].gameDate
+        cell.userCarImageView.image = UIImage(named: sortedRecords[indexPath.row].userCar) 
         return cell
     }
 
@@ -63,9 +65,5 @@ extension RecordsViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-    }
-
-    @objc func showDateOfRace(_ date: String) {
-        presentOneButtonAlert(withTitle: "Date of Race", message: "")
     }
 }

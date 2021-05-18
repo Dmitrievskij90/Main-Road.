@@ -50,10 +50,9 @@ class WelcomeViewController: UIViewController {
         self.performSegue(withIdentifier: "SettingsID", sender: self)
     }
 
-    @IBAction func recordsButtonPressed(_ sender: Any) {
+    @IBAction private func recordsButtonPressed(_ sender: Any) {
         self.performSegue(withIdentifier: "RecordsID", sender: self)
     }
-    
 
     private func setupUI() {
         startButton.backgroundColor = .init(hex:0xfaf2da)
@@ -67,7 +66,7 @@ class WelcomeViewController: UIViewController {
         recordsButton.setTitle("RECORDS", for: .normal)
         recordsButton.setTitleColor(.black, for: .normal)
         recordsButton.titleLabel?.font = UIFont(name: "bodoni 72 smallcaps", size: 15)
-        recordsButton.layer.cornerRadius = 25
+        recordsButton.layer.cornerRadius = 12
         recordsButton.layer.borderColor = UIColor.black.cgColor
         recordsButton.layer.borderWidth = 3
 

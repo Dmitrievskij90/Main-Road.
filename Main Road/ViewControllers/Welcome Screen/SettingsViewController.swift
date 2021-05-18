@@ -224,7 +224,6 @@ class SettingsViewController: UIViewController {
         //        print(level)
         hardLavelLabel.backgroundColor = .darkGray
         hardLavelLabel.textColor = .white
-        
         resetLabelBackground(label: mediumLevelLabel)
         resetLabelBackground(label: easyLevelLabel)
     }
