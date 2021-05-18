@@ -12,4 +12,5 @@ struct Records: Codable {
     var points: Int
     var gameDate: String
     var userName: String
+    var userCar: String
 }
