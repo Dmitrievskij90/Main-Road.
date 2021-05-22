@@ -78,7 +78,7 @@ class SettingsViewController: UIViewController {
         label.layer.borderWidth = 1.5
     }
 
-   private func setupSwipeGestureRecognizer() {
+    private func setupSwipeGestureRecognizer() {
         let swipeGestureLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(_ :)))
         let swipeGestureRight = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(_ :)))
         swipeGestureLeft.direction = .left

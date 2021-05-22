@@ -218,11 +218,11 @@ class RaceViewController: UIViewController {
             let results = Records(level: level, points: points, gameDate: getCurrentDate("dd.MM.yyyy"), userName: userName ?? "User", userCar: car ?? "ic_yellowCar")
             let data = try? JSONEncoder().encode(results)
             let dataPath = folderPath.appendingPathComponent("\(fileName).json")
-                FileManager.default.createFile(atPath: dataPath.path, contents: data, attributes: nil)
+            FileManager.default.createFile(atPath: dataPath.path, contents: data, attributes: nil)
         }
     }
 
-   private func getCurrentDate(_ dateFormat: String) -> String {
+    private func getCurrentDate(_ dateFormat: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = dateFormat
         let dataString = dateFormatter.string(from: Date())
