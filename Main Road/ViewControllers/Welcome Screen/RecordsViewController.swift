@@ -8,10 +8,7 @@
 import UIKit
 
 class RecordsViewController: UIViewController {
-    private let fileManager = FileManager.default
-    private let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Records")
     private var gameRecords = [Records]()
-    
     @IBOutlet weak var recordsTableView: UITableView!
     
     override func viewDidLoad() {
@@ -25,14 +22,16 @@ class RecordsViewController: UIViewController {
     }
     
     private func loadRecords() {
-        guard let path = documentsPath else {
+        guard let folderPath = FileManager.getPathOfDirectory(named: "Records") else {
             return
         }
-        if let results = try? fileManager.contentsOfDirectory(at: path, includingPropertiesForKeys: [.nameKey], options: .includesDirectoriesPostOrder) {
+
+        if let results = try? FileManager.default.contentsOfDirectory(at: folderPath, includingPropertiesForKeys: [.nameKey], options: .includesDirectoriesPostOrder) {
             for result in results {
                 guard let data = try? Data(contentsOf: result) else {
                     return
                 }
+
                 let decoder = JSONDecoder()
                 if let raceResult = try? decoder.decode(Records.self, from: data ) {
                     gameRecords.append(raceResult)
@@ -51,7 +50,9 @@ extension RecordsViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath) as? RecordTableViewCell else {
             return UITableViewCell()
         }
+
         let sortedRecords = gameRecords.sorted { $0.points > $1.points }
+        
         cell.userNameLabel.text = sortedRecords[indexPath.row].userName
         cell.scoreLabel.text = "Score: \(sortedRecords[indexPath.row].points)"
         cell.dateLabel.text = sortedRecords[indexPath.row].gameDate

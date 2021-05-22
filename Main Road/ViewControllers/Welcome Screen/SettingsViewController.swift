@@ -12,7 +12,7 @@ class SettingsViewController: UIViewController {
     private var index = 0
     private var selectedImage = "ic_barrel"
     private var level: Double = 0.04
-    private var levelName = ""
+    private var levelName = "easy"
     private var userName = ""
     private var cars = [UIImage(named: "ic_yellowCar"), UIImage(named: "ic_silverCar"), UIImage(named: "ic_redCar")]
     private var carName = ["ic_yellowCar", "ic_silverCar", "ic_redCar"]
@@ -78,7 +78,7 @@ class SettingsViewController: UIViewController {
         label.layer.borderWidth = 1.5
     }
 
-    func setupSwipeGestureRecognizer() {
+   private func setupSwipeGestureRecognizer() {
         let swipeGestureLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(_ :)))
         let swipeGestureRight = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(_ :)))
         swipeGestureLeft.direction = .left

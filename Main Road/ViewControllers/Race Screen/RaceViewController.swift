@@ -205,34 +205,26 @@ class RaceViewController: UIViewController {
     }
 
     private func saveResult() {
-        let documentDirectorypath = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
-        var folderPath = documentDirectorypath
-        folderPath?.appendPathComponent("Records")
+        var folderPath = FileManager.getDocumentsDirectory()
+        folderPath.appendPathComponent("Records")
 
-        guard let path = folderPath else {
-            return
-        }
+        try? FileManager.default.createDirectory(at: folderPath, withIntermediateDirectories: false, attributes: nil)
 
-        try? FileManager.default.createDirectory(at: path, withIntermediateDirectories: false, attributes: nil)
+        let fileName = getCurrentDate("yyyy MMM dd HH:mm:ss")
 
         let car = UserDefaults.standard.value(forKey: "userCar") as? String
 
         if let level = levelLabel.text {
-            let results = Records(level: level, points: points, gameDate: getCurrentDate(), userName: userName ?? "User", userCar: car ?? "ic_yellowCar")
+            let results = Records(level: level, points: points, gameDate: getCurrentDate("dd.MM.yyyy"), userName: userName ?? "User", userCar: car ?? "ic_yellowCar")
             let data = try? JSONEncoder().encode(results)
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy MMM dd HH:mm:ss"
-            let dataString = dateFormatter.string(from: Date())
-
-            if let dataPath = folderPath?.appendingPathComponent("\(dataString).json") {
+            let dataPath = folderPath.appendingPathComponent("\(fileName).json")
                 FileManager.default.createFile(atPath: dataPath.path, contents: data, attributes: nil)
-            }
         }
     }
 
-    func getCurrentDate() -> String {
+   private func getCurrentDate(_ dateFormat: String) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.MM.yyyy"
+        dateFormatter.dateFormat = dateFormat
         let dataString = dateFormatter.string(from: Date())
         return dataString
     }
