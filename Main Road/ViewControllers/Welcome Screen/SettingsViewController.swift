@@ -12,7 +12,8 @@ class SettingsViewController: UIViewController {
     private var index = 0
     private var selectedImage = "ic_barrel"
     private var level: Double = 0.04
-    private var levelName = ""
+    private var levelName = "easy"
+    private var userName = ""
     private var cars = [UIImage(named: "ic_yellowCar"), UIImage(named: "ic_silverCar"), UIImage(named: "ic_redCar")]
     private var carName = ["ic_yellowCar", "ic_silverCar", "ic_redCar"]
 
@@ -24,9 +25,11 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var mediumLevelLabel: UILabel!
     @IBOutlet weak var hardLavelLabel: UILabel!
     @IBOutlet weak var selectButton: UIButton!
-
+    @IBOutlet weak var userNameTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        userNameTextField.delegate = self
         setupUI()
         setupSwipeGestureRecognizer()
         setupObstacleGesterRecognizer()
@@ -55,7 +58,7 @@ class SettingsViewController: UIViewController {
         holeImageView.image = UIImage(named: "ic_hole")
         holeImageView.contentMode = .scaleAspectFit
 
-        tyresImageView.image = UIImage(named: "ic_tyres")
+        tyresImageView.image = UIImage(named: "ic_barrier")
         tyresImageView.contentMode = .scaleAspectFit
 
         setupLabel(label: easyLevelLabel, title: "easy")
@@ -75,7 +78,7 @@ class SettingsViewController: UIViewController {
         label.layer.borderWidth = 1.5
     }
 
-    func setupSwipeGestureRecognizer() {
+    private func setupSwipeGestureRecognizer() {
         let swipeGestureLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(_ :)))
         let swipeGestureRight = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(_ :)))
         swipeGestureLeft.direction = .left
@@ -111,10 +114,6 @@ class SettingsViewController: UIViewController {
         } else if index <= -1 {
             index = cars.count - 1
         }
-        upDateUI()
-    }
-
-    private func upDateUI() {
         carImageView.image = cars[index]
     }
 
@@ -167,7 +166,7 @@ class SettingsViewController: UIViewController {
     }
 
     @objc func thirdimageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
-        selectedImage = "ic_tyres"
+        selectedImage = "ic_barrier"
 
         tyresImageView.layer.cornerRadius = 25
         tyresImageView.clipsToBounds = true
@@ -200,7 +199,7 @@ class SettingsViewController: UIViewController {
     @objc private func easyLabelTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         level = 0.04
         levelName = "easy"
-        //        print(level)
+
         easyLevelLabel.backgroundColor = .darkGray
         easyLevelLabel.textColor = .white
 
@@ -225,7 +224,6 @@ class SettingsViewController: UIViewController {
         //        print(level)
         hardLavelLabel.backgroundColor = .darkGray
         hardLavelLabel.textColor = .white
-        
         resetLabelBackground(label: mediumLevelLabel)
         resetLabelBackground(label: easyLevelLabel)
     }
@@ -233,5 +231,24 @@ class SettingsViewController: UIViewController {
     private func resetLabelBackground(label: UILabel) {
         label.backgroundColor = .white
         label.textColor = .black
+    }
+}
+
+extension SettingsViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let name = textField.text {
+            if name.isEmpty {
+                self.userName = "User"
+            } else {
+                userName = name
+            }
+            defaults.setValue(userName, forKey: "userName")
+            textField.resignFirstResponder()
+        }
+        return true
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
 }

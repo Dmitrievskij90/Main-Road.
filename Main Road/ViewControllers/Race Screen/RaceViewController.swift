@@ -17,8 +17,9 @@ class RaceViewController: UIViewController {
     private var animationTimer: Timer?
     private var updateTimer: Timer?
     private let level = UserDefaults.standard.value(forKey: "gameLavel") as? Double
-    private var gameResult = [Results]()
-    var collisionTimer = Timer()
+    private var userName = UserDefaults.standard.value(forKey: "userName") as? String
+    private var gameResult = [Records]()
+    private var collisionTimer = Timer()
 
     @IBOutlet weak var leftGrassView: UIView!
     @IBOutlet weak var rightGrassView: UIView!
@@ -204,26 +205,27 @@ class RaceViewController: UIViewController {
     }
 
     private func saveResult() {
-        let documentDirectorypath = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
-        var folderPath = documentDirectorypath
-        folderPath?.appendPathComponent("Results")
+        var folderPath = FileManager.getDocumentsDirectory()
+        folderPath.appendPathComponent("Records")
 
-        guard let pass = folderPath else {
-            return
-        }
+        try? FileManager.default.createDirectory(at: folderPath, withIntermediateDirectories: false, attributes: nil)
 
-        try? FileManager.default.createDirectory(at: pass, withIntermediateDirectories: false, attributes: nil)
+        let fileName = getCurrentDate("yyyy MMM dd HH:mm:ss")
+
+        let car = UserDefaults.standard.value(forKey: "userCar") as? String
 
         if let level = levelLabel.text {
-            let results = Results(level: level, points: points)
+            let results = Records(level: level, points: points, gameDate: getCurrentDate("dd.MM.yyyy"), userName: userName ?? "User", userCar: car ?? "ic_yellowCar")
             let data = try? JSONEncoder().encode(results)
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy MMM dd HH:mm:ss"
-            let dataString = dateFormatter.string(from: Date())
-
-            if let dataPath = folderPath?.appendingPathComponent("\(dataString).json") {
-                FileManager.default.createFile(atPath: dataPath.path, contents: data, attributes: nil)
-            }
+            let dataPath = folderPath.appendingPathComponent("\(fileName).json")
+            FileManager.default.createFile(atPath: dataPath.path, contents: data, attributes: nil)
         }
+    }
+
+    private func getCurrentDate(_ dateFormat: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = dateFormat
+        let dataString = dateFormatter.string(from: Date())
+        return dataString
     }
 }

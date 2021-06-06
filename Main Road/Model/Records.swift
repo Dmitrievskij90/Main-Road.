@@ -7,7 +7,10 @@
 
 import Foundation
 
-struct Results: Codable {
+struct Records: Codable {
     var level: String
     var points: Int
+    var gameDate: String
+    var userName: String
+    var userCar: String
 }

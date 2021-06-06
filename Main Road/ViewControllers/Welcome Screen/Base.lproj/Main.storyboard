@@ -70,10 +70,26 @@
                                             <action selector="settingsButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jL8-8B-Aex"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnh-Jo-8tB">
+                                        <rect key="frame" x="16" y="353" width="100" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="X1n-kC-O7g"/>
+                                            <constraint firstAttribute="height" constant="50" id="ks2-Ch-LrR"/>
+                                        </constraints>
+                                        <state key="normal" title="Records">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="recordsButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="T27-fq-HdB"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="vnh-Jo-8tB" firstAttribute="leading" secondItem="BG6-6H-npq" secondAttribute="leading" constant="16" id="07V-Ap-bUx"/>
                                     <constraint firstItem="kdF-Xr-oN9" firstAttribute="centerX" secondItem="BG6-6H-npq" secondAttribute="centerX" id="W1I-n1-KCt"/>
+                                    <constraint firstItem="Ppo-CB-RWS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vnh-Jo-8tB" secondAttribute="trailing" constant="8" symbolic="YES" id="YHu-Kc-y5P"/>
                                     <constraint firstAttribute="bottom" secondItem="Ppo-CB-RWS" secondAttribute="bottom" constant="30" id="kUF-mm-Mfd"/>
+                                    <constraint firstAttribute="bottom" secondItem="vnh-Jo-8tB" secondAttribute="bottom" constant="45" id="lMc-ew-laB"/>
                                     <constraint firstItem="kdF-Xr-oN9" firstAttribute="centerY" secondItem="BG6-6H-npq" secondAttribute="centerY" id="tGR-FD-yog"/>
                                     <constraint firstAttribute="trailing" secondItem="Ppo-CB-RWS" secondAttribute="trailing" constant="15" id="xHp-se-mUO"/>
                                 </constraints>
@@ -108,15 +124,48 @@
                     <connections>
                         <outlet property="carImageView" destination="pYk-ba-xzf" id="tVs-dQ-AiL"/>
                         <outlet property="lineView" destination="SRS-wg-avH" id="Y1C-Ab-HyW"/>
+                        <outlet property="recordsButton" destination="vnh-Jo-8tB" id="KqW-Et-EN4"/>
                         <outlet property="settingsButton" destination="Ppo-CB-RWS" id="mEN-tV-oOT"/>
                         <outlet property="startButton" destination="kdF-Xr-oN9" id="TVw-Mu-kMq"/>
                         <outlet property="titleLabel" destination="abW-O8-DC0" id="0ex-hF-8fs"/>
                         <segue destination="NWp-tI-eDO" kind="show" identifier="SettingsID" id="Ap1-5K-d1v"/>
+                        <segue destination="9iQ-Y9-BIN" kind="show" identifier="RecordsID" id="MMZ-Bd-NND"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1021.7391304347827" y="77.678571428571431"/>
+        </scene>
+        <!--Records-->
+        <scene sceneID="Vsz-hG-hnm">
+            <objects>
+                <viewController title="Records" id="9iQ-Y9-BIN" customClass="RecordsViewController" customModule="Main_Road" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZCQ-Al-HbQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SBi-09-Aco">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3BN-kA-BO1"/>
+                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                        <constraints>
+                            <constraint firstItem="SBi-09-Aco" firstAttribute="top" secondItem="3BN-kA-BO1" secondAttribute="top" id="EN9-Oy-8dy"/>
+                            <constraint firstAttribute="bottom" secondItem="SBi-09-Aco" secondAttribute="bottom" id="Sj6-DG-cF2"/>
+                            <constraint firstItem="SBi-09-Aco" firstAttribute="leading" secondItem="3BN-kA-BO1" secondAttribute="leading" id="t0N-gm-9tA"/>
+                            <constraint firstItem="SBi-09-Aco" firstAttribute="trailing" secondItem="3BN-kA-BO1" secondAttribute="trailing" id="yOy-BM-rE8"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Rating" id="SRO-X4-JYX"/>
+                    <connections>
+                        <outlet property="recordsTableView" destination="SBi-09-Aco" id="5jN-9p-i4p"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HpI-ur-Tb0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1879.7101449275365" y="465.40178571428567"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="QM8-5k-ms5">
@@ -136,10 +185,21 @@
                                             <constraint firstAttribute="height" constant="200" id="k4H-hH-aAU"/>
                                         </constraints>
                                     </imageView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b6w-x1-JGk">
+                                        <rect key="frame" x="107" y="390" width="200" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="rUw-iQ-Aiz"/>
+                                        </constraints>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                    </textField>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="b6w-x1-JGk" secondAttribute="bottom" constant="24" id="Gl8-V6-XXr"/>
                                     <constraint firstItem="GtB-nC-hup" firstAttribute="centerX" secondItem="KIL-Vb-kgG" secondAttribute="centerX" id="LPT-rc-KT2"/>
                                     <constraint firstItem="GtB-nC-hup" firstAttribute="centerY" secondItem="KIL-Vb-kgG" secondAttribute="centerY" id="tcY-J0-46k"/>
+                                    <constraint firstItem="b6w-x1-JGk" firstAttribute="centerX" secondItem="KIL-Vb-kgG" secondAttribute="centerX" id="tpl-gL-3bx"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="6KN-gc-xuO">
@@ -227,11 +287,12 @@
                         <outlet property="mediumLevelLabel" destination="fG6-0f-ZUd" id="ICu-gI-f8A"/>
                         <outlet property="selectButton" destination="s9h-fY-v7K" id="lBM-Ft-avG"/>
                         <outlet property="tyresImageView" destination="fjb-bj-dGu" id="Ara-DE-dJW"/>
+                        <outlet property="userNameTextField" destination="b6w-x1-JGk" id="6qZ-R7-QgA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DDj-IU-9dC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1892.753623188406" y="77.678571428571431"/>
+            <point key="canvasLocation" x="1879.7101449275365" y="-240.40178571428569"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kqD-dF-gKU">
@@ -261,6 +322,9 @@
         <image name="ic_yellowCar" width="444" height="939.5"/>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

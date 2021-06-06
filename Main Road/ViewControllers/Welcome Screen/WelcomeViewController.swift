@@ -13,7 +13,8 @@ class WelcomeViewController: UIViewController {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var settingsButton: UIButton!
-    
+    @IBOutlet weak var recordsButton: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .init(hex: 0x62AEC8)
@@ -49,6 +50,10 @@ class WelcomeViewController: UIViewController {
         self.performSegue(withIdentifier: "SettingsID", sender: self)
     }
 
+    @IBAction private func recordsButtonPressed(_ sender: Any) {
+        self.performSegue(withIdentifier: "RecordsID", sender: self)
+    }
+
     private func setupUI() {
         startButton.backgroundColor = .init(hex:0xfaf2da)
         startButton.setTitle("START", for: .normal)
@@ -57,6 +62,13 @@ class WelcomeViewController: UIViewController {
         startButton.layer.cornerRadius = 65
         startButton.layer.borderColor = UIColor.black.cgColor
         startButton.layer.borderWidth = 3
+
+        recordsButton.setTitle("RECORDS", for: .normal)
+        recordsButton.setTitleColor(.black, for: .normal)
+        recordsButton.titleLabel?.font = UIFont(name: "bodoni 72 smallcaps", size: 15)
+        recordsButton.layer.cornerRadius = 12
+        recordsButton.layer.borderColor = UIColor.black.cgColor
+        recordsButton.layer.borderWidth = 3
 
         settingsButton.layer.cornerRadius = 40
 
