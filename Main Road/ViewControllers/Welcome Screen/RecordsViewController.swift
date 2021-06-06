@@ -18,7 +18,7 @@ class RecordsViewController: UIViewController {
         recordsTableView.delegate = self
         recordsTableView.dataSource = self
         loadRecords()
-        recordsTableView.register(UINib(nibName: "RecordTableViewCell", bundle: nil), forCellReuseIdentifier: "cellID")
+        recordsTableView.register(RecordTableViewCell.nib(), forCellReuseIdentifier: RecordTableViewCell.identifier)
     }
     
     private func loadRecords() {
@@ -47,7 +47,7 @@ extension RecordsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath) as? RecordTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: RecordTableViewCell.identifier, for: indexPath) as? RecordTableViewCell else {
             return UITableViewCell()
         }
 

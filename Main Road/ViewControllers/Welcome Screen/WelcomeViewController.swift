@@ -36,18 +36,18 @@ class WelcomeViewController: UIViewController {
             viewController.firstObstacle.image = UIImage(named: choosedObstacle)
             viewController.secondObstacle.image = UIImage(named: choosedObstacle)
         } else {
-            viewController.playerCarImageView.image = UIImage(named: "ic_yellowCar")
-            viewController.firstObstacle.image = UIImage(named: "ic_hole")
-            viewController.secondObstacle.image = UIImage(named: "ic_hole")
+            viewController.playerCarImageView.image = UIImage(named: Constants.yellowCar)
+            viewController.firstObstacle.image = UIImage(named: Constants.hole)
+            viewController.secondObstacle.image = UIImage(named: Constants.hole)
         }
     }
 
     @IBAction private func settingsButtonPressed(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "SettingsID", sender: self)
+        self.performSegue(withIdentifier: Constants.settingsID, sender: self)
     }
 
     @IBAction private func recordsButtonPressed(_ sender: Any) {
-        self.performSegue(withIdentifier: "RecordsID", sender: self)
+        self.performSegue(withIdentifier: Constants.recordsID, sender: self)
     }
 
     private func setupUI() {
@@ -75,7 +75,7 @@ class WelcomeViewController: UIViewController {
         titleLabel.font = UIFont(name: "Snell roundhand", size: 80)
         titleLabel.textAlignment = .center
 
-        carImageView.image = UIImage(named: "ic_mainCar")
+        carImageView.image = UIImage(named: Constants.mainCar)
         carImageView.contentMode = .scaleAspectFill
     }
 
