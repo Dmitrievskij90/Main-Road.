@@ -21,7 +21,7 @@ extension FileManager {
             try self.default.createDirectory(at: path, withIntermediateDirectories: true, attributes: nil)
             return path
         } catch {
-            print("Error creating directory")
+            assert(true, "Error creating directory")
             return nil
         }
     }
