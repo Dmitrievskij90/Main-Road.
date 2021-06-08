@@ -46,12 +46,8 @@ class RaceViewController: UIViewController {
         carMoveGestureRecognizer.minimumPressDuration = 0.001
         view.addGestureRecognizer(carMoveGestureRecognizer)
 
-        createObstacles()
-        createPoliceCar()
-        createMoto()
-        createPlayerCar()
+        createObjects()
         setupUI()
-
         collisionHandler()
     }
 
@@ -60,41 +56,35 @@ class RaceViewController: UIViewController {
         saveResult()
     }
 
-    private func createPlayerCar() {
-        player = UIImageView(image: UIImage(named: "ic_yellowCar"))
-        player.frame = CGRect(x: 0, y: 0, width: 50, height: 110)
-        player.frame.origin.y = view.bounds.height - player.frame.size.height - 60
-        player.center.x = CGFloat(self.view.bounds.midX)
-        player.setImageShadowWithColor(color: UIColor.black.cgColor, opacity: 1.0, offset: .zero, radius: 15, masksToBounds: false)
-        view.addSubview(player)
-    }
+    private func createObjects() {
+        let randomX = CGFloat.random(in: view.frame.minX + 100...view.frame.maxX - 100)
 
-    private func createObstacles() {
         firstObstacle.frame = CGRect(x: view.frame.midX - 140, y: view.frame.midY - 250, width: 20, height: 45)
-        firstObstacle.setImageShadowWithColor(color: UIColor.black.cgColor, opacity: 1.0, offset: .zero, radius: 15, masksToBounds: false)
+        firstObstacle.setImageShadowWithColor()
         view.addSubview(firstObstacle)
 
-        secondObstacle.frame = CGRect(x: view.frame.midX + 115, y: view.frame.midY + 250, width: 20, height: 45)
-        secondObstacle.setImageShadowWithColor(color: UIColor.black.cgColor, opacity: 1.0, offset: .zero, radius: 15, masksToBounds: false)
+        secondObstacle.frame = CGRect(x: view.frame.midX + 115, y: view.frame.midY + 200, width: 20, height: 45)
+        secondObstacle.setImageShadowWithColor()
         view.addSubview(secondObstacle)
-    }
 
-    private func createPoliceCar() {
-        let randomX = CGFloat.random(in: view.frame.minX + 100...view.frame.maxX - 100)
         policeCar.frame = CGRect(x: randomX, y: -150, width: 50, height: 110)
-        policeCar.setImageShadowWithColor(color: UIColor.black.cgColor, opacity: 1.0, offset: .zero, radius: 15, masksToBounds: false)
+        policeCar.setImageShadowWithColor()
         view.addSubview(policeCar)
-    }
 
-    private func createMoto() {
-        let randomX = CGFloat.random(in: view.frame.minX + 100...view.frame.maxX - 100)
         firstMoto.frame = CGRect(x: randomX, y: view.frame.maxY, width: 40, height: 110)
-        firstMoto.setImageShadowWithColor(color: UIColor.black.cgColor, opacity: 1.0, offset: .zero, radius: 15, masksToBounds: false)
+        firstMoto.setImageShadowWithColor()
         view.addSubview(firstMoto)
 
         secondMoto.frame = CGRect(x: randomX, y: -500, width: 40, height: 110)
-        secondMoto.setImageShadowWithColor(color: UIColor.black.cgColor, opacity: 1.0, offset: .zero, radius: 15, masksToBounds: false)
+        secondMoto.setImageShadowWithColor()
         view.addSubview(secondMoto)
+
+        player = UIImageView(image: UIImage(named: Constants.yellowCar))
+        player.frame = CGRect(x: 0, y: 0, width: 50, height: 110)
+        player.frame.origin.y = view.bounds.height - player.frame.size.height - 60
+        player.center.x = CGFloat(self.view.bounds.midX)
+        player.setImageShadowWithColor()
+        view.addSubview(player)
     }
 
     private  func setupUI() {
@@ -123,14 +113,14 @@ class RaceViewController: UIViewController {
         secondMoto.image = UIImage(named: Constants.secondMotoArray[3])
         secondMoto.contentMode = .scaleAspectFill
 
-        firstObstacle.image = UIImage(named: "ic_hole")
+        firstObstacle.image = UIImage(named: Constants.hole)
         firstObstacle.contentMode = .scaleAspectFill
 
-        secondObstacle.image = UIImage(named: "ic_hole")
+        secondObstacle.image = UIImage(named: Constants.hole)
         secondObstacle.contentMode = .scaleAspectFill
 
         let levelName = UserDefaults.standard.value(forKey: "levelName") as? String
-        levelLabel.text = levelName ?? "easy"
+        levelLabel.text = levelName ?? Constants.easy
 
         setupLabel(label: levelLabel)
         setupLabel(label: pointsLabel)
@@ -174,7 +164,7 @@ class RaceViewController: UIViewController {
             var playerCarFrame = player.frame
 
             if direction == "right" {
-                if playerCarFrame.origin.x < rightGrassView.frame.minX - 70 {
+                if playerCarFrame.origin.x < rightGrassView.frame.minX - 50 {
                     playerCarFrame.origin.x += 2
                 }
             } else {

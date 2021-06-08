@@ -13,11 +13,17 @@ extension UIImageView {
         layer.cornerRadius = radius
     }
 
-    func setImageShadowWithColor(color: CGColor?, opacity: Float?, offset: CGSize?, radius: CGFloat?, masksToBounds: Bool) {
-        layer.shadowColor = color ?? UIColor.black.cgColor
-        layer.shadowOffset = offset ?? CGSize.zero
-        layer.shadowOpacity = opacity ?? 1.0
-        layer.shadowRadius = radius ?? 1.0
+    func setImageShadowWithColor() {
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize.zero
+        layer.shadowOpacity =  1.0
+        layer.shadowRadius = 15.0
         layer.masksToBounds = false
+
+//        layer.shadowColor = color ?? UIColor.black.cgColor
+//        layer.shadowOffset = offset ?? CGSize.zero
+//        layer.shadowOpacity = opacity ?? 1.0
+//        layer.shadowRadius = radius ?? 1.0
+//        layer.masksToBounds = false
     }
 }
