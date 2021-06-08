@@ -35,10 +35,7 @@ class RaceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(5), execute: {
-            let timer = Timer.scheduledTimer(timeInterval: self.level ?? 0.04, target: self, selector: #selector(self.amimateEnemy), userInfo: nil, repeats: true)
-            timer.fire()
-        })
+        animateGame()
 
         _ = Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(updateStartCountLabel), userInfo: nil, repeats: true)
 
@@ -183,6 +180,13 @@ class RaceViewController: UIViewController {
                 self.collisionTimer.invalidate()
                 self.dismiss(animated: true, completion: nil)
             }
+        })
+    }
+
+    private func animateGame() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(5), execute: {
+            let timer = Timer.scheduledTimer(timeInterval: self.level ?? 0.04, target: self, selector: #selector(self.amimateEnemy), userInfo: nil, repeats: true)
+            timer.fire()
         })
     }
 
