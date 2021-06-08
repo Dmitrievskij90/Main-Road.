@@ -44,7 +44,7 @@ class RaceViewController: UIViewController {
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        saveResult()
+        saveRecords()
     }
 
     private func createObjects() {
@@ -58,15 +58,15 @@ class RaceViewController: UIViewController {
         secondObstacle.setImageShadowWithColor()
         view.addSubview(secondObstacle)
 
-        policeCar.frame = CGRect(x: randomX, y: -150, width: 50, height: 110)
+        policeCar.frame = CGRect(x: randomX, y: view.frame.minY - 150, width: 50, height: 110)
         policeCar.setImageShadowWithColor()
         view.addSubview(policeCar)
 
-        firstMoto.frame = CGRect(x: randomX, y: view.frame.maxY, width: 40, height: 110)
+        firstMoto.frame = CGRect(x: randomX, y: view.frame.midY, width: 40, height: 110)
         firstMoto.setImageShadowWithColor()
         view.addSubview(firstMoto)
 
-        secondMoto.frame = CGRect(x: randomX, y: -500, width: 40, height: 110)
+        secondMoto.frame = CGRect(x: randomX, y: view.frame.maxY, width: 40, height: 110)
         secondMoto.setImageShadowWithColor()
         view.addSubview(secondMoto)
 
@@ -77,6 +77,8 @@ class RaceViewController: UIViewController {
         player.setImageShadowWithColor()
         view.addSubview(player)
     }
+
+    // MARK: - setup user interface methods
 
     private  func setupUI() {
         startCountLabel.textAlignment = .center
@@ -134,6 +136,8 @@ class RaceViewController: UIViewController {
         view.addSubview(levelMark)
     }
 
+    // MARK: - move player's car methods
+
     private func movePlayerCarWithLongPress() {
         let carMoveGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(playerPressed))
         carMoveGestureRecognizer.minimumPressDuration = 0.001
@@ -173,6 +177,8 @@ class RaceViewController: UIViewController {
         }
     }
 
+    // MARK: - collision handling method
+
     private func collisionHandler() {
         collisionTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { _ in
             if self.player.frame.intersects(self.policeCar.frame) || self.player.frame.intersects(self.firstObstacle.frame)
@@ -182,6 +188,8 @@ class RaceViewController: UIViewController {
             }
         })
     }
+
+    // MARK: - animation methods
 
     private func animateGame() {
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(5), execute: {
@@ -215,7 +223,7 @@ class RaceViewController: UIViewController {
         }
 
         let randomPoliceX = CGFloat.random(in: view.frame.minX + 100...view.frame.maxX - 100)
-        car.frame = CGRect(x: car.frame.origin.x, y: car.frame.origin.y + 9, width: car.frame.width, height: car.frame.height)
+        car.frame = CGRect(x: car.frame.origin.x, y: car.frame.origin.y + 9.5, width: car.frame.width, height: car.frame.height)
         if car.frame.origin.y >= self.view.bounds.maxY {
             car.frame.origin.y = 0
             car.frame.origin.x = randomPoliceX
@@ -231,7 +239,7 @@ class RaceViewController: UIViewController {
             return
         }
         let randomPoliceX = CGFloat.random(in: view.frame.minX + 100...view.frame.maxX - 100)
-        car.frame = CGRect(x: car.frame.origin.x, y: car.frame.origin.y + 12, width: car.frame.width, height: car.frame.height)
+        car.frame = CGRect(x: car.frame.origin.x, y: car.frame.origin.y + 9.3, width: car.frame.width, height: car.frame.height)
         if car.frame.origin.y >= self.view.bounds.maxY {
             car.frame.origin.y = 0
             car.frame.origin.x = randomPoliceX
@@ -249,6 +257,8 @@ class RaceViewController: UIViewController {
         animateSecondMotorcycle(car: secondMoto)
     }
 
+    // MARK: - countdown methods
+
     private func startCountdown() {
         Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(updateStartCountLabel), userInfo: nil, repeats: true)
     }
@@ -262,7 +272,9 @@ class RaceViewController: UIViewController {
         }
     }
 
-    private func saveResult() {
+    // MARK: - save records methods
+
+    private func saveRecords() {
         var folderPath = FileManager.getDocumentsDirectory()
         folderPath.appendPathComponent("Records")
 
