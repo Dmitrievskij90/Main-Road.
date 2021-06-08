@@ -36,12 +36,9 @@ class RaceViewController: UIViewController {
         super.viewDidLoad()
 
         animateGame()
+        movePlayerCarWithLongPress()
 
         _ = Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(updateStartCountLabel), userInfo: nil, repeats: true)
-
-        let carMoveGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(playerPressed))
-        carMoveGestureRecognizer.minimumPressDuration = 0.001
-        view.addGestureRecognizer(carMoveGestureRecognizer)
 
         createObjects()
         setupUI()
@@ -138,6 +135,12 @@ class RaceViewController: UIViewController {
         view.addSubview(pointsMark)
         view.addSubview(levelLabel)
         view.addSubview(levelMark)
+    }
+
+    private func movePlayerCarWithLongPress() {
+        let carMoveGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(playerPressed))
+        carMoveGestureRecognizer.minimumPressDuration = 0.001
+        view.addGestureRecognizer(carMoveGestureRecognizer)
     }
 
     @objc func playerPressed(recognizer: UILongPressGestureRecognizer) {
