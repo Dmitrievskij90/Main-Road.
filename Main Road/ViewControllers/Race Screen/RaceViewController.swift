@@ -34,14 +34,11 @@ class RaceViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        animateGame()
-        movePlayerCarWithLongPress()
-
-        _ = Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(updateStartCountLabel), userInfo: nil, repeats: true)
-
         createObjects()
         setupUI()
+        startCountdown()
+        animateGame()
+        movePlayerCarWithLongPress()
         collisionHandler()
     }
 
@@ -250,6 +247,10 @@ class RaceViewController: UIViewController {
         animatePoliceCar(car: policeCar)
         animateFirstMotorcycle(car: firstMoto)
         animateSecondMotorcycle(car: secondMoto)
+    }
+
+    private func startCountdown() {
+        Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(updateStartCountLabel), userInfo: nil, repeats: true)
     }
 
     @objc private func updateStartCountLabel() {
