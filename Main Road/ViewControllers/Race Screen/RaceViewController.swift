@@ -22,6 +22,7 @@ class RaceViewController: UIViewController {
     private var userName = UserDefaults.standard.value(forKey: "userName") as? String
     private var gameResult = [Records]()
     private var collisionTimer = Timer()
+    private lazy var dateFormatter = DateFormatter()
 
     @IBOutlet weak var leftGrassView: UIView!
     @IBOutlet weak var rightGrassView: UIView!
@@ -64,29 +65,35 @@ class RaceViewController: UIViewController {
         player.frame = CGRect(x: 0, y: 0, width: 50, height: 110)
         player.frame.origin.y = view.bounds.height - player.frame.size.height - 60
         player.center.x = CGFloat(self.view.bounds.midX)
+        player.setImageShadowWithColor(color: UIColor.black.cgColor, opacity: 1.0, offset: .zero, radius: 15, masksToBounds: false)
         view.addSubview(player)
     }
 
     private func createObstacles() {
         firstObstacle.frame = CGRect(x: view.frame.midX - 140, y: view.frame.midY - 250, width: 20, height: 45)
+        firstObstacle.setImageShadowWithColor(color: UIColor.black.cgColor, opacity: 1.0, offset: .zero, radius: 15, masksToBounds: false)
         view.addSubview(firstObstacle)
 
         secondObstacle.frame = CGRect(x: view.frame.midX + 115, y: view.frame.midY + 250, width: 20, height: 45)
+        secondObstacle.setImageShadowWithColor(color: UIColor.black.cgColor, opacity: 1.0, offset: .zero, radius: 15, masksToBounds: false)
         view.addSubview(secondObstacle)
     }
 
     private func createPoliceCar() {
-        let randomPoliceX = CGFloat.random(in: view.frame.minX + 100...view.frame.maxX - 100)
-        policeCar.frame = CGRect(x: randomPoliceX, y: -150, width: 50, height: 110)
+        let randomX = CGFloat.random(in: view.frame.minX + 100...view.frame.maxX - 100)
+        policeCar.frame = CGRect(x: randomX, y: -150, width: 50, height: 110)
+        policeCar.setImageShadowWithColor(color: UIColor.black.cgColor, opacity: 1.0, offset: .zero, radius: 15, masksToBounds: false)
         view.addSubview(policeCar)
     }
 
     private func createMoto() {
-        let randomPoliceX = CGFloat.random(in: view.frame.minX + 100...view.frame.maxX - 100)
-        firstMoto.frame = CGRect(x: randomPoliceX, y: view.frame.maxY, width: 40, height: 110)
+        let randomX = CGFloat.random(in: view.frame.minX + 100...view.frame.maxX - 100)
+        firstMoto.frame = CGRect(x: randomX, y: view.frame.maxY, width: 40, height: 110)
+        firstMoto.setImageShadowWithColor(color: UIColor.black.cgColor, opacity: 1.0, offset: .zero, radius: 15, masksToBounds: false)
         view.addSubview(firstMoto)
 
-        secondMoto.frame = CGRect(x: randomPoliceX, y: -500, width: 40, height: 110)
+        secondMoto.frame = CGRect(x: randomX, y: -500, width: 40, height: 110)
+        secondMoto.setImageShadowWithColor(color: UIColor.black.cgColor, opacity: 1.0, offset: .zero, radius: 15, masksToBounds: false)
         view.addSubview(secondMoto)
     }
 
@@ -241,11 +248,11 @@ class RaceViewController: UIViewController {
     }
 
     @objc func amimateEnemy() {
-            animateObstacle(obstacle: firstObstacle)
-            animateObstacle(obstacle: secondObstacle)
-            animatePoliceCar(car: policeCar)
-            animateFirstMotorcycle(car: firstMoto)
-            animateSecondMotorcycle(car: secondMoto)
+        animateObstacle(obstacle: firstObstacle)
+        animateObstacle(obstacle: secondObstacle)
+        animatePoliceCar(car: policeCar)
+        animateFirstMotorcycle(car: firstMoto)
+        animateSecondMotorcycle(car: secondMoto)
     }
 
     @objc private func updateStartCountLabel() {
@@ -268,7 +275,7 @@ class RaceViewController: UIViewController {
         let car = UserDefaults.standard.value(forKey: "userCar") as? String
 
         if let level = levelLabel.text {
-            let results = Records(level: level, points: points, gameDate: getCurrentDate("dd.MM.yyyy"), userName: userName ?? "User", userCar: car ?? "ic_yellowCar")
+            let results = Records(level: level, points: points, gameDate: getCurrentDate("dd.MM.yyyy"), userName: userName ?? "User", userCar: car ?? Constants.yellowCar)
             let data = try? JSONEncoder().encode(results)
             let dataPath = folderPath.appendingPathComponent("\(fileName).json")
             FileManager.default.createFile(atPath: dataPath.path, contents: data, attributes: nil)
@@ -276,7 +283,6 @@ class RaceViewController: UIViewController {
     }
 
     private func getCurrentDate(_ dateFormat: String) -> String {
-        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = dateFormat
         let dataString = dateFormatter.string(from: Date())
         return dataString
