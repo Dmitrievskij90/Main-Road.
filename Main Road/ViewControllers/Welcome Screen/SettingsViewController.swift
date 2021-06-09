@@ -10,7 +10,7 @@ import UIKit
 class SettingsViewController: UIViewController {
     private let defaults = UserDefaults.standard
     private var index = 0
-    private var selectedImage = Constants.barrel
+    private var selectedImage = Constants.hole
     private var level: Double = 0.04
     private var levelName = Constants.easy
     private var userName = ""
@@ -52,7 +52,7 @@ class SettingsViewController: UIViewController {
         selectButton.layer.borderColor = UIColor.black.cgColor
         selectButton.layer.borderWidth = 1.5
 
-        barrelImageView.image = UIImage(named: Constants.barrel)
+        barrelImageView.image = UIImage(named: Constants.cone)
         barrelImageView.contentMode = .scaleAspectFit
 
         holeImageView.image = UIImage(named: Constants.hole)
@@ -142,7 +142,7 @@ class SettingsViewController: UIViewController {
     }
 
     @objc func fitrstimageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
-        selectedImage = Constants.barrel
+        selectedImage = Constants.cone
 
         barrelImageView.layer.cornerRadius = 25
         barrelImageView.clipsToBounds = true

@@ -62,11 +62,11 @@ class RaceViewController: UIViewController {
         policeCar.setImageShadowWithColor()
         view.addSubview(policeCar)
 
-        firstMoto.frame = CGRect(x: randomX, y: view.frame.midY, width: 40, height: 110)
+        firstMoto.frame = CGRect(x: randomX, y: view.frame.minY - 300, width: 40, height: 110)
         firstMoto.setImageShadowWithColor()
         view.addSubview(firstMoto)
 
-        secondMoto.frame = CGRect(x: randomX, y: view.frame.maxY, width: 40, height: 110)
+        secondMoto.frame = CGRect(x: randomX, y: view.frame.midY - 100, width: 40, height: 110)
         secondMoto.setImageShadowWithColor()
         view.addSubview(secondMoto)
 
@@ -231,7 +231,7 @@ class RaceViewController: UIViewController {
         }
 
         let randomPoliceX = CGFloat.random(in: view.frame.minX + 100...view.frame.maxX - 100)
-        moto.frame = CGRect(x: moto.frame.origin.x, y: moto.frame.origin.y + 9.5, width: moto.frame.width, height: moto.frame.height)
+        moto.frame = CGRect(x: moto.frame.origin.x, y: moto.frame.origin.y + 9.8, width: moto.frame.width, height: moto.frame.height)
         if moto.frame.origin.y >= self.view.bounds.maxY {
             moto.frame.origin.y = 0
             moto.frame.origin.x = randomPoliceX
@@ -247,7 +247,7 @@ class RaceViewController: UIViewController {
             return
         }
         let randomPoliceX = CGFloat.random(in: view.frame.minX + 100...view.frame.maxX - 100)
-        moto.frame = CGRect(x: moto.frame.origin.x, y: moto.frame.origin.y + 9.3, width: moto.frame.width, height: moto.frame.height)
+        moto.frame = CGRect(x: moto.frame.origin.x, y: moto.frame.origin.y + 9.9, width: moto.frame.width, height: moto.frame.height)
         if moto.frame.origin.y >= self.view.bounds.maxY {
             moto.frame.origin.y = 0
             moto.frame.origin.x = randomPoliceX
