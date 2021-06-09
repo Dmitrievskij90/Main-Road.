@@ -41,6 +41,7 @@ class SettingsViewController: UIViewController {
         defaults.setValue(selectedImage, forKey: "barrierType")
         defaults.setValue(level, forKey: "gameLavel")
         defaults.setValue(levelName, forKey: "levelName")
+        selectButton.backgroundColor = .init(hex: 0xc0481d)
     }
 
     // MARK: - setup user interface methods
@@ -186,6 +187,7 @@ class SettingsViewController: UIViewController {
     private func resetImageViewSettings(imageView: UIImageView) {
         imageView.backgroundColor = .white
         imageView.layer.borderWidth = 0
+        selectButton.backgroundColor = .init(hex: 0xF15A25)
     }
 
     // MARK: - level selection methods
@@ -239,6 +241,7 @@ class SettingsViewController: UIViewController {
     private func resetLabelBackground(label: UILabel) {
         label.backgroundColor = .white
         label.textColor = .black
+        selectButton.backgroundColor = .init(hex: 0xF15A25)
     }
 }
 
