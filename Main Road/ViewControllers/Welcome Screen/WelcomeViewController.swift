@@ -32,11 +32,11 @@ class WelcomeViewController: UIViewController {
         let obstacles = UserDefaults.standard.value(forKey: "barrierType") as? String
 
         if let playerCar = car, let choosedObstacle = obstacles {
-            viewController.player.image = UIImage(named: playerCar)
+            viewController.user.image = UIImage(named: playerCar)
             viewController.firstObstacle.image = UIImage(named: choosedObstacle)
             viewController.secondObstacle.image = UIImage(named: choosedObstacle)
         } else {
-            viewController.player.image = UIImage(named: Constants.yellowCar)
+            viewController.user.image = UIImage(named: Constants.yellowCar)
             viewController.firstObstacle.image = UIImage(named: Constants.hole)
             viewController.secondObstacle.image = UIImage(named: Constants.hole)
         }

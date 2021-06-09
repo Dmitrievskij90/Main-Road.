@@ -8,14 +8,14 @@
 import UIKit
 
 class RaceViewController: UIViewController {
-    var player = UIImageView()
+    var user = UIImageView()
     var firstObstacle = UIImageView()
     var secondObstacle = UIImageView()
     private var policeCar = UIImageView()
     private var firstMoto = UIImageView()
     private var secondMoto = UIImageView()
     private var points = 0
-    private var isEmpty = 5
+    private var counter = 5
     private var animationTimer: Timer?
     private var updateTimer: Timer?
     private let level = UserDefaults.standard.value(forKey: "gameLavel") as? Double
@@ -70,12 +70,12 @@ class RaceViewController: UIViewController {
         secondMoto.setImageShadowWithColor()
         view.addSubview(secondMoto)
 
-        player = UIImageView(image: UIImage(named: Constants.yellowCar))
-        player.frame = CGRect(x: 0, y: 0, width: 50, height: 110)
-        player.frame.origin.y = view.bounds.height - player.frame.size.height - 60
-        player.center.x = CGFloat(self.view.bounds.midX)
-        player.setImageShadowWithColor()
-        view.addSubview(player)
+        user = UIImageView(image: UIImage(named: Constants.yellowCar))
+        user.frame = CGRect(x: 0, y: 0, width: 50, height: 110)
+        user.frame.origin.y = view.bounds.height - user.frame.size.height - 60
+        user.center.x = CGFloat(self.view.bounds.midX)
+        user.setImageShadowWithColor()
+        view.addSubview(user)
     }
 
     // MARK: - setup user interface methods
@@ -151,7 +151,7 @@ class RaceViewController: UIViewController {
             }
         } else if recognizer.state == .began {
             let touchPoint = recognizer.location(in: view)
-            if touchPoint.x > player.frame.midX {
+            if touchPoint.x > user.frame.midX {
                 animationTimer = Timer.scheduledTimer(timeInterval: 0.005, target: self, selector: #selector(moveCar), userInfo: "right", repeats: true)
             } else {
                 animationTimer = Timer.scheduledTimer(timeInterval: 0.005, target: self, selector: #selector(moveCar), userInfo: "left", repeats: true)
@@ -162,7 +162,7 @@ class RaceViewController: UIViewController {
 
     @objc func moveCar(timer: Timer) {
         if let direction = timer.userInfo as? String {
-            var playerCarFrame = player.frame
+            var playerCarFrame = user.frame
 
             if direction == "right" {
                 if playerCarFrame.origin.x < rightGrassView.frame.minX - 50 {
@@ -173,7 +173,7 @@ class RaceViewController: UIViewController {
                     playerCarFrame.origin.x -= 2
                 }
             }
-            player.frame = playerCarFrame
+            user.frame = playerCarFrame
         }
     }
 
@@ -181,8 +181,8 @@ class RaceViewController: UIViewController {
 
     private func collisionHandler() {
         collisionTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { _ in
-            if self.player.frame.intersects(self.policeCar.frame) || self.player.frame.intersects(self.firstObstacle.frame)
-                || self.player.frame.intersects(self.secondObstacle.frame) || self.player.frame.intersects(self.firstMoto.frame) || self.player.frame.intersects(self.secondMoto.frame) {
+            if self.user.frame.intersects(self.policeCar.frame) || self.user.frame.intersects(self.firstObstacle.frame)
+                || self.user.frame.intersects(self.secondObstacle.frame) || self.user.frame.intersects(self.firstMoto.frame) || self.user.frame.intersects(self.secondMoto.frame) {
                 self.collisionTimer.invalidate()
                 self.dismiss(animated: true, completion: nil)
             }
@@ -198,14 +198,22 @@ class RaceViewController: UIViewController {
         })
     }
 
-    private func animateObstacle(obstacle: UIImageView) {
+    @objc func amimateEnemy() {
+        animateObstacle(firstObstacle)
+        animateObstacle(secondObstacle)
+        animatePoliceCar(policeCar)
+        animateFirstMotorcycle(firstMoto)
+        animateSecondMotorcycle(secondMoto)
+    }
+
+    private func animateObstacle(_ obstacle: UIImageView) {
         obstacle.frame = CGRect(x: obstacle.frame.origin.x, y: obstacle.frame.origin.y + 11, width: obstacle.frame.width, height: obstacle.frame.height)
         if obstacle.frame.origin.y >= self.view.bounds.maxY {
             obstacle.frame.origin.y = 0
         }
     }
 
-    private func animatePoliceCar(car: UIImageView) {
+    private func animatePoliceCar(_ car: UIImageView) {
         let randomPoliceX = CGFloat.random(in: view.frame.minX + 100...view.frame.maxX - 100)
         car.frame = CGRect(x: car.frame.origin.x, y: car.frame.origin.y + 10, width: car.frame.width, height: car.frame.height)
         if car.frame.origin.y >= self.view.bounds.maxY {
@@ -216,45 +224,37 @@ class RaceViewController: UIViewController {
         }
     }
 
-    private func animateFirstMotorcycle(car: UIImageView) {
+    private func animateFirstMotorcycle(_ moto: UIImageView) {
         guard let imageName = Constants.firstMotoArray.randomElement() else {
             assert(true, "Can't find image name")
             return
         }
 
         let randomPoliceX = CGFloat.random(in: view.frame.minX + 100...view.frame.maxX - 100)
-        car.frame = CGRect(x: car.frame.origin.x, y: car.frame.origin.y + 9.5, width: car.frame.width, height: car.frame.height)
-        if car.frame.origin.y >= self.view.bounds.maxY {
-            car.frame.origin.y = 0
-            car.frame.origin.x = randomPoliceX
+        moto.frame = CGRect(x: moto.frame.origin.x, y: moto.frame.origin.y + 9.5, width: moto.frame.width, height: moto.frame.height)
+        if moto.frame.origin.y >= self.view.bounds.maxY {
+            moto.frame.origin.y = 0
+            moto.frame.origin.x = randomPoliceX
             firstMoto.image = UIImage(named: imageName)
             points += 1
             pointsLabel.text = "\(points)"
         }
     }
 
-    private func animateSecondMotorcycle(car: UIImageView) {
+    private func animateSecondMotorcycle(_ moto: UIImageView) {
         guard let imageName = Constants.secondMotoArray.randomElement() else {
             assert(true, "Can't find image name")
             return
         }
         let randomPoliceX = CGFloat.random(in: view.frame.minX + 100...view.frame.maxX - 100)
-        car.frame = CGRect(x: car.frame.origin.x, y: car.frame.origin.y + 9.3, width: car.frame.width, height: car.frame.height)
-        if car.frame.origin.y >= self.view.bounds.maxY {
-            car.frame.origin.y = 0
-            car.frame.origin.x = randomPoliceX
+        moto.frame = CGRect(x: moto.frame.origin.x, y: moto.frame.origin.y + 9.3, width: moto.frame.width, height: moto.frame.height)
+        if moto.frame.origin.y >= self.view.bounds.maxY {
+            moto.frame.origin.y = 0
+            moto.frame.origin.x = randomPoliceX
             secondMoto.image = UIImage(named: imageName)
             points += 1
             pointsLabel.text = "\(points)"
         }
-    }
-
-    @objc func amimateEnemy() {
-        animateObstacle(obstacle: firstObstacle)
-        animateObstacle(obstacle: secondObstacle)
-        animatePoliceCar(car: policeCar)
-        animateFirstMotorcycle(car: firstMoto)
-        animateSecondMotorcycle(car: secondMoto)
     }
 
     // MARK: - countdown methods
@@ -264,9 +264,9 @@ class RaceViewController: UIViewController {
     }
 
     @objc private func updateStartCountLabel() {
-        if isEmpty > 0 {
-            isEmpty -= 1
-            startCountLabel.text = String(isEmpty)
+        if counter > 0 {
+            counter -= 1
+            startCountLabel.text = String(counter)
         } else {
             startCountLabel.text = ""
         }
