@@ -47,6 +47,8 @@ class RaceViewController: UIViewController {
         saveRecords()
     }
 
+    // MARK: - setup user interface methods
+
     private func createObjects() {
         let randomX = CGFloat.random(in: view.frame.minX + 100...view.frame.maxX - 100)
 
@@ -77,8 +79,6 @@ class RaceViewController: UIViewController {
         user.setImageShadowWithColor()
         view.addSubview(user)
     }
-
-    // MARK: - setup user interface methods
 
     private  func setupUI() {
         startCountLabel.textAlignment = .center

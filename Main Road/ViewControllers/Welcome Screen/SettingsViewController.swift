@@ -43,6 +43,8 @@ class SettingsViewController: UIViewController {
         defaults.setValue(levelName, forKey: "levelName")
     }
 
+    // MARK: - setup user interface methods
+
     private func setupUI() {
         selectButton.backgroundColor = .init(hex: 0xF15A25)
         selectButton.setTitle("select", for: .normal)
@@ -77,6 +79,8 @@ class SettingsViewController: UIViewController {
         label.layer.borderColor = UIColor.black.cgColor
         label.layer.borderWidth = 1.5
     }
+
+    // MARK: - player car selection methods
 
     private func setupSwipeGestureRecognizer() {
         let swipeGestureLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(_ :)))
@@ -126,6 +130,8 @@ class SettingsViewController: UIViewController {
             }
         }
     }
+
+    // MARK: - obstacle selection methods
 
     private func setupObstacleGesterRecognizer() {
         let barrelTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(fitrstimageTapped(tapGestureRecognizer:)))
@@ -182,6 +188,8 @@ class SettingsViewController: UIViewController {
         imageView.layer.borderWidth = 0
     }
 
+    // MARK: - level selection methods
+
     private func setupLabelGesterRecognizer() {
         let easyLabelTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(easyLabelTapped(tapGestureRecognizer:)))
         let mediumLabelGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(mediumLabelTapped(tapGestureRecognizer:)))
@@ -233,6 +241,8 @@ class SettingsViewController: UIViewController {
         label.textColor = .black
     }
 }
+
+// MARK: - UITextFieldDelegate methods
 
 extension SettingsViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
