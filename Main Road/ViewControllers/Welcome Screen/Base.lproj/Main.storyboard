@@ -205,13 +205,13 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="6KN-gc-xuO">
                                 <rect key="frame" x="12" y="509" width="390" height="120"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_barrel" translatesAutoresizingMaskIntoConstraints="NO" id="bzz-SL-goy">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_cone" translatesAutoresizingMaskIntoConstraints="NO" id="bzz-SL-goy">
                                         <rect key="frame" x="0.0" y="0.0" width="128.5" height="120"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_hole" translatesAutoresizingMaskIntoConstraints="NO" id="oCg-oh-Ugk">
                                         <rect key="frame" x="130.5" y="0.0" width="129" height="120"/>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_tyres" translatesAutoresizingMaskIntoConstraints="NO" id="fjb-bj-dGu">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_barrier" translatesAutoresizingMaskIntoConstraints="NO" id="fjb-bj-dGu">
                                         <rect key="frame" x="261.5" y="0.0" width="128.5" height="120"/>
                                     </imageView>
                                 </subviews>
@@ -314,11 +314,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ic_barrel" width="456" height="707"/>
+        <image name="ic_barrier" width="490.5" height="457"/>
+        <image name="ic_cone" width="296" height="378"/>
         <image name="ic_gear" width="540" height="540"/>
         <image name="ic_hole" width="1035" height="1132"/>
         <image name="ic_mainCar" width="1000" height="1000"/>
-        <image name="ic_tyres" width="419.5" height="385.5"/>
         <image name="ic_yellowCar" width="444" height="939.5"/>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

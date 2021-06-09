@@ -8,11 +8,16 @@
 import UIKit
 
 class RecordTableViewCell: UITableViewCell {
+    static let identifier = "RecordTableViewCell"
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var contentVIew: UIView!
     @IBOutlet weak var userCarImageView: UIImageView!
+
+    static func nib() -> UINib {
+        return UINib(nibName: "RecordTableViewCell", bundle: nil)
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,5 +28,4 @@ class RecordTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 }
-
 

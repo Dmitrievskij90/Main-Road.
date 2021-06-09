@@ -20,10 +20,6 @@ class WelcomeViewController: UIViewController {
         view.backgroundColor = .init(hex: 0x62AEC8)
         hideNavigationItemBackground()
         setupUI()
-//
-//        print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last! as String)
-//        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-//        print(documentsDirectory)
     }
 
     @IBAction private func startButtonPressed(_ sender: UIButton) {
@@ -36,22 +32,22 @@ class WelcomeViewController: UIViewController {
         let obstacles = UserDefaults.standard.value(forKey: "barrierType") as? String
 
         if let playerCar = car, let choosedObstacle = obstacles {
-            viewController.playerCarImageView.image = UIImage(named: playerCar)
+            viewController.user.image = UIImage(named: playerCar)
             viewController.firstObstacle.image = UIImage(named: choosedObstacle)
             viewController.secondObstacle.image = UIImage(named: choosedObstacle)
         } else {
-            viewController.playerCarImageView.image = UIImage(named: "ic_yellowCar")
-            viewController.firstObstacle.image = UIImage(named: "ic_hole")
-            viewController.secondObstacle.image = UIImage(named: "ic_hole")
+            viewController.user.image = UIImage(named: Constants.yellowCar)
+            viewController.firstObstacle.image = UIImage(named: Constants.hole)
+            viewController.secondObstacle.image = UIImage(named: Constants.hole)
         }
     }
 
     @IBAction private func settingsButtonPressed(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "SettingsID", sender: self)
+        self.performSegue(withIdentifier: Constants.settingsID, sender: self)
     }
 
     @IBAction private func recordsButtonPressed(_ sender: Any) {
-        self.performSegue(withIdentifier: "RecordsID", sender: self)
+        self.performSegue(withIdentifier: Constants.recordsID, sender: self)
     }
 
     private func setupUI() {
@@ -79,7 +75,7 @@ class WelcomeViewController: UIViewController {
         titleLabel.font = UIFont(name: "Snell roundhand", size: 80)
         titleLabel.textAlignment = .center
 
-        carImageView.image = UIImage(named: "ic_mainCar")
+        carImageView.image = UIImage(named: Constants.mainCar)
         carImageView.contentMode = .scaleAspectFill
     }
 

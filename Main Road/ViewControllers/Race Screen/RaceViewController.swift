@@ -8,18 +8,21 @@
 import UIKit
 
 class RaceViewController: UIViewController {
-    var playerCarImageView = UIImageView()
+    var user = UIImageView()
     var firstObstacle = UIImageView()
     var secondObstacle = UIImageView()
-    private var policeCarImageView = UIImageView()
+    private var policeCar = UIImageView()
+    private var firstMoto = UIImageView()
+    private var secondMoto = UIImageView()
     private var points = 0
-    private var isEmpty = 5
+    private var counter = 5
     private var animationTimer: Timer?
     private var updateTimer: Timer?
     private let level = UserDefaults.standard.value(forKey: "gameLavel") as? Double
     private var userName = UserDefaults.standard.value(forKey: "userName") as? String
     private var gameResult = [Records]()
     private var collisionTimer = Timer()
+    private lazy var dateFormatter = DateFormatter()
 
     @IBOutlet weak var leftGrassView: UIView!
     @IBOutlet weak var rightGrassView: UIView!
@@ -31,51 +34,50 @@ class RaceViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(5), execute: {
-            let timer = Timer.scheduledTimer(timeInterval: self.level ?? 0.04, target: self, selector: #selector(self.amimateEnemy), userInfo: nil, repeats: true)
-            timer.fire()
-        })
-
-        _ = Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(updateStartCountLabel), userInfo: nil, repeats: true)
-
-        let carMoveGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(playerPressed))
-        carMoveGestureRecognizer.minimumPressDuration = 0.001
-        view.addGestureRecognizer(carMoveGestureRecognizer)
-
-        createObstacles()
-        createPoliceCar()
-        createPlayerCar()
+        createObjects()
         setupUI()
-
+        startCountdown()
+        animateGame()
+        movePlayerCarWithLongPress()
         collisionHandler()
     }
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        saveResult()
+        saveRecords()
     }
 
-    private func createPlayerCar() {
-        playerCarImageView = UIImageView(image: UIImage(named: "ic_yellowCar"))
-        playerCarImageView.frame = CGRect(x: 0, y: 0, width: 70, height: 130)
-        playerCarImageView.frame.origin.y = view.bounds.height - playerCarImageView.frame.size.height - 60
-        playerCarImageView.center.x = CGFloat(self.view.bounds.midX)
-        view.addSubview(playerCarImageView)
-    }
+    // MARK: - setup user interface methods
 
-    private func createObstacles() {
-        firstObstacle.frame = CGRect(x: view.frame.midX - 110, y: view.frame.midY - 200, width: 25, height: 60)
+    private func createObjects() {
+        let randomX = CGFloat.random(in: view.frame.minX + 100...view.frame.maxX - 100)
+
+        firstObstacle.frame = CGRect(x: view.frame.midX - 140, y: view.frame.midY - 250, width: 20, height: 45)
+        firstObstacle.setImageShadowWithColor()
         view.addSubview(firstObstacle)
 
-        secondObstacle.frame = CGRect(x: view.frame.midX + 85, y: view.frame.midY + 200, width: 25, height: 60)
+        secondObstacle.frame = CGRect(x: view.frame.midX + 115, y: view.frame.midY + 200, width: 20, height: 45)
+        secondObstacle.setImageShadowWithColor()
         view.addSubview(secondObstacle)
-    }
 
-    private func createPoliceCar() {
-        let randomPoliceX = CGFloat.random(in: view.frame.minX + 100...view.frame.maxX - 100)
-        policeCarImageView.frame = CGRect(x: randomPoliceX, y: -150, width: 70, height: 130)
-        view.addSubview(policeCarImageView)
+        policeCar.frame = CGRect(x: randomX, y: view.frame.minY - 150, width: 50, height: 110)
+        policeCar.setImageShadowWithColor()
+        view.addSubview(policeCar)
+
+        firstMoto.frame = CGRect(x: randomX, y: view.frame.minY - 300, width: 40, height: 110)
+        firstMoto.setImageShadowWithColor()
+        view.addSubview(firstMoto)
+
+        secondMoto.frame = CGRect(x: randomX, y: view.frame.midY - 100, width: 40, height: 110)
+        secondMoto.setImageShadowWithColor()
+        view.addSubview(secondMoto)
+
+        user = UIImageView(image: UIImage(named: Constants.yellowCar))
+        user.frame = CGRect(x: 0, y: 0, width: 50, height: 110)
+        user.frame.origin.y = view.bounds.height - user.frame.size.height - 60
+        user.center.x = CGFloat(self.view.bounds.midX)
+        user.setImageShadowWithColor()
+        view.addSubview(user)
     }
 
     private  func setupUI() {
@@ -95,17 +97,23 @@ class RaceViewController: UIViewController {
         rightGrassView.layer.borderColor = UIColor.black.cgColor
         rightGrassView.layer.borderWidth = 3
 
-        policeCarImageView.image = UIImage(named: "ic_policeCar")
-        policeCarImageView.contentMode = .scaleAspectFill
+        policeCar.image = UIImage(named: Constants.policeCar)
+        policeCar.contentMode = .scaleAspectFill
 
-        firstObstacle.image = UIImage(named: "ic_hole")
+        firstMoto.image = UIImage(named: Constants.firstMotoArray[0])
+        firstMoto.contentMode = .scaleAspectFill
+
+        secondMoto.image = UIImage(named: Constants.secondMotoArray[3])
+        secondMoto.contentMode = .scaleAspectFill
+
+        firstObstacle.image = UIImage(named: Constants.hole)
         firstObstacle.contentMode = .scaleAspectFill
 
-        secondObstacle.image = UIImage(named: "ic_hole")
+        secondObstacle.image = UIImage(named: Constants.hole)
         secondObstacle.contentMode = .scaleAspectFill
 
         let levelName = UserDefaults.standard.value(forKey: "levelName") as? String
-        levelLabel.text = levelName ?? "easy"
+        levelLabel.text = levelName ?? Constants.easy
 
         setupLabel(label: levelLabel)
         setupLabel(label: pointsLabel)
@@ -128,6 +136,14 @@ class RaceViewController: UIViewController {
         view.addSubview(levelMark)
     }
 
+    // MARK: - move player's car methods
+
+    private func movePlayerCarWithLongPress() {
+        let carMoveGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(playerPressed))
+        carMoveGestureRecognizer.minimumPressDuration = 0.001
+        view.addGestureRecognizer(carMoveGestureRecognizer)
+    }
+
     @objc func playerPressed(recognizer: UILongPressGestureRecognizer) {
         if recognizer.state == .ended {
             if animationTimer != nil {
@@ -135,7 +151,7 @@ class RaceViewController: UIViewController {
             }
         } else if recognizer.state == .began {
             let touchPoint = recognizer.location(in: view)
-            if touchPoint.x > playerCarImageView.frame.midX {
+            if touchPoint.x > user.frame.midX {
                 animationTimer = Timer.scheduledTimer(timeInterval: 0.005, target: self, selector: #selector(moveCar), userInfo: "right", repeats: true)
             } else {
                 animationTimer = Timer.scheduledTimer(timeInterval: 0.005, target: self, selector: #selector(moveCar), userInfo: "left", repeats: true)
@@ -146,10 +162,10 @@ class RaceViewController: UIViewController {
 
     @objc func moveCar(timer: Timer) {
         if let direction = timer.userInfo as? String {
-            var playerCarFrame = playerCarImageView.frame
+            var playerCarFrame = user.frame
 
             if direction == "right" {
-                if playerCarFrame.origin.x < rightGrassView.frame.minX - 70 {
+                if playerCarFrame.origin.x < rightGrassView.frame.minX - 50 {
                     playerCarFrame.origin.x += 2
                 }
             } else {
@@ -157,28 +173,47 @@ class RaceViewController: UIViewController {
                     playerCarFrame.origin.x -= 2
                 }
             }
-            playerCarImageView.frame = playerCarFrame
+            user.frame = playerCarFrame
         }
     }
 
+    // MARK: - collision handling method
+
     private func collisionHandler() {
         collisionTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { _ in
-            if self.playerCarImageView.frame.intersects(self.policeCarImageView.frame) || self.playerCarImageView.frame.intersects(self.firstObstacle.frame)
-                || self.playerCarImageView.frame.intersects(self.secondObstacle.frame) {
+            if self.user.frame.intersects(self.policeCar.frame) || self.user.frame.intersects(self.firstObstacle.frame)
+                || self.user.frame.intersects(self.secondObstacle.frame) || self.user.frame.intersects(self.firstMoto.frame) || self.user.frame.intersects(self.secondMoto.frame) {
                 self.collisionTimer.invalidate()
                 self.dismiss(animated: true, completion: nil)
             }
         })
     }
-    
-    private func animateObstacle(obstacle: UIImageView) {
+
+    // MARK: - animation methods
+
+    private func animateGame() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(5), execute: {
+            let timer = Timer.scheduledTimer(timeInterval: self.level ?? 0.04, target: self, selector: #selector(self.amimateEnemy), userInfo: nil, repeats: true)
+            timer.fire()
+        })
+    }
+
+    @objc func amimateEnemy() {
+        animateObstacle(firstObstacle)
+        animateObstacle(secondObstacle)
+        animatePoliceCar(policeCar)
+        animateFirstMotorcycle(firstMoto)
+        animateSecondMotorcycle(secondMoto)
+    }
+
+    private func animateObstacle(_ obstacle: UIImageView) {
         obstacle.frame = CGRect(x: obstacle.frame.origin.x, y: obstacle.frame.origin.y + 11, width: obstacle.frame.width, height: obstacle.frame.height)
         if obstacle.frame.origin.y >= self.view.bounds.maxY {
             obstacle.frame.origin.y = 0
         }
     }
 
-    private func animatePoliceCar(car: UIImageView) {
+    private func animatePoliceCar(_ car: UIImageView) {
         let randomPoliceX = CGFloat.random(in: view.frame.minX + 100...view.frame.maxX - 100)
         car.frame = CGRect(x: car.frame.origin.x, y: car.frame.origin.y + 10, width: car.frame.width, height: car.frame.height)
         if car.frame.origin.y >= self.view.bounds.maxY {
@@ -189,22 +224,57 @@ class RaceViewController: UIViewController {
         }
     }
 
-    @objc func amimateEnemy() {
-        animateObstacle(obstacle: firstObstacle)
-        animateObstacle(obstacle: secondObstacle)
-        animatePoliceCar(car: policeCarImageView)
+    private func animateFirstMotorcycle(_ moto: UIImageView) {
+        guard let imageName = Constants.firstMotoArray.randomElement() else {
+            assert(true, "Can't find image name")
+            return
+        }
+
+        let randomPoliceX = CGFloat.random(in: view.frame.minX + 100...view.frame.maxX - 100)
+        moto.frame = CGRect(x: moto.frame.origin.x, y: moto.frame.origin.y + 9.8, width: moto.frame.width, height: moto.frame.height)
+        if moto.frame.origin.y >= self.view.bounds.maxY {
+            moto.frame.origin.y = 0
+            moto.frame.origin.x = randomPoliceX
+            firstMoto.image = UIImage(named: imageName)
+            points += 1
+            pointsLabel.text = "\(points)"
+        }
+    }
+
+    private func animateSecondMotorcycle(_ moto: UIImageView) {
+        guard let imageName = Constants.secondMotoArray.randomElement() else {
+            assert(true, "Can't find image name")
+            return
+        }
+        let randomPoliceX = CGFloat.random(in: view.frame.minX + 100...view.frame.maxX - 100)
+        moto.frame = CGRect(x: moto.frame.origin.x, y: moto.frame.origin.y + 9.9, width: moto.frame.width, height: moto.frame.height)
+        if moto.frame.origin.y >= self.view.bounds.maxY {
+            moto.frame.origin.y = 0
+            moto.frame.origin.x = randomPoliceX
+            secondMoto.image = UIImage(named: imageName)
+            points += 1
+            pointsLabel.text = "\(points)"
+        }
+    }
+
+    // MARK: - countdown methods
+
+    private func startCountdown() {
+        Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(updateStartCountLabel), userInfo: nil, repeats: true)
     }
 
     @objc private func updateStartCountLabel() {
-        if isEmpty > 0 {
-            isEmpty -= 1
-            startCountLabel.text = String(isEmpty)
+        if counter > 0 {
+            counter -= 1
+            startCountLabel.text = String(counter)
         } else {
             startCountLabel.text = ""
         }
     }
 
-    private func saveResult() {
+    // MARK: - save records methods
+
+    private func saveRecords() {
         var folderPath = FileManager.getDocumentsDirectory()
         folderPath.appendPathComponent("Records")
 
@@ -215,7 +285,7 @@ class RaceViewController: UIViewController {
         let car = UserDefaults.standard.value(forKey: "userCar") as? String
 
         if let level = levelLabel.text {
-            let results = Records(level: level, points: points, gameDate: getCurrentDate("dd.MM.yyyy"), userName: userName ?? "User", userCar: car ?? "ic_yellowCar")
+            let results = Records(level: level, points: points, gameDate: getCurrentDate("dd.MM.yyyy"), userName: userName ?? "User", userCar: car ?? Constants.yellowCar)
             let data = try? JSONEncoder().encode(results)
             let dataPath = folderPath.appendingPathComponent("\(fileName).json")
             FileManager.default.createFile(atPath: dataPath.path, contents: data, attributes: nil)
@@ -223,7 +293,6 @@ class RaceViewController: UIViewController {
     }
 
     private func getCurrentDate(_ dateFormat: String) -> String {
-        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = dateFormat
         let dataString = dateFormatter.string(from: Date())
         return dataString

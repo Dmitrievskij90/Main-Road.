@@ -10,12 +10,12 @@ import UIKit
 class SettingsViewController: UIViewController {
     private let defaults = UserDefaults.standard
     private var index = 0
-    private var selectedImage = "ic_barrel"
+    private var selectedImage = Constants.hole
     private var level: Double = 0.04
-    private var levelName = "easy"
+    private var levelName = Constants.easy
     private var userName = ""
-    private var cars = [UIImage(named: "ic_yellowCar"), UIImage(named: "ic_silverCar"), UIImage(named: "ic_redCar")]
-    private var carName = ["ic_yellowCar", "ic_silverCar", "ic_redCar"]
+    private var cars = [UIImage(named: Constants.yellowCar), UIImage(named: Constants.silverCar), UIImage(named: Constants.redCar)]
+    private var carName = [Constants.yellowCar, Constants.silverCar, Constants.redCar]
 
     @IBOutlet weak var carImageView: UIImageView!
     @IBOutlet weak var barrelImageView: UIImageView!
@@ -43,6 +43,8 @@ class SettingsViewController: UIViewController {
         defaults.setValue(levelName, forKey: "levelName")
     }
 
+    // MARK: - setup user interface methods
+
     private func setupUI() {
         selectButton.backgroundColor = .init(hex: 0xF15A25)
         selectButton.setTitle("select", for: .normal)
@@ -52,18 +54,18 @@ class SettingsViewController: UIViewController {
         selectButton.layer.borderColor = UIColor.black.cgColor
         selectButton.layer.borderWidth = 1.5
 
-        barrelImageView.image = UIImage(named: "ic_barrel")
+        barrelImageView.image = UIImage(named: Constants.cone)
         barrelImageView.contentMode = .scaleAspectFit
 
-        holeImageView.image = UIImage(named: "ic_hole")
+        holeImageView.image = UIImage(named: Constants.hole)
         holeImageView.contentMode = .scaleAspectFit
 
-        tyresImageView.image = UIImage(named: "ic_barrier")
+        tyresImageView.image = UIImage(named: Constants.barrier)
         tyresImageView.contentMode = .scaleAspectFit
 
-        setupLabel(label: easyLevelLabel, title: "easy")
-        setupLabel(label: mediumLevelLabel, title: "medium")
-        setupLabel(label: hardLavelLabel, title: "hard")
+        setupLabel(label: easyLevelLabel, title: Constants.easy)
+        setupLabel(label: mediumLevelLabel, title: Constants.medium)
+        setupLabel(label: hardLavelLabel, title: Constants.hard)
     }
 
     private func setupLabel(label: UILabel, title: String) {
@@ -77,6 +79,8 @@ class SettingsViewController: UIViewController {
         label.layer.borderColor = UIColor.black.cgColor
         label.layer.borderWidth = 1.5
     }
+
+    // MARK: - player car selection methods
 
     private func setupSwipeGestureRecognizer() {
         let swipeGestureLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(_ :)))
@@ -127,6 +131,8 @@ class SettingsViewController: UIViewController {
         }
     }
 
+    // MARK: - obstacle selection methods
+
     private func setupObstacleGesterRecognizer() {
         let barrelTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(fitrstimageTapped(tapGestureRecognizer:)))
         let holeTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(secondimageTapped(tapGestureRecognizer:)))
@@ -142,7 +148,7 @@ class SettingsViewController: UIViewController {
     }
 
     @objc func fitrstimageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
-        selectedImage = "ic_barrel"
+        selectedImage = Constants.cone
 
         barrelImageView.layer.cornerRadius = 25
         barrelImageView.clipsToBounds = true
@@ -154,7 +160,7 @@ class SettingsViewController: UIViewController {
     }
 
     @objc func secondimageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
-        selectedImage = "ic_hole"
+        selectedImage = Constants.hole
 
         holeImageView.layer.cornerRadius = 25
         holeImageView.clipsToBounds = true
@@ -166,7 +172,7 @@ class SettingsViewController: UIViewController {
     }
 
     @objc func thirdimageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
-        selectedImage = "ic_barrier"
+        selectedImage = Constants.barrier
 
         tyresImageView.layer.cornerRadius = 25
         tyresImageView.clipsToBounds = true
@@ -181,6 +187,8 @@ class SettingsViewController: UIViewController {
         imageView.backgroundColor = .white
         imageView.layer.borderWidth = 0
     }
+
+    // MARK: - level selection methods
 
     private func setupLabelGesterRecognizer() {
         let easyLabelTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(easyLabelTapped(tapGestureRecognizer:)))
@@ -198,7 +206,7 @@ class SettingsViewController: UIViewController {
 
     @objc private func easyLabelTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         level = 0.04
-        levelName = "easy"
+        levelName = Constants.easy
 
         easyLevelLabel.backgroundColor = .darkGray
         easyLevelLabel.textColor = .white
@@ -209,8 +217,8 @@ class SettingsViewController: UIViewController {
 
     @objc private func mediumLabelTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         level = 0.03
-        levelName = "medium"
-        //        print(level)
+        levelName = Constants.medium
+
         mediumLevelLabel.backgroundColor = .darkGray
         mediumLevelLabel.textColor = .white
 
@@ -220,8 +228,8 @@ class SettingsViewController: UIViewController {
 
     @objc private func hardLabelTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         level = 0.02
-        levelName = "hard"
-        //        print(level)
+        levelName = Constants.hard
+        
         hardLavelLabel.backgroundColor = .darkGray
         hardLavelLabel.textColor = .white
         resetLabelBackground(label: mediumLevelLabel)
@@ -233,6 +241,8 @@ class SettingsViewController: UIViewController {
         label.textColor = .black
     }
 }
+
+// MARK: - UITextFieldDelegate methods
 
 extension SettingsViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
