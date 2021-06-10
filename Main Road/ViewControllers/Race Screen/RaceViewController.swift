@@ -48,7 +48,7 @@ class RaceViewController: UIViewController {
     }
 
     // MARK: - setup user interface methods
-
+    // MARK: -
     private func createObjects() {
         let randomX = CGFloat.random(in: view.frame.minX + 100...view.frame.maxX - 100)
 
@@ -115,6 +115,9 @@ class RaceViewController: UIViewController {
         let levelName = UserDefaults.standard.value(forKey: "levelName") as? String
         levelLabel.text = levelName ?? Constants.easy
 
+        pointsMark.text = Constants.raceScreenPointsLabelText
+        levelMark.text = Constants.raceScreenLevelLabelText
+
         setupLabel(label: levelLabel)
         setupLabel(label: pointsLabel)
         setupLabel(label: levelMark)
@@ -137,7 +140,7 @@ class RaceViewController: UIViewController {
     }
 
     // MARK: - move player's car methods
-
+    // MARK: -
     private func movePlayerCarWithLongPress() {
         let carMoveGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(playerPressed))
         carMoveGestureRecognizer.minimumPressDuration = 0.001
@@ -178,7 +181,7 @@ class RaceViewController: UIViewController {
     }
 
     // MARK: - collision handling method
-
+    // MARK: -
     private func collisionHandler() {
         collisionTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { _ in
             if self.user.frame.intersects(self.policeCar.frame) || self.user.frame.intersects(self.firstObstacle.frame)
@@ -190,7 +193,7 @@ class RaceViewController: UIViewController {
     }
 
     // MARK: - animation methods
-
+    // MARK: -
     private func animateGame() {
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(5), execute: {
             let timer = Timer.scheduledTimer(timeInterval: self.level ?? 0.04, target: self, selector: #selector(self.amimateEnemy), userInfo: nil, repeats: true)
@@ -258,7 +261,7 @@ class RaceViewController: UIViewController {
     }
 
     // MARK: - countdown methods
-
+    // MARK: -
     private func startCountdown() {
         Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(updateStartCountLabel), userInfo: nil, repeats: true)
     }
@@ -273,7 +276,7 @@ class RaceViewController: UIViewController {
     }
 
     // MARK: - save records methods
-
+    // MARK: -
     private func saveRecords() {
         var folderPath = FileManager.getDocumentsDirectory()
         folderPath.appendPathComponent("Records")
@@ -283,9 +286,10 @@ class RaceViewController: UIViewController {
         let fileName = getCurrentDate("yyyy MMM dd HH:mm:ss")
 
         let car = UserDefaults.standard.value(forKey: "userCar") as? String
+        let date = getCurrentDate("dd.MM.yyyy")
 
         if let level = levelLabel.text {
-            let results = Records(level: level, points: points, gameDate: getCurrentDate("dd.MM.yyyy"), userName: userName ?? "User", userCar: car ?? Constants.yellowCar)
+            let results = Records(level: level, points: points, gameDate: date, userName: userName ?? Constants.defaultUserName, userCar: car ?? Constants.yellowCar)
             let data = try? JSONEncoder().encode(results)
             let dataPath = folderPath.appendingPathComponent("\(fileName).json")
             FileManager.default.createFile(atPath: dataPath.path, contents: data, attributes: nil)

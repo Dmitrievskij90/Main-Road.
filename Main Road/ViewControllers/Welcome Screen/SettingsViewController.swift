@@ -45,10 +45,10 @@ class SettingsViewController: UIViewController {
     }
 
     // MARK: - setup user interface methods
-
+    // MARK: -
     private func setupUI() {
         selectButton.backgroundColor = .init(hex: 0xF15A25)
-        selectButton.setTitle("select", for: .normal)
+        selectButton.setTitle(Constants.selectButtonTitle, for: .normal)
         selectButton.setTitleColor(.white, for: .normal)
         selectButton.titleLabel?.font = UIFont(name: "bodoni 72 smallcaps", size: 20)
         selectButton.layer.cornerRadius = 10
@@ -67,6 +67,9 @@ class SettingsViewController: UIViewController {
         setupLabel(label: easyLevelLabel, title: Constants.easy)
         setupLabel(label: mediumLevelLabel, title: Constants.medium)
         setupLabel(label: hardLavelLabel, title: Constants.hard)
+
+        navigationItem.title = Constants.settingsScreenNavigationItemTitle
+        userNameTextField.placeholder = Constants.userNameTextFieldPlaceholder
     }
 
     private func setupLabel(label: UILabel, title: String) {
@@ -82,7 +85,7 @@ class SettingsViewController: UIViewController {
     }
 
     // MARK: - player car selection methods
-
+    // MARK: -
     private func setupSwipeGestureRecognizer() {
         let swipeGestureLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(_ :)))
         let swipeGestureRight = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(_ :)))
@@ -127,13 +130,13 @@ class SettingsViewController: UIViewController {
             self.carImageView.transform = CGAffineTransform(rotationAngle: .pi * 2.0)
         } completion: { _ in
             UIView.animate(withDuration: 0.3) {
-                self.carImageView.transform = CGAffineTransform.identity.scaledBy(x: 1.5, y: 1.5)
+                self.carImageView.transform = CGAffineTransform.identity.scaledBy(x: 1.3, y: 1.3)
             }
         }
     }
 
     // MARK: - obstacle selection methods
-
+    // MARK: -
     private func setupObstacleGesterRecognizer() {
         let barrelTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(fitrstimageTapped(tapGestureRecognizer:)))
         let holeTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(secondimageTapped(tapGestureRecognizer:)))
@@ -191,7 +194,7 @@ class SettingsViewController: UIViewController {
     }
 
     // MARK: - level selection methods
-
+    // MARK: -
     private func setupLabelGesterRecognizer() {
         let easyLabelTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(easyLabelTapped(tapGestureRecognizer:)))
         let mediumLabelGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(mediumLabelTapped(tapGestureRecognizer:)))
@@ -246,12 +249,12 @@ class SettingsViewController: UIViewController {
 }
 
 // MARK: - UITextFieldDelegate methods
-
+// MARK: -
 extension SettingsViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let name = textField.text {
             if name.isEmpty {
-                self.userName = "User"
+                self.userName = Constants.defaultUserName
             } else {
                 userName = name
             }

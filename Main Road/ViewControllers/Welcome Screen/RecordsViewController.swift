@@ -13,6 +13,7 @@ class RecordsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = Constants.recordsScreenNavigationItemTitle
         view.backgroundColor = .init(hex:0xfaf2da)
         recordsTableView.backgroundColor = .init(hex:0xfaf2da)
         recordsTableView.delegate = self
@@ -52,7 +53,6 @@ extension RecordsViewController: UITableViewDelegate, UITableViewDataSource {
         }
 
         let sortedRecords = gameRecords.sorted { $0.points > $1.points }
-        
         cell.userNameLabel.text = sortedRecords[indexPath.row].userName
         cell.scoreLabel.text = "Score: \(sortedRecords[indexPath.row].points)"
         cell.dateLabel.text = sortedRecords[indexPath.row].gameDate
