@@ -6,8 +6,7 @@ target 'Main Road' do
   use_frameworks!
 
   # Pods for Main Road
-
-pod 'Firebase/Analytics'
 pod 'Firebase/Crashlytics'
+pod 'Firebase/Analytics'
 
 end
