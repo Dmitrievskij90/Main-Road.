@@ -1,0 +1,28 @@
+/* 
+  Localizable.strings
+  Main Road
+
+  Created by Konstantin Dmitrievskiy on 09.06.2021.
+  
+*/
+
+// Welcome screen
+"start_screen_title" = "Main road";
+"start_screen_startButton_title" = "Start";
+"start_screen_recordsButton_title" = "Records";
+
+// Settings screen
+"easy_level_label_title" = "easy";
+"medium_level_label_title" = "medium";
+"hard_level_label_title" = "hard";
+"settings_screen_selectButton_title" = "Select";
+"settings_screen_userNameTextField_placeholder" = "User name";
+"settings_screen_navigationItem_title" = "Settings";
+"settings_screen_defaultUserName" = "Racer";
+
+//Records screen
+"records_screen_navigationItem_title" = "Records";
+
+//Race screen
+"level_label_title" = "Level";
+"points_level_label_title" = "Points";

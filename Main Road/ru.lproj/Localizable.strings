@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  Main Road
+
+  Created by Konstantin Dmitrievskiy on 09.06.2021.
+  
+*/
+// Welcome screen
+"start_screen_title" = "Главная дорога";
+"start_screen_startButton_title" = "Старт";
+"start_screen_recordsButton_title" = "Рекорды";
+
+// Settings screen
+"easy_level_label_title" = "Новичёк";
+"medium_level_label_title" = "Опытный";
+"hard_level_label_title" = "Профи";
+"settings_screen_selectButton_title" = "Выбрать";
+"settings_screen_userNameTextField_placeholder" = "Имя пользователя";
+"settings_screen_navigationItem_title" = "Настройки";
+"settings_screen_defaultUserName" = "Гонщик";
+
+//Records screen
+"records_screen_navigationItem_title" = "Рекорды";
+
+//Race screen
+"level_label_title" = "Уровень";
+"points_level_label_title" = "Очки";

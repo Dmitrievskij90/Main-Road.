@@ -52,14 +52,14 @@ class WelcomeViewController: UIViewController {
 
     private func setupUI() {
         startButton.backgroundColor = .init(hex:0xfaf2da)
-        startButton.setTitle("START", for: .normal)
+        startButton.setTitle(Constants.startButtonTitle, for: .normal)
         startButton.setTitleColor(.black, for: .normal)
         startButton.titleLabel?.font = UIFont(name: "bodoni 72 smallcaps", size: 35)
         startButton.layer.cornerRadius = 65
         startButton.layer.borderColor = UIColor.black.cgColor
         startButton.layer.borderWidth = 3
 
-        recordsButton.setTitle("RECORDS", for: .normal)
+        recordsButton.setTitle(Constants.recordsButtonTitle, for: .normal)
         recordsButton.setTitleColor(.black, for: .normal)
         recordsButton.titleLabel?.font = UIFont(name: "bodoni 72 smallcaps", size: 15)
         recordsButton.layer.cornerRadius = 12
@@ -70,7 +70,7 @@ class WelcomeViewController: UIViewController {
 
         lineView.backgroundColor = .init(hex: 0xF15A25)
 
-        titleLabel.text = "Main road"
+        titleLabel.text = Constants.welcomeScreenTitle
         titleLabel.textColor = .black
         titleLabel.font = UIFont(name: "Snell roundhand", size: 80)
         titleLabel.textAlignment = .center

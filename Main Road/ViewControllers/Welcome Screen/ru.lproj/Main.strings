@@ -1,0 +1,33 @@
+
+/* Class = "UIViewController"; title = "Records"; ObjectID = "9iQ-Y9-BIN"; */
+"9iQ-Y9-BIN.title" = "Records";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Ppo-CB-RWS"; */
+"Ppo-CB-RWS.normalTitle" = "Button";
+
+/* Class = "UINavigationItem"; title = "Rating"; ObjectID = "SRO-X4-JYX"; */
+"SRO-X4-JYX.title" = "Rating";
+
+/* Class = "UILabel"; text = "Main Road"; ObjectID = "abW-O8-DC0"; */
+"abW-O8-DC0.text" = "Main Road";
+
+/* Class = "UITextField"; placeholder = "User name"; ObjectID = "b6w-x1-JGk"; */
+"b6w-x1-JGk.placeholder" = "User name";
+
+/* Class = "UILabel"; text = "hard"; ObjectID = "dOP-nG-3PC"; */
+"dOP-nG-3PC.text" = "hard";
+
+/* Class = "UILabel"; text = "medium"; ObjectID = "fG6-0f-ZUd"; */
+"fG6-0f-ZUd.text" = "medium";
+
+/* Class = "UIButton"; normalTitle = "Start"; ObjectID = "kdF-Xr-oN9"; */
+"kdF-Xr-oN9.normalTitle" = "Start";
+
+/* Class = "UIButton"; normalTitle = "Select"; ObjectID = "s9h-fY-v7K"; */
+"s9h-fY-v7K.normalTitle" = "Select";
+
+/* Class = "UILabel"; text = "easy"; ObjectID = "slg-q1-Dpm"; */
+"slg-q1-Dpm.text" = "easy";
+
+/* Class = "UIButton"; normalTitle = "Records"; ObjectID = "vnh-Jo-8tB"; */
+"vnh-Jo-8tB.normalTitle" = "Records";
