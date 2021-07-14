@@ -30,8 +30,12 @@ class SoundManager {
         if let existingPlayer = soundPlayers[fileName] {
             return existingPlayer
         }
-        let fileURL = Bundle.main.url(forResource: fileName, withExtension: nil)!
-        let newPlayer = try! AVAudioPlayer(contentsOf: fileURL)
+        guard let fileURL = Bundle.main.url(forResource: fileName, withExtension: nil) else {
+            fatalError("Error")
+        }
+        guard let newPlayer = try? AVAudioPlayer(contentsOf: fileURL) else {
+            fatalError("Error")
+        }
         soundPlayers[fileName] = newPlayer
         return newPlayer
     }

@@ -61,5 +61,7 @@ enum Constants {
     static let raceScreenPointsLabelText = "points_level_label_title".localize()
 
     static let backGroundSound = "background.mp3"
-    static let boomSound = "bum.mp3"
+    static let explosionSound = "explosion.mp3"
+    static let swipeSound = "swipe.mp3"
+    static let selectSound = "select.mp3"
 }
