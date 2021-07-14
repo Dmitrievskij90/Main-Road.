@@ -14,6 +14,7 @@ class SettingsViewController: UIViewController {
     private var level: Double = 0.04
     private var levelName = Constants.easy
     private var userName = ""
+    private var soundManager = SoundManager()
     private var cars = [UIImage(named: Constants.yellowCar), UIImage(named: Constants.silverCar), UIImage(named: Constants.redCar)]
     private var carName = [Constants.yellowCar, Constants.silverCar, Constants.redCar]
 
@@ -42,6 +43,7 @@ class SettingsViewController: UIViewController {
         defaults.setValue(level, forKey: "gameLavel")
         defaults.setValue(levelName, forKey: "levelName")
         selectButton.backgroundColor = .init(hex: 0xc0481d)
+        soundManager.playSound(fileName: Constants.selectSound)
     }
 
     // MARK: - setup user interface methods
@@ -104,12 +106,14 @@ class SettingsViewController: UIViewController {
                 carImageView.transform = CGAffineTransform(translationX: 300, y: 0)
                 carImageView.transform = carImageView.transform.rotated(by: .pi)
                 applyAnimation()
+                soundManager.playSound(fileName: Constants.swipeSound)
             case .right:
                 index -= 1
                 checkIndex()
                 carImageView.transform = CGAffineTransform(translationX: -300, y: 0)
                 carImageView.transform = carImageView.transform.rotated(by: .pi)
                 applyAnimation()
+                soundManager.playSound(fileName: Constants.swipeSound)
             default:
                 break
             }
