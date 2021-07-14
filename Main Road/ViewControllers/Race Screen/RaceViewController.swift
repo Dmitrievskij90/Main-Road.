@@ -55,23 +55,23 @@ class RaceViewController: UIViewController {
     private func createObjects() {
         let randomX = CGFloat.random(in: view.frame.minX + 100...view.frame.maxX - 100)
 
-        firstObstacle.frame = CGRect(x: view.frame.midX - 140, y: view.frame.midY - 250, width: 20, height: 45)
+        firstObstacle.frame = CGRect(x: leftGrassView.frame.maxX, y: view.frame.midY - 250, width: 20, height: 45)
         firstObstacle.setImageShadowWithColor()
         view.addSubview(firstObstacle)
 
-        secondObstacle.frame = CGRect(x: view.frame.midX + 115, y: view.frame.midY + 200, width: 20, height: 45)
+        secondObstacle.frame = CGRect(x: rightGrassView.frame.minX - 40, y: view.frame.midY + 200, width: 20, height: 45)
         secondObstacle.setImageShadowWithColor()
         view.addSubview(secondObstacle)
 
-        policeCar.frame = CGRect(x: randomX, y: view.frame.minY - 150, width: 50, height: 110)
+        policeCar.frame = CGRect(x: randomX, y: view.frame.minY - 150, width: 45, height: 100)
         policeCar.setImageShadowWithColor()
         view.addSubview(policeCar)
 
-        firstMoto.frame = CGRect(x: randomX, y: view.frame.minY - 300, width: 40, height: 110)
+        firstMoto.frame = CGRect(x: randomX, y: view.frame.minY - 300, width: 35, height: 100)
         firstMoto.setImageShadowWithColor()
         view.addSubview(firstMoto)
 
-        secondMoto.frame = CGRect(x: randomX, y: view.frame.midY - 100, width: 40, height: 110)
+        secondMoto.frame = CGRect(x: randomX, y: view.frame.midY - 100, width: 35, height: 100)
         secondMoto.setImageShadowWithColor()
         view.addSubview(secondMoto)
 
@@ -200,16 +200,16 @@ class RaceViewController: UIViewController {
     }
 
     private func gameOver() {
+        self.soundManager.playSound(fileName: Constants.explosionSound)
+        self.soundManager.stopLoopingSound(fileName: Constants.backGroundSound)
+
         self.policeCar.removeFromSuperview()
         self.firstMoto.removeFromSuperview()
         self.secondMoto.removeFromSuperview()
         self.firstObstacle.removeFromSuperview()
         self.secondObstacle.removeFromSuperview()
 
-        self.soundManager.playSound(fileName: Constants.explosionSound)
-        self.soundManager.stopLoopingSound(fileName: Constants.backGroundSound)
-
-        UIView.animate(withDuration: 2) {
+        UIView.animate(withDuration: 1) {
             self.user.image = UIImage(named: "ic_crash")
             self.user.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
             self.user.frame.origin.y = self.view.bounds.height - self.user.frame.size.height - 60
