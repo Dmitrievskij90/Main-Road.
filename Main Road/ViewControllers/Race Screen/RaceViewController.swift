@@ -11,6 +11,9 @@ class RaceViewController: UIViewController {
     var user = UIImageView()
     var firstObstacle = UIImageView()
     var secondObstacle = UIImageView()
+
+    private var soundManager = SoundManager()
+    private var isPlaying = true
     private var policeCar = UIImageView()
     private var firstMoto = UIImageView()
     private var secondMoto = UIImageView()
@@ -164,6 +167,7 @@ class RaceViewController: UIViewController {
     }
 
     @objc func moveCar(timer: Timer) {
+        if isPlaying {
         if let direction = timer.userInfo as? String {
             var playerCarFrame = user.frame
 
@@ -178,18 +182,49 @@ class RaceViewController: UIViewController {
             }
             user.frame = playerCarFrame
         }
+        }
     }
 
     // MARK: - collision handling method
     // MARK: -
     private func collisionHandler() {
-        collisionTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { _ in
+        collisionTimer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: false, block: { _ in
             if self.user.frame.intersects(self.policeCar.frame) || self.user.frame.intersects(self.firstObstacle.frame)
                 || self.user.frame.intersects(self.secondObstacle.frame) || self.user.frame.intersects(self.firstMoto.frame) || self.user.frame.intersects(self.secondMoto.frame) {
+                self.isPlaying = false
+                self.gameOver()
                 self.collisionTimer.invalidate()
-                self.dismiss(animated: true, completion: nil)
+                self.showGameOverAlert()
             }
         })
+    }
+
+    private func gameOver() {
+        self.policeCar.removeFromSuperview()
+        self.firstMoto.removeFromSuperview()
+        self.secondMoto.removeFromSuperview()
+        self.firstObstacle.removeFromSuperview()
+        self.secondObstacle.removeFromSuperview()
+
+        self.soundManager.playSound(fileName: Constants.explosionSound)
+        self.soundManager.stopLoopingSound(fileName: Constants.backGroundSound)
+
+        UIView.animate(withDuration: 2) {
+            self.user.image = UIImage(named: "ic_crash")
+            self.user.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+            self.user.frame.origin.y = self.view.bounds.height - self.user.frame.size.height - 60
+            self.user.center.x = CGFloat(self.view.bounds.midX)
+            self.user.contentMode = .scaleAspectFit
+        }
+    }
+
+    private func showGameOverAlert() {
+        let alert = UIAlertController(title: "Game over", message: "You crashed your car", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Try again", style: .cancel) { _ in
+            self.dismiss(animated: true, completion: nil)
+        }
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
     }
 
     // MARK: - animation methods
@@ -198,15 +233,19 @@ class RaceViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(5), execute: {
             let timer = Timer.scheduledTimer(timeInterval: self.level ?? 0.04, target: self, selector: #selector(self.amimateEnemy), userInfo: nil, repeats: true)
             timer.fire()
+            self.soundManager.startLoopingSound(fileName: Constants.backGroundSound, volume: 0.1)
         })
     }
 
     @objc func amimateEnemy() {
+        if isPlaying {
         animateObstacle(firstObstacle)
         animateObstacle(secondObstacle)
         animatePoliceCar(policeCar)
         animateFirstMotorcycle(firstMoto)
         animateSecondMotorcycle(secondMoto)
+        collisionHandler()
+        }
     }
 
     private func animateObstacle(_ obstacle: UIImageView) {
