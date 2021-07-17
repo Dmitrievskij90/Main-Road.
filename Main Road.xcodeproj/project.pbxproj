@@ -136,6 +136,7 @@
 		5C0F7C93262B4E0A0048A434 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5C64AE0926A31570001B036F /* Sounds */,
 				5C0F7C94262B4E3D0048A434 /* TitilliumWeb-Bold.ttf */,
 				5C0F7C97262B4E490048A434 /* TitilliumWeb-Regular.ttf */,
 			);
@@ -166,6 +167,17 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		5C64AE0926A31570001B036F /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				5CBC93CB269B6F4600C63BE0 /* background.mp3 */,
+				5CBC93C6269B6D9F00C63BE0 /* explosion.mp3 */,
+				5C528744269CBAF100B3F3E1 /* swipe.mp3 */,
+				5C528747269CBBAB00B3F3E1 /* select.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		5C75FBA4262088B7004BE186 = {
 			isa = PBXGroup;
 			children = (
@@ -193,14 +205,10 @@
 				5C75FBB9262088B9004BE186 /* Assets.xcassets */,
 				5C75FBBE262088B9004BE186 /* Info.plist */,
 				5C91031626467F8C00F59930 /* Model */,
-				5C0F7C93262B4E0A0048A434 /* Resources */,
 				5C0F6FE2264469FC00F6C0FA /* ViewControllers */,
 				5C2F0ACF26519A9100417225 /* View */,
+				5C0F7C93262B4E0A0048A434 /* Resources */,
 				5C2C4D08266D017F00C0456D /* Extensions */,
-				5CBC93CB269B6F4600C63BE0 /* background.mp3 */,
-				5CBC93C6269B6D9F00C63BE0 /* explosion.mp3 */,
-				5C528744269CBAF100B3F3E1 /* swipe.mp3 */,
-				5C528747269CBBAB00B3F3E1 /* select.mp3 */,
 				5C2C4D0A266D02B100C0456D /* Constants.swift */,
 				5C6C1A6426722F8E0044262D /* GoogleService-Info.plist */,
 				5C9147D92670D51500DEC75D /* Localizable.strings */,

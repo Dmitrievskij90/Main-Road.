@@ -61,7 +61,7 @@ class WelcomeViewController: UIViewController {
 
         recordsButton.setTitle(Constants.recordsButtonTitle, for: .normal)
         recordsButton.setTitleColor(.black, for: .normal)
-        recordsButton.titleLabel?.font = UIFont(name: "bodoni 72 smallcaps", size: 15)
+        recordsButton.titleLabel?.font = UIFont(name: "bodoni 72 smallcaps", size: 20)
         recordsButton.layer.cornerRadius = 12
         recordsButton.layer.borderColor = UIColor.black.cgColor
         recordsButton.layer.borderWidth = 3
