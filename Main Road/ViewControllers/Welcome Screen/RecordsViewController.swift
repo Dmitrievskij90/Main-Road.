@@ -25,13 +25,13 @@ class RecordsViewController: UIViewController {
         guard let folderPath = FileManager.getPathOfDirectory(named: "Records") else {
             return
         }
-
+        
         if let results = try? FileManager.default.contentsOfDirectory(at: folderPath, includingPropertiesForKeys: [.nameKey], options: .includesDirectoriesPostOrder) {
             for result in results {
                 guard let data = try? Data(contentsOf: result) else {
                     return
                 }
-
+                
                 let decoder = JSONDecoder()
                 if let raceResult = try? decoder.decode(Records.self, from: data ) {
                     gameRecords.append(raceResult)
@@ -50,7 +50,7 @@ extension RecordsViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: RecordTableViewCell.identifier, for: indexPath) as? RecordTableViewCell else {
             return UITableViewCell()
         }
-
+        
         let sortedRecords = gameRecords.sorted { $0.points > $1.points }
         cell.userNameLabel.text = sortedRecords[indexPath.row].userName
         cell.scoreLabel.text = "Score: \(sortedRecords[indexPath.row].points)"

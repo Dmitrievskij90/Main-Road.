@@ -9,23 +9,23 @@ import Foundation
 
 class SoundManager {
     var soundPlayers = [String: AVAudioPlayer]()
-
+    
     func startLoopingSound(fileName: String, volume: Float) {
         let player = playerForFile(fileName: fileName)
         player.volume = volume
         player.numberOfLoops = -1
         player.play()
     }
-
+    
     func stopLoopingSound(fileName: String) {
         playerForFile(fileName: fileName).stop()
     }
-
+    
     func playSound(fileName: String) {
         let player = playerForFile(fileName: fileName)
         player.play()
     }
-
+    
     private func playerForFile(fileName: String) -> AVAudioPlayer {
         if let existingPlayer = soundPlayers[fileName] {
             return existingPlayer

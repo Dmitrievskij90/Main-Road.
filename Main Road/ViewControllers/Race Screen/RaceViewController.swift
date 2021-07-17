@@ -168,20 +168,20 @@ class RaceViewController: UIViewController {
 
     @objc func moveCar(timer: Timer) {
         if isPlaying {
-        if let direction = timer.userInfo as? String {
-            var playerCarFrame = user.frame
+            if let direction = timer.userInfo as? String {
+                var playerCarFrame = user.frame
 
-            if direction == "right" {
-                if playerCarFrame.origin.x < rightGrassView.frame.minX - 50 {
-                    playerCarFrame.origin.x += 2
+                if direction == "right" {
+                    if playerCarFrame.origin.x < rightGrassView.frame.minX - 50 {
+                        playerCarFrame.origin.x += 2
+                    }
+                } else {
+                    if playerCarFrame.origin.x > leftGrassView.frame.maxX {
+                        playerCarFrame.origin.x -= 2
+                    }
                 }
-            } else {
-                if playerCarFrame.origin.x > leftGrassView.frame.maxX {
-                    playerCarFrame.origin.x -= 2
-                }
+                user.frame = playerCarFrame
             }
-            user.frame = playerCarFrame
-        }
         }
     }
 
@@ -239,12 +239,12 @@ class RaceViewController: UIViewController {
 
     @objc func amimateEnemy() {
         if isPlaying {
-        animateObstacle(firstObstacle)
-        animateObstacle(secondObstacle)
-        animatePoliceCar(policeCar)
-        animateFirstMotorcycle(firstMoto)
-        animateSecondMotorcycle(secondMoto)
-        collisionHandler()
+            animateObstacle(firstObstacle)
+            animateObstacle(secondObstacle)
+            animatePoliceCar(policeCar)
+            animateFirstMotorcycle(firstMoto)
+            animateSecondMotorcycle(secondMoto)
+            collisionHandler()
         }
     }
 
