@@ -72,7 +72,7 @@ class WelcomeViewController: UIViewController {
 
         titleLabel.text = Constants.welcomeScreenTitle
         titleLabel.textColor = .black
-        titleLabel.font = UIFont(name: "Snell roundhand", size: 80)
+        titleLabel.font = UIFont(name: "Ardeco", size: 80)
         titleLabel.textAlignment = .center
 
         carImageView.image = UIImage(named: Constants.mainCar)

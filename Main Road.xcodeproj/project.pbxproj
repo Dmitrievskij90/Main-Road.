@@ -18,6 +18,7 @@
 		5C58D1EC264FFB20002161A1 /* RecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C58D1EB264FFB20002161A1 /* RecordsViewController.swift */; };
 		5C58D1F3265001A2002161A1 /* RecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C58D1F1265001A2002161A1 /* RecordTableViewCell.swift */; };
 		5C58D1F4265001A2002161A1 /* RecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C58D1F2265001A2002161A1 /* RecordTableViewCell.xib */; };
+		5C64AE0D26A31A97001B036F /* Ardeco.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C64AE0C26A31A97001B036F /* Ardeco.ttf */; };
 		5C6C1A6526722F8E0044262D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C6C1A6426722F8E0044262D /* GoogleService-Info.plist */; };
 		5C6F069126540172006C8E76 /* UIButton+UIUtilites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6F069026540172006C8E76 /* UIButton+UIUtilites.swift */; };
 		5C6F0694265401A7006C8E76 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6F0693265401A7006C8E76 /* UIColor+Hex.swift */; };
@@ -53,6 +54,7 @@
 		5C58D1EB264FFB20002161A1 /* RecordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsViewController.swift; sourceTree = "<group>"; };
 		5C58D1F1265001A2002161A1 /* RecordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTableViewCell.swift; sourceTree = "<group>"; };
 		5C58D1F2265001A2002161A1 /* RecordTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordTableViewCell.xib; sourceTree = "<group>"; };
+		5C64AE0C26A31A97001B036F /* Ardeco.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Ardeco.ttf; sourceTree = "<group>"; };
 		5C6C1A6426722F8E0044262D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5C6F069026540172006C8E76 /* UIButton+UIUtilites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+UIUtilites.swift"; sourceTree = "<group>"; };
 		5C6F0693265401A7006C8E76 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				5C64AE0926A31570001B036F /* Sounds */,
 				5C0F7C94262B4E3D0048A434 /* TitilliumWeb-Bold.ttf */,
 				5C0F7C97262B4E490048A434 /* TitilliumWeb-Regular.ttf */,
+				5C64AE0C26A31A97001B036F /* Ardeco.ttf */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				5C6C1A6526722F8E0044262D /* GoogleService-Info.plist in Resources */,
 				5C528745269CBAF100B3F3E1 /* swipe.mp3 in Resources */,
 				5C75FBBA262088B9004BE186 /* Assets.xcassets in Resources */,
+				5C64AE0D26A31A97001B036F /* Ardeco.ttf in Resources */,
 				5C58D1F4265001A2002161A1 /* RecordTableViewCell.xib in Resources */,
 				5C0F7C95262B4E3D0048A434 /* TitilliumWeb-Bold.ttf in Resources */,
 				5CBC93CC269B6F4600C63BE0 /* background.mp3 in Resources */,
