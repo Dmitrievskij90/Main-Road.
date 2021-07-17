@@ -192,7 +192,6 @@ class SettingsViewController: UIViewController {
     }
 
     private func resetImageViewSettings(imageView: UIImageView) {
-        imageView.backgroundColor = .white
         imageView.layer.borderWidth = 0
         selectButton.backgroundColor = .init(hex: 0xF15A25)
     }
@@ -241,6 +240,7 @@ class SettingsViewController: UIViewController {
         
         hardLavelLabel.backgroundColor = .darkGray
         hardLavelLabel.textColor = .white
+
         resetLabelBackground(label: mediumLevelLabel)
         resetLabelBackground(label: easyLevelLabel)
     }
