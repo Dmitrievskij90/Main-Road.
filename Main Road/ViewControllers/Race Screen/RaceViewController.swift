@@ -11,6 +11,9 @@ class RaceViewController: UIViewController {
     var user = UIImageView()
     var firstObstacle = UIImageView()
     var secondObstacle = UIImageView()
+
+    private var soundManager = SoundManager()
+    private var isPlaying = true
     private var policeCar = UIImageView()
     private var firstMoto = UIImageView()
     private var secondMoto = UIImageView()
@@ -52,23 +55,23 @@ class RaceViewController: UIViewController {
     private func createObjects() {
         let randomX = CGFloat.random(in: view.frame.minX + 100...view.frame.maxX - 100)
 
-        firstObstacle.frame = CGRect(x: view.frame.midX - 140, y: view.frame.midY - 250, width: 20, height: 45)
+        firstObstacle.frame = CGRect(x: leftGrassView.frame.maxX, y: view.frame.midY - 250, width: 20, height: 45)
         firstObstacle.setImageShadowWithColor()
         view.addSubview(firstObstacle)
 
-        secondObstacle.frame = CGRect(x: view.frame.midX + 115, y: view.frame.midY + 200, width: 20, height: 45)
+        secondObstacle.frame = CGRect(x: rightGrassView.frame.minX - 40, y: view.frame.midY + 200, width: 20, height: 45)
         secondObstacle.setImageShadowWithColor()
         view.addSubview(secondObstacle)
 
-        policeCar.frame = CGRect(x: randomX, y: view.frame.minY - 150, width: 50, height: 110)
+        policeCar.frame = CGRect(x: randomX, y: view.frame.minY - 150, width: 45, height: 100)
         policeCar.setImageShadowWithColor()
         view.addSubview(policeCar)
 
-        firstMoto.frame = CGRect(x: randomX, y: view.frame.minY - 300, width: 40, height: 110)
+        firstMoto.frame = CGRect(x: randomX, y: view.frame.minY - 300, width: 35, height: 100)
         firstMoto.setImageShadowWithColor()
         view.addSubview(firstMoto)
 
-        secondMoto.frame = CGRect(x: randomX, y: view.frame.midY - 100, width: 40, height: 110)
+        secondMoto.frame = CGRect(x: randomX, y: view.frame.midY - 100, width: 35, height: 100)
         secondMoto.setImageShadowWithColor()
         view.addSubview(secondMoto)
 
@@ -164,32 +167,64 @@ class RaceViewController: UIViewController {
     }
 
     @objc func moveCar(timer: Timer) {
-        if let direction = timer.userInfo as? String {
-            var playerCarFrame = user.frame
+        if isPlaying {
+            if let direction = timer.userInfo as? String {
+                var playerCarFrame = user.frame
 
-            if direction == "right" {
-                if playerCarFrame.origin.x < rightGrassView.frame.minX - 50 {
-                    playerCarFrame.origin.x += 2
+                if direction == "right" {
+                    if playerCarFrame.origin.x < rightGrassView.frame.minX - 50 {
+                        playerCarFrame.origin.x += 2
+                    }
+                } else {
+                    if playerCarFrame.origin.x > leftGrassView.frame.maxX {
+                        playerCarFrame.origin.x -= 2
+                    }
                 }
-            } else {
-                if playerCarFrame.origin.x > leftGrassView.frame.maxX {
-                    playerCarFrame.origin.x -= 2
-                }
+                user.frame = playerCarFrame
             }
-            user.frame = playerCarFrame
         }
     }
 
     // MARK: - collision handling method
     // MARK: -
     private func collisionHandler() {
-        collisionTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { _ in
+        collisionTimer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: false, block: { _ in
             if self.user.frame.intersects(self.policeCar.frame) || self.user.frame.intersects(self.firstObstacle.frame)
                 || self.user.frame.intersects(self.secondObstacle.frame) || self.user.frame.intersects(self.firstMoto.frame) || self.user.frame.intersects(self.secondMoto.frame) {
+                self.isPlaying = false
+                self.gameOver()
                 self.collisionTimer.invalidate()
-                self.dismiss(animated: true, completion: nil)
+                self.showGameOverAlert()
             }
         })
+    }
+
+    private func gameOver() {
+        self.soundManager.playSound(fileName: Constants.explosionSound)
+        self.soundManager.stopLoopingSound(fileName: Constants.backGroundSound)
+
+        self.policeCar.removeFromSuperview()
+        self.firstMoto.removeFromSuperview()
+        self.secondMoto.removeFromSuperview()
+        self.firstObstacle.removeFromSuperview()
+        self.secondObstacle.removeFromSuperview()
+
+        UIView.animate(withDuration: 1) {
+            self.user.image = UIImage(named: "ic_crash")
+            self.user.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+            self.user.frame.origin.y = self.view.bounds.height - self.user.frame.size.height - 60
+            self.user.center.x = CGFloat(self.view.bounds.midX)
+            self.user.contentMode = .scaleAspectFit
+        }
+    }
+
+    private func showGameOverAlert() {
+        let alert = UIAlertController(title: "Game over", message: "You crashed your car", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Try again", style: .cancel) { _ in
+            self.dismiss(animated: true, completion: nil)
+        }
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
     }
 
     // MARK: - animation methods
@@ -198,15 +233,19 @@ class RaceViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(5), execute: {
             let timer = Timer.scheduledTimer(timeInterval: self.level ?? 0.04, target: self, selector: #selector(self.amimateEnemy), userInfo: nil, repeats: true)
             timer.fire()
+            self.soundManager.startLoopingSound(fileName: Constants.backGroundSound, volume: 0.1)
         })
     }
 
     @objc func amimateEnemy() {
-        animateObstacle(firstObstacle)
-        animateObstacle(secondObstacle)
-        animatePoliceCar(policeCar)
-        animateFirstMotorcycle(firstMoto)
-        animateSecondMotorcycle(secondMoto)
+        if isPlaying {
+            animateObstacle(firstObstacle)
+            animateObstacle(secondObstacle)
+            animatePoliceCar(policeCar)
+            animateFirstMotorcycle(firstMoto)
+            animateSecondMotorcycle(secondMoto)
+            collisionHandler()
+        }
     }
 
     private func animateObstacle(_ obstacle: UIImageView) {

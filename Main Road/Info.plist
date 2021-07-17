@@ -4,6 +4,7 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Ardeco.ttf</string>
 		<string>TitilliumWeb-Bold.ttf</string>
 		<string>TitilliumWeb-Regular.ttf</string>
 	</array>

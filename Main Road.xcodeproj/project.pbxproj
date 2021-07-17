@@ -13,9 +13,12 @@
 		5C0F7C98262B4E490048A434 /* TitilliumWeb-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C0F7C97262B4E490048A434 /* TitilliumWeb-Regular.ttf */; };
 		5C251A652645A02D00BAF683 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C251A642645A02D00BAF683 /* SettingsViewController.swift */; };
 		5C2C4D0B266D02B100C0456D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2C4D0A266D02B100C0456D /* Constants.swift */; };
+		5C528745269CBAF100B3F3E1 /* swipe.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5C528744269CBAF100B3F3E1 /* swipe.mp3 */; };
+		5C528748269CBBAB00B3F3E1 /* select.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5C528747269CBBAB00B3F3E1 /* select.mp3 */; };
 		5C58D1EC264FFB20002161A1 /* RecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C58D1EB264FFB20002161A1 /* RecordsViewController.swift */; };
 		5C58D1F3265001A2002161A1 /* RecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C58D1F1265001A2002161A1 /* RecordTableViewCell.swift */; };
 		5C58D1F4265001A2002161A1 /* RecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C58D1F2265001A2002161A1 /* RecordTableViewCell.xib */; };
+		5C64AE0D26A31A97001B036F /* Ardeco.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C64AE0C26A31A97001B036F /* Ardeco.ttf */; };
 		5C6C1A6526722F8E0044262D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C6C1A6426722F8E0044262D /* GoogleService-Info.plist */; };
 		5C6F069126540172006C8E76 /* UIButton+UIUtilites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6F069026540172006C8E76 /* UIButton+UIUtilites.swift */; };
 		5C6F0694265401A7006C8E76 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6F0693265401A7006C8E76 /* UIColor+Hex.swift */; };
@@ -32,7 +35,10 @@
 		5C91031826467FA600F59930 /* Records.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C91031726467FA600F59930 /* Records.swift */; };
 		5C9147D72670D51500DEC75D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5C9147D92670D51500DEC75D /* Localizable.strings */; };
 		5C9147E02670D5B900DEC75D /* String+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9147DF2670D5B900DEC75D /* String+extension.swift */; };
+		5CAD8A9D269B514000C6B0F9 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAD8A9C269B514000C6B0F9 /* SoundManager.swift */; };
 		5CB1FFC926582595007CBC90 /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB1FFC826582595007CBC90 /* FileManager+Extension.swift */; };
+		5CBC93C7269B6D9F00C63BE0 /* explosion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5CBC93C6269B6D9F00C63BE0 /* explosion.mp3 */; };
+		5CBC93CC269B6F4600C63BE0 /* background.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5CBC93CB269B6F4600C63BE0 /* background.mp3 */; };
 		74D001D48BC4060A5204217E /* Pods_Main_Road.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E055FD5F692BD41AC652D82F /* Pods_Main_Road.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,9 +49,12 @@
 		5C0F7C97262B4E490048A434 /* TitilliumWeb-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-Regular.ttf"; sourceTree = "<group>"; };
 		5C251A642645A02D00BAF683 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5C2C4D0A266D02B100C0456D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5C528744269CBAF100B3F3E1 /* swipe.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = swipe.mp3; sourceTree = "<group>"; };
+		5C528747269CBBAB00B3F3E1 /* select.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = select.mp3; sourceTree = "<group>"; };
 		5C58D1EB264FFB20002161A1 /* RecordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsViewController.swift; sourceTree = "<group>"; };
 		5C58D1F1265001A2002161A1 /* RecordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTableViewCell.swift; sourceTree = "<group>"; };
 		5C58D1F2265001A2002161A1 /* RecordTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordTableViewCell.xib; sourceTree = "<group>"; };
+		5C64AE0C26A31A97001B036F /* Ardeco.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Ardeco.ttf; sourceTree = "<group>"; };
 		5C6C1A6426722F8E0044262D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5C6F069026540172006C8E76 /* UIButton+UIUtilites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+UIUtilites.swift"; sourceTree = "<group>"; };
 		5C6F0693265401A7006C8E76 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
@@ -67,7 +76,10 @@
 		5C9147DC2670D53900DEC75D /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		5C9147DD2670D53A00DEC75D /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5C9147DF2670D5B900DEC75D /* String+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extension.swift"; sourceTree = "<group>"; };
+		5CAD8A9C269B514000C6B0F9 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		5CB1FFC826582595007CBC90 /* FileManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
+		5CBC93C6269B6D9F00C63BE0 /* explosion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = explosion.mp3; sourceTree = "<group>"; };
+		5CBC93CB269B6F4600C63BE0 /* background.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = background.mp3; sourceTree = "<group>"; };
 		7896D9E6185599F10A3B1C8F /* Pods-Main Road.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Main Road.debug.xcconfig"; path = "Target Support Files/Pods-Main Road/Pods-Main Road.debug.xcconfig"; sourceTree = "<group>"; };
 		CE221BE5F82146D810BA56F7 /* Pods-Main Road.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Main Road.release.xcconfig"; path = "Target Support Files/Pods-Main Road/Pods-Main Road.release.xcconfig"; sourceTree = "<group>"; };
 		E055FD5F692BD41AC652D82F /* Pods_Main_Road.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Main_Road.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,8 +138,10 @@
 		5C0F7C93262B4E0A0048A434 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5C64AE0926A31570001B036F /* Sounds */,
 				5C0F7C94262B4E3D0048A434 /* TitilliumWeb-Bold.ttf */,
 				5C0F7C97262B4E490048A434 /* TitilliumWeb-Regular.ttf */,
+				5C64AE0C26A31A97001B036F /* Ardeco.ttf */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -156,6 +170,17 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		5C64AE0926A31570001B036F /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				5CBC93CB269B6F4600C63BE0 /* background.mp3 */,
+				5CBC93C6269B6D9F00C63BE0 /* explosion.mp3 */,
+				5C528744269CBAF100B3F3E1 /* swipe.mp3 */,
+				5C528747269CBBAB00B3F3E1 /* select.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		5C75FBA4262088B7004BE186 = {
 			isa = PBXGroup;
 			children = (
@@ -177,15 +202,15 @@
 		5C75FBAF262088B7004BE186 /* Main Road */ = {
 			isa = PBXGroup;
 			children = (
-				5C91031626467F8C00F59930 /* Model */,
-				5C0F7C93262B4E0A0048A434 /* Resources */,
-				5C0F6FE2264469FC00F6C0FA /* ViewControllers */,
-				5C2F0ACF26519A9100417225 /* View */,
 				5C75FBB0262088B7004BE186 /* AppDelegate.swift */,
 				5C75FBB2262088B7004BE186 /* SceneDelegate.swift */,
-				5C75FBB9262088B9004BE186 /* Assets.xcassets */,
 				5C75FBBB262088B9004BE186 /* LaunchScreen.storyboard */,
+				5C75FBB9262088B9004BE186 /* Assets.xcassets */,
 				5C75FBBE262088B9004BE186 /* Info.plist */,
+				5C91031626467F8C00F59930 /* Model */,
+				5C0F6FE2264469FC00F6C0FA /* ViewControllers */,
+				5C2F0ACF26519A9100417225 /* View */,
+				5C0F7C93262B4E0A0048A434 /* Resources */,
 				5C2C4D08266D017F00C0456D /* Extensions */,
 				5C2C4D0A266D02B100C0456D /* Constants.swift */,
 				5C6C1A6426722F8E0044262D /* GoogleService-Info.plist */,
@@ -198,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				5C91031726467FA600F59930 /* Records.swift */,
+				5CAD8A9C269B514000C6B0F9 /* SoundManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -274,10 +300,15 @@
 			files = (
 				5C0F7C98262B4E490048A434 /* TitilliumWeb-Regular.ttf in Resources */,
 				5C75FBBD262088B9004BE186 /* LaunchScreen.storyboard in Resources */,
+				5C528748269CBBAB00B3F3E1 /* select.mp3 in Resources */,
 				5C6C1A6526722F8E0044262D /* GoogleService-Info.plist in Resources */,
+				5C528745269CBAF100B3F3E1 /* swipe.mp3 in Resources */,
 				5C75FBBA262088B9004BE186 /* Assets.xcassets in Resources */,
+				5C64AE0D26A31A97001B036F /* Ardeco.ttf in Resources */,
 				5C58D1F4265001A2002161A1 /* RecordTableViewCell.xib in Resources */,
 				5C0F7C95262B4E3D0048A434 /* TitilliumWeb-Bold.ttf in Resources */,
+				5CBC93CC269B6F4600C63BE0 /* background.mp3 in Resources */,
+				5CBC93C7269B6D9F00C63BE0 /* explosion.mp3 in Resources */,
 				5C9147D72670D51500DEC75D /* Localizable.strings in Resources */,
 				5C0F6FDF2644533500F6C0FA /* RaceViewController.storyboard in Resources */,
 				5C75FBB8262088B7004BE186 /* Main.storyboard in Resources */,
@@ -385,6 +416,7 @@
 				5C6F069A26540219006C8E76 /* UILabel+UIUtilites.swift in Sources */,
 				5C75FBB3262088B7004BE186 /* SceneDelegate.swift in Sources */,
 				5C251A652645A02D00BAF683 /* SettingsViewController.swift in Sources */,
+				5CAD8A9D269B514000C6B0F9 /* SoundManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

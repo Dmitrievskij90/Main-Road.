@@ -8,7 +8,6 @@
 import UIKit
 
 class WelcomeViewController: UIViewController {
-    @IBOutlet weak var lineView: UIView!
     @IBOutlet weak var carImageView: UIImageView!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
@@ -51,28 +50,27 @@ class WelcomeViewController: UIViewController {
     }
 
     private func setupUI() {
-        startButton.backgroundColor = .init(hex:0xfaf2da)
+        startButton.backgroundColor = .init(hex:0xFFEDA3)
         startButton.setTitle(Constants.startButtonTitle, for: .normal)
         startButton.setTitleColor(.black, for: .normal)
         startButton.titleLabel?.font = UIFont(name: "bodoni 72 smallcaps", size: 35)
         startButton.layer.cornerRadius = 65
         startButton.layer.borderColor = UIColor.black.cgColor
         startButton.layer.borderWidth = 3
+        startButton.clipsToBounds = true
 
         recordsButton.setTitle(Constants.recordsButtonTitle, for: .normal)
         recordsButton.setTitleColor(.black, for: .normal)
-        recordsButton.titleLabel?.font = UIFont(name: "bodoni 72 smallcaps", size: 15)
+        recordsButton.titleLabel?.font = UIFont(name: "bodoni 72 smallcaps", size: 20)
         recordsButton.layer.cornerRadius = 12
         recordsButton.layer.borderColor = UIColor.black.cgColor
         recordsButton.layer.borderWidth = 3
 
         settingsButton.layer.cornerRadius = 40
 
-        lineView.backgroundColor = .init(hex: 0xF15A25)
-
         titleLabel.text = Constants.welcomeScreenTitle
         titleLabel.textColor = .black
-        titleLabel.font = UIFont(name: "Snell roundhand", size: 80)
+        titleLabel.font = UIFont(name: "Ardeco", size: 80)
         titleLabel.textAlignment = .center
 
         carImageView.image = UIImage(named: Constants.mainCar)

@@ -6,15 +6,15 @@
   
 */
 // Welcome screen
-"start_screen_title" = "Главная дорога";
-"start_screen_startButton_title" = "Старт";
+"start_screen_title" = "Г Л А В Н А Я  Д О Р О Г А";
+"start_screen_startButton_title" = "СТАРТ";
 "start_screen_recordsButton_title" = "Рекорды";
 
 // Settings screen
 "easy_level_label_title" = "Новичёк";
 "medium_level_label_title" = "Опытный";
 "hard_level_label_title" = "Профи";
-"settings_screen_selectButton_title" = "Выбрать";
+"settings_screen_selectButton_title" = "ВЫБРАТЬ";
 "settings_screen_userNameTextField_placeholder" = "Имя пользователя";
 "settings_screen_navigationItem_title" = "Настройки";
 "settings_screen_defaultUserName" = "Гонщик";
