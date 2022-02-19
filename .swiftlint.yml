@@ -117,7 +117,6 @@ opt_in_rules: # some rules are turned off by default, so you need to opt-in
   - no_fallthrough_only #default
   - no_space_in_method_call #default
   - notification_center_detachment #default
-  - nslocalizedstring_key
   - nsobject_prefer_isequal #default
   - number_separator
   - opening_brace #default
@@ -166,7 +165,6 @@ opt_in_rules: # some rules are turned off by default, so you need to opt-in
   - test_case_accessibility 
   - todo #default
   - toggle_bool
-  - trailing_closure
   - trailing_comma #default
   - trailing_newline #default
   - trailing_semicolon #default
@@ -210,6 +208,8 @@ excluded: # paths to ignore during linting. Takes precedence over `included`.
   - multiline_arguments
   - multiline_function_chains
   - multiline_parameters
+  - trailing_closure
+  - nslocalizedstring_key
 
 
 # configurable rules can be customized from this configuration file
