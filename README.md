@@ -1,4 +1,6 @@
-## Main-Road.
+## Main-Road. 
+Graduation project, "TeachMeSkills" course.
+
 Simple racing game on UIKit.
 
 ### Stack:
